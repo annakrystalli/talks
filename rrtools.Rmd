@@ -1,0 +1,428 @@
+---
+title: "rrtools:"
+subtitle: "Adapting R package development tools for Reproducible Research"
+author: "Anna Krystalli - @ Sheffield R Users Group"
+date: "2018/04/10"
+output:
+  xaringan::moon_reader:
+    css: ["default", "assets/css/little_ak.css", "assets/css/little_ak-fonts.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r, echo=F, message=F, warning=F}
+library(magick)
+library(dplyr)
+```
+
+
+# Why bother?
+
+## - Convention
+## - Tools
+
+
+---
+
+# Convention
+
+> It’s like agreeing that we will all drive on the left or the right. A hallmark of civilization is following conventions that constrain your behavior a little, in the name of public safety.
+
+**Jenny Bryan** on [Project-oriented workflows](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/)
+
+---
+
+## Hierarchy of convention
+
+- **Basic project >** Carpentries [Project Management With RStudio](https://swcarpentry.github.io/r-novice-gapminder/02-project-intro/) 
+- **Package >**: _[R packages](http://r-pkgs.had.co.nz/intro.html) by Hadley Wickham_ 
+- **Reproducible Research compendium >**: [Rrtools](https://github.com/benmarwick/rrtools)
+
+
+---
+
+# Tools
+
+### Leverage tools and functionality for **R package development**
+- manage dependencies
+- make functionality available
+- document functionality
+- validate functionality
+- version contol your project
+
+
+[`devtools`](https://www.tidyverse.org/articles/2017/11/usethis-1.0.0/), [`usethis`](https://www.tidyverse.org/articles/2017/11/usethis-1.0.0/), Rstudio
+
+---
+
+## A reproducible research compendium:
+
+[_Wickham, H. (2017) Research compendia. Note prepared for the 2017 rOpenSci Unconf_](https://docs.google.com/document/d/1LzZKS44y4OEJa4Azg5reGToNAZL0e0HSUwxamNY7E-Y/edit#heading=h.blggi16hdosp)
+
+> ### Goals
+
+> - Provide workflow tools that make life easier for analysts. **Only a small upfront investment should be required to get a significant payoff**, and the tools should **grow** with you as your **analyses get more complex**.
+
+> - Make it **easier to transition from ephemeral low-stakes to high-stakes functions** at the core of an analysis. In particular, it should be **easy to document and test important functions**.
+
+
+---
+
+## A reproducible research compendium:
+
+[_Wickham, H. (2017) Research compendia. Note prepared for the 2017 rOpenSci Unconf_](https://docs.google.com/document/d/1LzZKS44y4OEJa4Azg5reGToNAZL0e0HSUwxamNY7E-Y/edit#heading=h.blggi16hdosp)
+
+> ### Goals
+
+
+> - **Ensure that an analysis project is a package, without requiring any knowledge of package development** (so that newcomers are not overwhelmed with too many new things to learn), while laying the foundation for projects based solely around code reuse.
+
+> - Should be **highly opinionated about directory names and conventions**; should be not opinionated about the packages you use for the analysis. 
+
+
+---
+
+### Proposal
+
+
+#### A ***minimal*** analysis project would consist of:
+
+1. An **`scripts/`** directory that contains R scripts (`.R`), notebooks (`.Rmd`), and intermediate data.
+
+2. A **`DESCRIPTION`** file that provides metadata about the compendium. Most importantly, it would list the packages needed to run the analysis. Would contain field to indicate that this is an analysis, not a package.
+
+
+--- 
+
+
+#### A ***reproducible*** analysis project would also contain:
+
+1. An **`R/`** directory which contains R files that provide high-stakes functions.
+
+1. A **`data/`** directory which contains high-stakes data.
+
+1. A **`tests/`** directory that contains unit tests for the code and data.
+
+1. A **`vignettes/`** directory that contains high-stakes reports.
+
+1. A **build system** which executes the contents of `scripts/` and `vignettes/`, producing final data and reports.
+
+---
+
+#### Some other components would be automatically added/generated:
+
+1. A **`.Rbuildignore`** file that ignores the `scripts/` directory.  
+
+1. A **`man/`** directory which contains 88roxygen2-generated documentation** for the reusable functions and data.
+
+#### A ***shareable*** reproducible analysis project would also:
+
+- Use Git + GitHub (or other public Git host)
+
+- Use Travis or other continuous integration service
+
+- Capture the computational environment so it can easily be recreated on a different computer. This involves at a minimum capturing package versions, but might also include capturing R version, and other external dependencies.
+
+---
+
+## `rrtools`
+
+> The goal is to provide a continuum of reproducibility so the newcomer can start off easy and graduate to more reproducible, but more complex, workflows over time.
+
+
+### install `rrtools`
+
+```{r, eval=FALSE}
+devtools::install_github("benmarwick/rrtools")
+```
+
+---
+
+### Create new compendium
+
+```{r, eval=FALSE}
+rrtools::use_compendium("../../dummy/rrtoolsdemo")
+```
+
+
+```{r, echo=FALSE}
+magick::image_read("assets/use_compendium.png")
+```
+
+---
+
+### Resulting compendium
+
+```{r, echo=FALSE}
+magick::image_read("assets/compendium1.png")
+```
+
+---
+
+## `DESCRIPTION`
+
+### Add basic metadata
+
+- Package title
+- Package description
+- Author names
+
+etc.
+
+---
+
+### Manage dependencies
+
+
+#### Add CRAN dependencies
+
+```{r, eval=FALSE}
+usethis::use_package("ggplot2")
+usethis::use_package("dplyr")
+```
+
+
+#### Add development version of a dependency (ie from GitHub)
+```{r, eval=FALSE}
+use_dev_package("ggplot2")
+```
+
+#### Add a suggested package 
+(packages used in testing or in vignettes but required to run compendium functions)
+```{r, eval=FALSE}
+usethis::use_package("gapminder", type = "Suggests")
+```
+
+---
+
+## `R/` directory 
+
+Keep all scripts containing core functions in the `/R` directory. These can be made available by installing and loading as any other package
+
+
+```{r}
+usethis::use_r("data-processing")
+```
+
+```{r, echo=FALSE}
+magick::image_read("assets/data-processing-fun.png") %>% image_resize("600x700")
+```
+
+
+---
+
+### Document functions using [Roxygen2](http://kbroman.org/pkg_primer/pages/docs.html) notation
+
+This allows documentation to be generated automatically on build
+
+```{r, echo=FALSE}
+magick::image_read("assets/function_help.png") %>% image_resize("600x700")
+```
+
+---
+
+
+
+
+use `<pkname>::<function-name>` to specify functions imported from other packages namespaces. This helps:
+
+- accurate specification of function to be used regardless of package loading sequence.
+- ability to easily distinquish between imported functions and your own functions in your code.
+
+
+---
+
+## Version control
+
+Most commonly through `git`
+
+> START WITH: [Happy Git and GitHub for the useR](http://happygitwithr.com/)
+
+
+```{r, eval=FALSE}
+usethis::use_git()
+```
+
+
+---
+
+## Collaboration through github
+
+### Create repository
+
+
+```{r, eval=FALSE}
+rrtools::use_github()
+```
+
+
+```{r, echo=FALSE}
+magick::image_read("assets/github.png") %>% image_resize("300x700")
+```
+
+```{r, echo=FALSE}
+magick::image_read("assets/github_DES.png") %>% image_resize("400x700")
+```
+
+---
+
+You'll need a Personal Authorisation Token (PAT).
+
+```{r}
+usethis::browse_github_pat()
+```
+
+will open up the GitHub panel to generate your PAT. 
+
+---
+
+Copy it and paste it into your `.Renviron` file as system variable `GITHUB_PAT`.
+
+```{r, eval=F}
+usethis::edit_r_environ()
+```
+
+Use `edit_r_environ()` to open and edit your `.Renviron` file
+
+
+```{r, echo=FALSE}
+magick::image_read("assets/GITHUB_PAT.png")
+```
+
+
+---
+
+#### README
+
+READMEs are the landing page of any repository on GitHub. 
+
+The `rrtools` version of `use_readme_md()` creates a README template appropriate for a repository associated with a Research Project.
+
+Render each time you make changes to `README.Rmd` so `README.md` is updated.
+
+```{r, eval=FALSE}
+rrtools::use_readme_rmd()
+```
+
+Also creates:
+
+- `CONTRIBUTING.md`: Edit with guidance on contribution
+- `CONDUCT.md`: Code of conduct associated with the project
+
+---
+```{r, echo=FALSE}
+magick::image_read("assets/README.png") %>% image_resize("400x700")
+```
+
+
+---
+
+### License
+
+```{r, eval=FALSE}
+usethis::use_mit_license("Anna Krystalli")
+```
+
+
+```{r, echo=FALSE}
+magick::image_read("assets/LICENSE.png") %>% image_resize("200x700")
+```
+
+
+```{r, echo=FALSE}
+magick::image_read("assets/LICENSEmd.png") %>% image_resize("400x700")
+```
+
+---
+
+## Maintaining code integrity
+
+---
+
+### Testing
+
+
+If you add functions in `R/`, include tests to ensure they function as intended
+
+```{r, eval=FALSE}
+usethis::use_testthat()
+```
+
+```{r, echo=FALSE}
+magick::image_read("assets/add_testthat.png") %>% image_resize("400x700")
+```
+
+
+
+---
+
+Create tests.R in `tests/testhat/` and check <http://r-pkgs.had.co.nz/tests.html> for template
+
+```{r, eval=FALSE}
+use_test("data-processing")
+```
+
+```{r, echo=FALSE}
+magick::image_read("assets/add_test.png") %>% image_resize("400x700")
+```
+
+---
+
+### Continuous Integration using Travis
+
+```{r, eval=FALSE}
+rrtools::use_travis(docker = F)
+```
+
+Once your tests are set up, you can ensure that changes to the code base do not break functionality by using continuous integration.
+
+See Julia Silge's [A BEGINNER'S GUIDE TO TRAVIS-CI FOR R](https://juliasilge.com/blog/beginners-guide-to-travis/) for a gentle intro.
+
+---
+
+## Controlling environment with containers
+
+
+```{r, eval=FALSE}
+rrtools::use_dockerfile()
+```
+
+
+-   Creates a basic Dockerfile using [`rocker/verse`](https://github.com/rocker-org/rocker) as the base image
+    - R
+    - the [tidyverse](http://tidyverse.org/)
+    - RStudio
+    - pandoc
+    - LaTeX
+    so compendium build times are very fast on travis
+-   version of R in your rocker container will match the version used when you run this function (e.g., `rocker/verse:3.4.0`)
+
+
+---
+
+## Vignettes
+
+> Long form documentation
+
+### Analyses
+### Setup instructions
+### Functionality demos
+### Reports
+
+---
+
+### bookdown for publications
+
+More on this from Dan.
+
+
+--- 
+
+### Rstudio for building and testing your code
+
+```{r, echo=FALSE}
+magick::image_read("assets/rstudio_build.png") %>% image_resize("400x700")
+```

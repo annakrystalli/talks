@@ -1,0 +1,609 @@
+---
+title: "Building Open Scientific Communities "
+subtitle: "🏫<br>lessons learnt so far</br>"
+author: "Anna Krystalli - University of Sheffield RSE"
+date: "2016/12/12"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    yolo: true
+    nature:
+      beforeInit: "https://platform.twitter.com/widgets.js"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      
+    #css: slides.css
+---
+<style type = "text/css">
+h1 {color: #0eba6f;
+    font-size: 26px;}
+</style>
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(emo)
+```
+
+
+
+# SSI - software sustainability institute, UK 
+
+
+### cultivating better, more sustainable, research software to enable world-class research
+
+
+--
+
+#### response to request for support to attend this meeting:
+
+> we’d like this to happen, ...like the outputs to be open, ...like to be able to translate anything developed to the UK
+
+<br>
+
+![](https://www.software.ac.uk/themes/ssi/ssi_logo_with_name-small2.png)
+
+---
+class: center
+
+
+# University of Sheffield RSE - June 2017
+![](assets/rse_team.jpg)
+
+---
+
+# me [@annakrystalli](https://twitter.com/annakrystalli)
+
+* ## \#rstats & data science
+
+--
+
+* ## open reproducible science
+--
+
+* ## community & capacity building
+
+--
+
+drives many of the examples used
+
+---
+class: inverse
+background-image: url("assets/remit.png")
+
+# **our brief:**
+
+.footnote[slide credit: [Mike Croucher](https://github.com/mikecroucher/RSE_2017_keynote_presentation)]
+
+---
+class: inverse
+background-image: url("assets/resources.png")
+
+# **our resources:**
+
+.footnote[slide credit: [Mike Croucher](https://github.com/mikecroucher/RSE_2017_keynote_presentation)]
+---
+class: center, middle
+
+
+<iframe src="https://giphy.com/embed/g79am6uuZJKSc" style="position:fixed; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/fire-computer-nerd-g79am6uuZJKSc"></a></p>
+
+---
+class: inverse, center, middle
+### It's clear
+
+--
+
+## WE NEED HELP!
+---
+class: inverse, center, top
+
+background-image: url("https://4.bp.blogspot.com/-YTTmtOiby8w/WaIdVyEONuI/AAAAAAAAYqs/UPj8tpx4c7Qh8a4zlu0Vh-D15pAH-bTswCLcBGAs/s1600/community.gif")
+
+
+# Community! 
+#### to the rescue
+
+---
+layout: true
+
+# Communites of Practice
+
+
+
+---
+background-image: url(https://lh5.googleusercontent.com/zZp_zQgJeszbMcHkypNMCboMCvKpNVJgBZfKzrSbevXVxKm5kWhdN2XXQmZnHYHXYjiDB-GXuv-R7wBvwSQCg-xGNmylxU7mi5yjfFHVFsesXEuVCXuAP2bPIvbZMmKfB9AFezo)
+
+.footnote[image credit: [CoP blogspot](http://communitiesofpractice601.blogspot.co.uk/)]
+
+---
+> ### **bringing outsiders in through practice and participation**
+
+--
+
+## the ingredients
+
+- #### Domain
+- #### Community
+- #### Practice
+
+---
+## the magic
+
+ * #### social capital
+ 
+--
+ 
+ * #### network of collaborative relationships.
+ 
+--
+ 
+ * #### shared, codified repertoir of best practice.
+    * supplement by channels of tacit knowledge flow.
+
+---
+## open science communities
+
+--
+
+### **digital communities of practice :**
+
+* leverage the internet and modern digital tools to codify, document and develop, share and communicate community knowledge.
+
+* leverage networks for knowledge and culture propagation
+
+* actively invite and encourage participation
+
+---
+## global: as member
+ 
+ * [Mozilla Science Lab](https://science.mozilla.org/)
+ 
+ * [rOpenSci](https://ropensci.org/)
+ 
+ * [Software Carpentry](https://software-carpentry.org/)
+ 
+---
+## local: as organiser
+
+- [Sheffierd R User group](https://www.meetup.com/SheffieldR-Sheffield-R-Users-Group/)
+
+- [shef datavis]() <- in development
+
+---
+layout: true
+
+# developing communites of practice
+
+---
+class: center, middle
+
+---
+layout: true
+
+# Know your community
+
+---
+class: inverse, center, middle
+
+---
+## clarify domain
+
+> ### Key to adding value
+--
+
+* who are?
+
+--
+* what do they want?
+
+---
+## shef datavis survey
+![](assets/position.png)
+
+---
+## shef datavis survey
+![](assets/department.png)
+
+---
+## shef datavis survey
+![](assets/interest_tools.png)
+
+
+
+
+---
+layout: true
+# Knowledge, skill & interest are distributed
+
+---
+class: inverse, center, middle
+
+---
+## shef datavis survey results:
+
+![](assets/viz_use.png)
+
+
+---
+## shef datavis survey results:
+
+![](assets/experience.png)
+
+
+---
+layout: true
+# knowledge codification, documentation and accesibility is key
+
+---
+class: inverse, center, middle
+---
+
+### For knowledge to spread through the network, people need **access to information**
+
+
+
+
+- open materials on github (eg Carpentries, Open Leaders curriculum)
+- [flash mobbing stack overflow](http://www.decisionsciencenews.com/2009/09/03/r-flashmob-2-tuesday-8-september-2009/)
+- [Rstudio](https://community.rstudio.com/) & [rOpenSci](https://discuss.ropensci.org/) discussion boards
+- rOpensi peer review on github
+- wikis
+- [blogs](http://awesome-blogdown.com/)
+
+---
+
+
+### the self-documenting nature of these tools:
+* #### community documention (formal and of dicussions) has become easier:
+
+--
+
+* #### communication and documentation are converging.
+---
+## foundations still required
+
+---
+
+### [OxShef dataviz](https://oxshef.github.io/oxshef_charts/)
+
+![](assets/oxshef.png)
+
+
+.footnote[full credits for work so far to [Martin Hadley](https://twitter.com/martinjhnhadley) of The [University of Oxford  IDN](https://idn.it.ox.ac.uk/)]
+
+---
+layout: true
+# facilitate evolution
+
+---
+class: inverse, center, middle
+---
+
+## reusable templating
+
+--
+* open generalisable and translatable approaches preferable
+
+--
+
+* easier to build on
+--
+
+* easier to customise
+---
+layout: true
+# Community == Communication
+---
+class: inverse, center, middle
+---
+class: inverse
+background-image: url("assets/switchboard.jpeg")
+
+--
+
+## Communication channels
+
+<br>
+
+### For knowledge to spread and relationships to flourish, people need to talk
+
+---
+
+### imperative for the spread of **tacit knowledge**
+
+> the valuable context-based experiences that cannot easily be captured, codified and stored
+
+---
+
+### direct communication: 
+#### well moderated slack / gitter channels e.g. 
+- \#R4DS
+- rOpensci
+- repo level gitter channels
+    >  moderator can encourage more useful content to blogs, discussion boards, repo issues etc.
+
+--
+
+### currated communication: 
+#### disucssion boards e.g. 
+- Rstudio
+- rOpenSci
+
+
+---
+
+### dialog between inside and outside communities important
+
+- #### blogs & newsletters `r emo::ji("newspaper")`
+
+- #### **Community Calls** `r emo::ji("sparkles")`
+
+
+---
+
+### FORCE17 [Meet them where they are!](https://docs.google.com/document/d/1BeQfe4Q3jnH8P87fKjC94Sx6zSnHLrbdtAV0j8wR3sQ/edit#)
+#### Force2017 meets Berliner researchers: exchange perspectives on open research
+
+![](assets/force17.png)
+
+---
+layout: true
+# encourage story telling
+---
+class: inverse, center, middle
+---
+class: inverse
+background-image: url(http://buffalo7.co.uk/wp-content/uploads/2016/11/storytelling-for-presentations2.jpg)
+
+### people love learning through stories
+
+--
+
+...we always have
+
+---
+
+## Code in the academy
+
+### RSE blog series: software spotlight on TUoS postgrads
+---
+layout: true
+# participation most effective when it's voluntary
+
+---
+class: inverse, center, middle
+
+---
+## people want to participate 
+
+![](assets/interest.png)
+
+---
+## Make it easy to participate
+
+- #### Leverage technology and automation
+    e.g. Mozilla run a tight ship with the MozOpenLeaders
+    
+--
+- ### Allow for a tiered levels of engagement according to:
+    * skill
+    * interests
+    * commitment
+    
+---
+layout: true
+# fostering participation
+
+---
+class: inverse, center, middle
+---
+## members are:
+
+> ...experiencing/continuously creating their shared identity through engaging in and contributing to the practices of their communities.
+
+--
+
+- ### people want to feel comfortable and included.
+
+- ### people like to be acknowledged and validated.
+
+---
+
+## code of conduct
+
+### important first step in establishing an inclusive culture
+
+
+-
+
+#### requires:
+
+- requires training
+- consistent enforcement
+- continuous measurement/improvement.
+
+
+---
+background-image: url(https://raw.githubusercontent.com/acabunoc/open-source-strangeloop-2016/gh-pages/img/mentorship_14.jpg)
+
+## mentorship programs
+
+.footnote[image credit: [Abigail Cabunoc Mayes](https://github.com/acabunoc/open-source-strangeloop-2016/blob/gh-pages/img/mentorship_14.jpg)]
+
+---
+
+## support
+
+### friendly, active community catalysers make a huge impact! e.g.  
+
+* **Maëlle Salmon** ([@ma_salmon](https://twitter.com/ma_salmon)) as an **rOpensci** editor
+    
+* **Stefanie Butland** ([@StefanieButland](https://twitter.com/StefanieButland)) at **rOpensci** slack channel.
+
+- **Jesse Maegan** [@kierisi](https://twitter.com/kierisi) for [#R4DS](https://medium.com/@kierisi/r4ds-january-challenge-69324561ef2b)
+
+---
+layout: true
+# Communities of practice are social
+---
+class: inverse, center, middle
+---
+
+
+- #### people want to get together
+
+- #### people love learning through challenges
+
+- #### people like to have fun!
+
+
+---
+
+### good rhythm and variety of social practice.
+
+- #### regular meetups / coding clubs
+
+- #### one off events.
+    * speaking events
+    * workshops
+    * coding / hack events
+
+
+---
+
+#### [organise a hack: NBN R Users Group hack:](http://sheffieldr.github.io/nbn-hack/)
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/Sheffield_R_?ref_src=twsrc%5Etfw">@Sheffield_R_</a> <a href="https://twitter.com/NBNTrust?ref_src=twsrc%5Etfw">@NBNTrust</a> <a href="https://twitter.com/hashtag/BiodiversityHack?src=hash&amp;ref_src=twsrc%5Etfw">#BiodiversityHack</a> is go! First stage: data dive &amp; brainstorm! <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://twitter.com/hashtag/openscience?src=hash&amp;ref_src=twsrc%5Etfw">#openscience</a> <a href="https://t.co/0N9Re8roM5">pic.twitter.com/0N9Re8roM5</a></p>&mdash; annakrystalli (@annakrystalli) <a href="https://twitter.com/annakrystalli/status/704723751007604737?ref_src=twsrc%5Etfw">March 1, 2016</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+---
+
+#### organise a hack [Reprohack 2017 @ OpenCon London](http://rse.shef.ac.uk/blog/opencon_london/):
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Woah! Successful double reproduction at <a href="https://twitter.com/hashtag/OpenCon?src=hash&amp;ref_src=twsrc%5Etfw">#OpenCon</a> - <a href="https://twitter.com/Scrumblebee?ref_src=twsrc%5Etfw">@Scrumblebee</a> <a href="https://twitter.com/annakrystalli?ref_src=twsrc%5Etfw">@annakrystalli</a> <a href="https://twitter.com/mariosge90?ref_src=twsrc%5Etfw">@mariosge90</a> congrats!! <a href="https://twitter.com/hashtag/openbiscuits?src=hash&amp;ref_src=twsrc%5Etfw">#openbiscuits</a> <a href="https://t.co/9Wp4AsFevz">pic.twitter.com/9Wp4AsFevz</a></p>&mdash; Jon Tennant (@Protohedgehog) <a href="https://twitter.com/Protohedgehog/status/932969845242695685?ref_src=twsrc%5Etfw">November 21, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+
+---
+
+#### jump on to a wider event [Mozilla Global Sprint 2017 @ TUoS](http://rse.shef.ac.uk/blog/mozsprint-2017-at-the-university-of-sheffield/):
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The results from <a href="https://twitter.com/hashtag/mozsprint?src=hash&amp;ref_src=twsrc%5Etfw">#mozsprint</a>, our 48-hour hackathon: 108 projects in 20 countries. (Plus, homemade Mozilla cakes.) <a href="https://t.co/YADAq7Nprn">https://t.co/YADAq7Nprn</a> <a href="https://t.co/1G6JB7OlwP">pic.twitter.com/1G6JB7OlwP</a></p>&mdash; Mozilla (@mozilla) <a href="https://twitter.com/mozilla/status/873178386222501888?ref_src=twsrc%5Etfw">June 9, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+---
+
+#### jump on to a wider event [R Users Group Hacktoberfest series](http://rse.shef.ac.uk/blog/sheffieldR-hacktoberfest/):
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">.<a href="https://twitter.com/soayipm?ref_src=twsrc%5Etfw">@soayipm</a> &amp; I have been busy! <br><br>💀👻 <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://twitter.com/github?ref_src=twsrc%5Etfw">@github</a> 🎃 ready for our <a href="https://twitter.com/Sheffield_R_?ref_src=twsrc%5Etfw">@Sheffield_R_</a> <a href="https://twitter.com/hashtag/Hacktoberfest?src=hash&amp;ref_src=twsrc%5Etfw">#Hacktoberfest</a> <a href="https://twitter.com/hashtag/Halloween?src=hash&amp;ref_src=twsrc%5Etfw">#Halloween</a>  special! <a href="https://t.co/eyr1LHEj4m">pic.twitter.com/eyr1LHEj4m</a></p>&mdash; annakrystalli (@annakrystalli) <a href="https://twitter.com/annakrystalli/status/925137330683416576?ref_src=twsrc%5Etfw">October 30, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+---
+layout: true
+# **Bridging communities**
+---
+background-image: url(http://jonlieffmd.com/wp-content/uploads/2014/11/bigstock-Network-36275953.jpg)
+.footnote[Image credit: [http://jonlieffmd.com/](http://jonlieffmd.com/blog/neuron-networks-in-healthy-and-diseased-brains)]
+
+--
+
+## networks of networks
+
+- #### channel members to other communities according to need and interest
+
+--
+
+  * links communities
+  
+  * reduces duplication of effort
+  
+  * encourages people to be their own node in the wider network
+
+
+---
+layout: true
+# Digital skills for digital citizens
+---
+class: inverse, center, middle
+---
+
+## digital skills important for participation:
+
+--
+
+- #### git / github / markdown / literate programming
+
+---
+
+### training still important
+
+--
+* #### the Carpentries: 
+  an invaluable foundational resource & model
+
+--
+
+* **Institutionally:** develop more custom training
+
+--
+
+* Join forces, stop re-inventing the wheel.
+
+---
+
+
+
+## training in getting help
+
+- give people a rod to fish with
+
+```{r, eval=FALSE}
+library(reprex)
+```
+
+
+---
+
+## soft skills:    
+
+### Leadership & Mentoring skills
+
+--
+
+> key to being an effective node
+
+---
+layout: true
+
+# Communities of practice as default mode
+---
+class: inverse, center, middle
+---
+
+## Research labs as CoPs
+
+- focus on creating environment to practice at the lab level.
+
+--
+
+- low hanging fruit: work on tools to facilitate this.
+
+---
+
+## our own community of practice
+
+- ## launch community call?
+
+- ## codify practice and centralising eources.
+
+
+---
+![](https://cdn-images-1.medium.com/max/2000/1*d-Amyi03y73-S_cEc9pQXA.jpeg)
+
+.footnote[image credit: [Nitya Wakhlu](http://journalismthatmatters.org/experienceengagement/wp-content/uploads/sites/507/2015/10/Chart2.jpg)]

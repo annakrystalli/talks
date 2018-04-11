@@ -1,0 +1,11 @@
+
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Archivo+Narrow|Bree+Serif|Cabin|Exo:600|Ubuntu+Condensed|Varela+Round');
+
+body { font-family: 'Cabin',  'Palatino Linotype', 'Book Antiqua', Palatino, 'Microsoft YaHei', 'Songti SC', serif; }
+h1, h2, h3 { font-family: 'Archivo Narrow'; }
+.remark-code, .remark-inline-code { font-family: 'Inconsolata', 'Lucida Console', Monaco, monospace; color: #88398A}
+
+
+h1 {font-family: 'Exo', sans-serif;}

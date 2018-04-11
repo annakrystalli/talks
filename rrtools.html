@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>rrtools:</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Anna Krystalli - @ Sheffield R Users Group" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/little_ak.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/little_ak-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# rrtools:
+## Adapting R package development tools for Reproducible Research
+### Anna Krystalli - @ Sheffield R Users Group
+### 2018/04/10
+
+---
+
+
+
+
+
+# Why bother?
+
+## - Convention
+## - Tools
+
+
+---
+
+# Convention
+
+&gt; It’s like agreeing that we will all drive on the left or the right. A hallmark of civilization is following conventions that constrain your behavior a little, in the name of public safety.
+
+**Jenny Bryan** on [Project-oriented workflows](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/)
+
+---
+
+## Hierarchy of convention
+
+- **Basic project &gt;** Carpentries [Project Management With RStudio](https://swcarpentry.github.io/r-novice-gapminder/02-project-intro/) 
+- **Package &gt;**: _[R packages](http://r-pkgs.had.co.nz/intro.html) by Hadley Wickham_ 
+- **Reproducible Research compendium &gt;**: [Rrtools](https://github.com/benmarwick/rrtools)
+
+
+---
+
+# Tools
+
+### Leverage tools and functionality for **R package development**
+- manage dependencies
+- make functionality available
+- document functionality
+- validate functionality
+- version contol your project
+
+
+[`devtools`](https://www.tidyverse.org/articles/2017/11/usethis-1.0.0/), [`usethis`](https://www.tidyverse.org/articles/2017/11/usethis-1.0.0/), Rstudio
+
+---
+
+## A reproducible research compendium:
+
+[_Wickham, H. (2017) Research compendia. Note prepared for the 2017 rOpenSci Unconf_](https://docs.google.com/document/d/1LzZKS44y4OEJa4Azg5reGToNAZL0e0HSUwxamNY7E-Y/edit#heading=h.blggi16hdosp)
+
+&gt; ### Goals
+
+&gt; - Provide workflow tools that make life easier for analysts. **Only a small upfront investment should be required to get a significant payoff**, and the tools should **grow** with you as your **analyses get more complex**.
+
+&gt; - Make it **easier to transition from ephemeral low-stakes to high-stakes functions** at the core of an analysis. In particular, it should be **easy to document and test important functions**.
+
+
+---
+
+## A reproducible research compendium:
+
+[_Wickham, H. (2017) Research compendia. Note prepared for the 2017 rOpenSci Unconf_](https://docs.google.com/document/d/1LzZKS44y4OEJa4Azg5reGToNAZL0e0HSUwxamNY7E-Y/edit#heading=h.blggi16hdosp)
+
+&gt; ### Goals
+
+
+&gt; - **Ensure that an analysis project is a package, without requiring any knowledge of package development** (so that newcomers are not overwhelmed with too many new things to learn), while laying the foundation for projects based solely around code reuse.
+
+&gt; - Should be **highly opinionated about directory names and conventions**; should be not opinionated about the packages you use for the analysis. 
+
+
+---
+
+### Proposal
+
+
+#### A ***minimal*** analysis project would consist of:
+
+1. An **`scripts/`** directory that contains R scripts (`.R`), notebooks (`.Rmd`), and intermediate data.
+
+2. A **`DESCRIPTION`** file that provides metadata about the compendium. Most importantly, it would list the packages needed to run the analysis. Would contain field to indicate that this is an analysis, not a package.
+
+
+--- 
+
+
+#### A ***reproducible*** analysis project would also contain:
+
+1. An **`R/`** directory which contains R files that provide high-stakes functions.
+
+1. A **`data/`** directory which contains high-stakes data.
+
+1. A **`tests/`** directory that contains unit tests for the code and data.
+
+1. A **`vignettes/`** directory that contains high-stakes reports.
+
+1. A **build system** which executes the contents of `scripts/` and `vignettes/`, producing final data and reports.
+
+---
+
+#### Some other components would be automatically added/generated:
+
+1. A **`.Rbuildignore`** file that ignores the `scripts/` directory.  
+
+1. A **`man/`** directory which contains 88roxygen2-generated documentation** for the reusable functions and data.
+
+#### A ***shareable*** reproducible analysis project would also:
+
+- Use Git + GitHub (or other public Git host)
+
+- Use Travis or other continuous integration service
+
+- Capture the computational environment so it can easily be recreated on a different computer. This involves at a minimum capturing package versions, but might also include capturing R version, and other external dependencies.
+
+---
+
+## `rrtools`
+
+&gt; The goal is to provide a continuum of reproducibility so the newcomer can start off easy and graduate to more reproducible, but more complex, workflows over time.
+
+
+### install `rrtools`
+
+
+```r
+devtools::install_github("benmarwick/rrtools")
+```
+
+---
+
+### Create new compendium
+
+
+```r
+rrtools::use_compendium("../../dummy/rrtoolsdemo")
+```
+
+
+![](rrtools_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+
+---
+
+### Resulting compendium
+
+![](rrtools_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+
+---
+
+## `DESCRIPTION`
+
+### Add basic metadata
+
+- Package title
+- Package description
+- Author names
+
+etc.
+
+---
+
+### Manage dependencies
+
+
+#### Add CRAN dependencies
+
+
+```r
+usethis::use_package("ggplot2")
+usethis::use_package("dplyr")
+```
+
+
+#### Add development version of a dependency (ie from GitHub)
+
+```r
+use_dev_package("ggplot2")
+```
+
+#### Add a suggested package 
+(packages used in testing or in vignettes but required to run compendium functions)
+
+```r
+usethis::use_package("gapminder", type = "Suggests")
+```
+
+---
+
+## `R/` directory 
+
+Keep all scripts containing core functions in the `/R` directory. These can be made available by installing and loading as any other package
+
+
+
+```r
+usethis::use_r("data-processing")
+```
+
+```
+## ● Edit 'data-processing.R'
+```
+
+![](rrtools_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
+
+
+---
+
+### Document functions using [Roxygen2](http://kbroman.org/pkg_primer/pages/docs.html) notation
+
+This allows documentation to be generated automatically on build
+
+![](rrtools_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+
+---
+
+
+
+
+use `&lt;pkname&gt;::&lt;function-name&gt;` to specify functions imported from other packages namespaces. This helps:
+
+- accurate specification of function to be used regardless of package loading sequence.
+- ability to easily distinquish between imported functions and your own functions in your code.
+
+
+---
+
+## Version control
+
+Most commonly through `git`
+
+&gt; START WITH: [Happy Git and GitHub for the useR](http://happygitwithr.com/)
+
+
+
+```r
+usethis::use_git()
+```
+
+
+---
+
+## Collaboration through github
+
+### Create repository
+
+
+
+```r
+rrtools::use_github()
+```
+
+
+![](rrtools_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+
+![](rrtools_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
+
+---
+
+You'll need a Personal Authorisation Token (PAT).
+
+
+```r
+usethis::browse_github_pat()
+```
+
+```
+## ● Open url https://github.com/settings/tokens/new?scopes=repo,gist&amp;description=R:GITHUB_PAT
+## ● Call `edit_r_environ()` to open '.Renviron', and store your PAT with a line like:
+## GITHUB_PAT=xxxyyyzzz
+## ● Make sure '.Renviron' ends with a newline!
+```
+
+will open up the GitHub panel to generate your PAT. 
+
+---
+
+Copy it and paste it into your `.Renviron` file as system variable `GITHUB_PAT`.
+
+
+```r
+usethis::edit_r_environ()
+```
+
+Use `edit_r_environ()` to open and edit your `.Renviron` file
+
+
+![](rrtools_files/figure-html/unnamed-chunk-18-1.png)&lt;!-- --&gt;
+
+
+---
+
+#### README
+
+READMEs are the landing page of any repository on GitHub. 
+
+The `rrtools` version of `use_readme_md()` creates a README template appropriate for a repository associated with a Research Project.
+
+Render each time you make changes to `README.Rmd` so `README.md` is updated.
+
+
+```r
+rrtools::use_readme_rmd()
+```
+
+Also creates:
+
+- `CONTRIBUTING.md`: Edit with guidance on contribution
+- `CONDUCT.md`: Code of conduct associated with the project
+
+---
+![](rrtools_files/figure-html/unnamed-chunk-20-1.png)&lt;!-- --&gt;
+
+
+---
+
+### License
+
+
+```r
+usethis::use_mit_license("Anna Krystalli")
+```
+
+
+![](rrtools_files/figure-html/unnamed-chunk-22-1.png)&lt;!-- --&gt;
+
+
+![](rrtools_files/figure-html/unnamed-chunk-23-1.png)&lt;!-- --&gt;
+
+---
+
+## Maintaining code integrity
+
+---
+
+### Testing
+
+
+If you add functions in `R/`, include tests to ensure they function as intended
+
+
+```r
+usethis::use_testthat()
+```
+
+![](rrtools_files/figure-html/unnamed-chunk-25-1.png)&lt;!-- --&gt;
+
+
+
+---
+
+Create tests.R in `tests/testhat/` and check &lt;http://r-pkgs.had.co.nz/tests.html&gt; for template
+
+
+```r
+use_test("data-processing")
+```
+
+![](rrtools_files/figure-html/unnamed-chunk-27-1.png)&lt;!-- --&gt;
+
+---
+
+### Continuous Integration using Travis
+
+
+```r
+rrtools::use_travis(docker = F)
+```
+
+Once your tests are set up, you can ensure that changes to the code base do not break functionality by using continuous integration.
+
+See Julia Silge's [A BEGINNER'S GUIDE TO TRAVIS-CI FOR R](https://juliasilge.com/blog/beginners-guide-to-travis/) for a gentle intro.
+
+---
+
+## Controlling environment with containers
+
+
+
+```r
+rrtools::use_dockerfile()
+```
+
+
+-   Creates a basic Dockerfile using [`rocker/verse`](https://github.com/rocker-org/rocker) as the base image
+    - R
+    - the [tidyverse](http://tidyverse.org/)
+    - RStudio
+    - pandoc
+    - LaTeX
+    so compendium build times are very fast on travis
+-   version of R in your rocker container will match the version used when you run this function (e.g., `rocker/verse:3.4.0`)
+
+
+---
+
+## Vignettes
+
+&gt; Long form documentation
+
+### Analyses
+### Setup instructions
+### Functionality demos
+### Reports
+
+---
+
+### bookdown for publications
+
+More on this from Dan.
+
+
+--- 
+
+### Rstudio for building and testing your code
+
+![](rrtools_files/figure-html/unnamed-chunk-30-1.png)&lt;!-- --&gt;
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
