@@ -1,0 +1,180 @@
+
+html {
+  font-size: 3.5vmin; }
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 18px; } }
+@media (max-width: 768px) {
+  html {
+    font-size: 18px; } }
+@media (max-width: 568px) {
+  html {
+    font-size: 16px; } }
+
+.reveal .slides {
+    text-align: left;
+}
+
+
+.reveal h1 {
+  font-family: 'Fredericka the Great', cursive;
+  /*font-size: 1.6 em;*/
+}
+
+.reveal h1 ,
+.reveal h2 {
+    padding:0px 0px 0px 20px;
+}
+
+.reveal h2 ,
+.reveal h3 ,
+.reveal h4 ,
+.reveal h5 {
+   font-family: 'Bree Serif', serif; 
+   font-weight: bold;
+   font-variant: normal;
+}
+
+.reveal h3 ,
+.reveal h4 ,
+.reveal h5 {
+    text-align: left;
+}
+
+.reveal h2 {
+   /*font-size: 1.4 em;*/
+   color: #4169E1;
+}
+.reveal h3 {
+   /*font-size: 1.2 em;*/    
+}
+.reveal h4 {
+   /*font-size: 1.1 em;*/   
+}
+.reveal h5 {
+   /*font-size: 1.1 em;  */ 
+}
+
+
+.reveal body {
+    font-family: 'Tajawal', sans-serif; 
+    text-align: left;
+    /*font-size: 1.1 em; */ 
+}
+
+.reveal p ,
+.reveal ul ,
+.reveal ol ,
+.reveal li {
+    font-family: 'Tajawal', sans-serif; 
+    text-align: left;
+    /*float: left;*/
+    font-size: 1em;
+    color: 	#353839;
+}
+
+.reveal ul ,
+.reveal ol ,
+.reveal li {
+padding:0px 0px 0px 1em;
+}
+
+.container{
+    display: flex;
+}
+.col{
+    flex: 1;
+}
+
+.reveal blockquote {
+	background:		#f9f9f9;
+	border-left:	10px solid #ccc;
+	margin:			1.5em 10px;
+	padding:		.5em 10px;
+	quotes:			"\201C""\201D""\2018""\2019";
+}
+
+.reveal blockquote p {
+	display: inline;
+	font-family: 'Cabin Sketch', cursive; 
+    text-align: left;
+    font-size: 1.1 em;
+}
+.reveal #communication h1 {
+    background: royalblue;
+}
+
+.reveal #tuos-data-visualisation-survey h1 {
+    color: white;
+    background: rgba(65,105,225, .75);
+    text-align: center;
+}
+
+
+.reveal #data-visualisation-hub-blog h2 {
+    color: royalblue;
+    background: rgba(255,255,255, .75);
+    text-align: center;
+}
+
+
+.reveal #get-inspired blockquote p {
+    color: royalblue;
+}
+
+.reveal #section-6 blockquote p {
+    color: royalblue;
+}
+
+
+.reveal #dataviz\.shef h2 {
+    color: white;
+    background: rgba(0,0,0,.75);
+    font-family: 'Fredericka the Great', cursive;
+    text-size: 2em
+}
+
+.reveal #dataviz\.shef h3 {
+    font-family: 'Fredericka the Great', cursive;
+    text-size: 2.5em
+}
+
+.reveal #dataviz\.shef h4 {
+     color: royalblue;
+}
+
+.reveal #events h1 {
+    color: white;
+}
+
+.reveal .inverted {
+	filter: invert(100%);
+}
+
+.logo-head {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 60;
+    font-family: 'Cabin Sketch', cursive;
+}
+
+.logo-head span {
+    font-size: 25px;
+}
+
+.logo-head a, 
+.logo-head a:visited {
+    text-decoration: none;
+    color: royalblue;
+}
+
+.footer {
+    color: black;
+    position: fixed;
+    top: 95%;
+    left: 0;
+    text-align: center;
+    width: 100%;
+}
