@@ -80,6 +80,9 @@ html {
 padding:0px 0px 0px 1em;
 }
 
+.reveal code {
+    font-size: 0.8em;
+}
 .container{
     display: flex;
 }
