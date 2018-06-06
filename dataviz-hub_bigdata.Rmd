@@ -37,7 +37,7 @@ survey <- gs_url("https://docs.google.com/spreadsheets/d/1WsHUeGBZOKLkBnRJujybqr
 
 # Background {data-background="http://www.karenchance.com/background_e.jpg" data-background-repeat="repeat"}
 
-## Why data visualtion? {data-background="assets/storytelling-inv.jpg"}
+## Why data visualisation? {data-background="assets/storytelling-inv.jpg"}
 
 <br>
 
@@ -48,13 +48,12 @@ survey <- gs_url("https://docs.google.com/spreadsheets/d/1WsHUeGBZOKLkBnRJujybqr
 > - Little support for training in best practice and tooling
 
 
-## gapminder.org: 
+## gapminder.org: 2006 {data-background="assets/hanslibdata.png"}
 
-#### liberating stories from data
+#### [liberating stories from data](https://youtu.be/hVimVzgtD6w?t=15m3s)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/hVimVzgtD6w?start=903" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-## gapminder.org: 
+## gapminder.org: today
 
 #### liberating stories from data
 
@@ -528,7 +527,7 @@ _4th December 2017, University of Oxford_
 
 ## Hackathons
 
-#### [NBN R Users Group hack:](http://sheffieldr.github.io/nbn-hack/)
+#### [NBN Sheffield R Users Group hack:](http://sheffieldr.github.io/nbn-hack/)
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/Sheffield_R_?ref_src=twsrc%5Etfw">@Sheffield_R_</a> <a href="https://twitter.com/NBNTrust?ref_src=twsrc%5Etfw">@NBNTrust</a> <a href="https://twitter.com/hashtag/BiodiversityHack?src=hash&amp;ref_src=twsrc%5Etfw">#BiodiversityHack</a> is go! First stage: data dive &amp; brainstorm! <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://twitter.com/hashtag/openscience?src=hash&amp;ref_src=twsrc%5Etfw">#openscience</a> <a href="https://t.co/0N9Re8roM5">pic.twitter.com/0N9Re8roM5</a></p>&mdash; annakrystalli (@annakrystalli) <a href="https://twitter.com/annakrystalli/status/704723751007604737?ref_src=twsrc%5Etfw">March 1, 2016</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
