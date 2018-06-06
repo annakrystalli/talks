@@ -271,7 +271,7 @@ magick::image_read("assets/github_DES.png") %>% image_resize("400x700")
 
 You'll need a Personal Authorisation Token (PAT).
 
-```{r}
+```{r, eval=F}
 usethis::browse_github_pat()
 ```
 
