@@ -73,7 +73,7 @@ p <- ggplot(gapminder::gapminder, aes(gdpPercap, lifeExp, size = pop, color = co
 plotly::ggplotly(p)
 ```
 
-## with power comes great responsibility
+## with power comes responsibility
 
 ![](assets/miscor_chart.svg)
 
@@ -96,6 +96,14 @@ plotly::ggplotly(p)
 - Tools and tricks: [Proportional Ink](http://callingbullshit.org/tools/tools_proportional_ink.html)
 
 </small>
+
+## background: recap
+
+> - Huge **opportunities**.
+
+> - **Upskilling** might be required but worth it
+
+> - Focus on **Best Practice** necessary.
 
 ## Enter dataviz.shef {data-background="https://s.cdpn.io/79/light-beams.jpg"}
 
@@ -130,7 +138,15 @@ A joint initiative between:
 
 ## {data-background="assets/orda.png"}
 
+<br>
+
+> #### [orda.shef.ac.uk](https://orda.shef.ac.uk)
+
 ## {data-background="assets/orda-viz.png"}
+
+<br>
+
+> #### [orda.shef.ac.uk/visualisations/](https://orda.shef.ac.uk/visualisations/)
 
 ## Visualisation Showcase goals
 
@@ -214,6 +230,17 @@ cap_first <- function(X){
 
 
 In Dec 2107, we launched a University Wide Survey on data visualisation.
+
+
+## Department
+
+```{r, echo=F, warning=FALSE, message=FALSE}
+pal <-RColorBrewer::brewer.pal(8,"Dark2")
+dep <- survey$Department %>% table
+deps <- names(dep) %>% stringr::str_sub(-3,-1)
+deps[deps == "her"] <- "other"
+wordcloud::wordcloud(deps, dep, min.freq = 1, colors=pal)
+```
 
 
 ## Position
@@ -410,7 +437,9 @@ survey %>%  mutate(experience = factor(`How experienced are you in producing vis
 
 
 
-## dataviz.shef: Data Visualisation Hub website
+## dataviz.shef: 
+
+#### Data Visualisation Hub website
 
 > - Information on community events and activities
 
@@ -424,6 +453,7 @@ survey %>%  mutate(experience = factor(`How experienced are you in producing vis
 > - All materials are CC-BY
 
 > - All materials are open for contribution on GitHub
+  > - Got a suggestion `r emo::ji("bulb")`? Bug report? Feel free to open an issue.
 
 
 
