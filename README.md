@@ -7,3 +7,5 @@ repo for talks
 
 - 2018/06/07 MDHRSA Big Data Research Forum: [_dataviz.shef: "Our plans and hopes for the Hub"_](https://sites.google.com/a/sheffield.ac.uk/mdhrsa/events/research-forum-big-data). | [**slides**](http://annakrystalli.me/talks/dataviz-hub_bigdata.html#/dataviz.shef)
 
+- 2019/05/14 Royal Statistical Society Sheffield Node: [_"Putting the R into Reproducible Research"_](http://annakrystalli.me/talks/r-in-repro-research.html)
+
