@@ -31,7 +31,7 @@ library(magrittr)
 ---
 # `r emo::ji("wave")` Hello
 
-### me: Dr Anna Krystalli
+### me: **Dr Anna Krystalli**
 
 - **Research Software Engineer**, _University of Sheffield_
     + twitter **@annakrystalli**
@@ -42,6 +42,9 @@ library(magrittr)
 
 - **Co-organiser:** [Sheffield R Users group](https://www.meetup.com/SheffieldR-Sheffield-R-Users-Group/)
 
+<br>
+
+### slides: **bit.ly/r-in-repro-research**
 
 ---
 class: inverse, center, middle
@@ -66,16 +69,6 @@ class: inverse, center, middle
 
 
 ---
-
-# Calls for open science
-
-<img src="assets/pgls.png" width="350px" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4957270/"/>
-
-> ... highlight problems with users jumping straight into software implementations of methods (e.g. in r) that may lack documentation on biases and assumptions that are mentioned in the original papers.
-
-> <small> To help solve these problems, we make a number of suggestions including **providing blog posts** or **videos** to explain new methods in less technical terms, **encouraging reproducibility and code sharing**, making **wiki-style pages** summarising the literature on popular methods, more careful consideration and testing of whether a method is appropriate for a given question/data set, increased collaboration, and a shift from publishing purely novel methods to publishing improvements to existing methods and ways of detecting biases or testing model fit. Many of these points are applicable across methods in ecology and evolution, not just phylogenetic comparative methods.</small>
-
----
 # Is code and data enough?
 
 .center[
@@ -83,8 +76,18 @@ class: inverse, center, middle
 ]
 
 .img-attr[slide: [_Kartik Ram: rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)]
+
 ---
 
+# Calls for open science
+
+<img src="assets/pgls.png" width="350px" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4957270/"/>
+
+> ... highlight problems with users jumping straight into software implementations of methods (e.g. in r) that may lack documentation on biases and assumptions that are mentioned in the original papers.
+
+> <small> To help solve these problems, we make a number of suggestions including **providing blog posts** or **videos** to **explain new methods in less technical terms**, **encouraging reproducibility and code sharing**, making **wiki-style pages** summarising the literature on popular methods, more careful consideration and testing of whether a method is appropriate for a given question/data set, **increased collaboration**, and a shift from publishing purely novel methods to **publishing improvements to existing methods** and ways of detecting biases or testing model fit. Many of these points are applicable across methods in ecology and evolution, not just phylogenetic comparative methods.</small>
+
+---
 
 # R for Open Reproducible Research
 
@@ -708,6 +711,17 @@ class: inverse, center, middle
 <img src="assets/package_friends.png" height=250px>
 ]
 ---
+# Build panel
+
+## Integrated graphical user interface
+
+<br>
+
+.center[
+<img src="assets/build_panel.png" height="300px">
+]
+---
+
 
 # R Package conventions:
 
@@ -721,8 +735,8 @@ class: inverse, center, middle
     - _functions_ using **Roxygen notation**
     - _workflows_ using **`.Rmd` documents** in the **`vignettes/`** folder
 
----
 
+---
 
 # `DESCRIPTION` file
 
@@ -982,7 +996,7 @@ collection**."
 
 <br>
 
-### Install `rrtools` from GitHub
+### Install [`rrtools`](https://github.com/benmarwick/rrtools) from GitHub
 ```{r, eval=FALSE}
 # install.packages("devtools")
 devtools::install_github("benmarwick/rrtools")
@@ -1078,6 +1092,27 @@ Next, you need to:  ↓ ↓ ↓ ↓
 ● For adding citations & reference lists in an Rmd, see http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html
 ```
 
+---
+# `paper.Rmd` to `paper.pdf`
+
+
+.pull-left[
+
+**Rmd**
+
+<img src="assets/paper_rmd.png" >
+
+]
+
+
+.pull-right[
+
+**pdf**
+
+<img src="assets/paper_pdf.png" >
+
+]
+
 
 ---
 # Capturing dependencies
@@ -1116,7 +1151,28 @@ Contains a **suite of custom R Markdown templates for popular journals**, simpli
 ]
 
 ---
+background-image: url('assets/reproducible-data-analysis_042.png')
+background-size: contain
 
+# Succesful Reproducibility
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+.bottom[
+.img-attr[slide: [_Kartik Ram: rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)]
+]
 ---
 class: inverse, center, middle
 # Questions?
