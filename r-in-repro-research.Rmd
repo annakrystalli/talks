@@ -1202,15 +1202,15 @@ class: inverse, center, middle
 
 #### R Packages
 
-- [R packages](http://r-pkgs.had.co.nz/) by Hadley Wickham
+- [R packages](https://r-pkgs.org/) by Hadley Wickham and Jenny Bryan
 
 ]
 #### Research Compendia
 
-- Kartik Ram: [_rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)
+- Karthik Ram: [_rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)
 
 #### Tutorials
 
-- [Rstudio Essentials](https://resources.rstudio.com/) Webminar series
+- [Rstudio Essentials](https://resources.rstudio.com/) Webinar series
 
 - [rrresearch](https://annakrystalli.me/rrresearch/): ACCE DTP course on Research Data & Project Management
