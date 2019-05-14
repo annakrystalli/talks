@@ -1,0 +1,38 @@
+h1, h2, h3 {
+  font-weight: normal;
+  color: #562457;
+}
+a, a > code {
+  color: #42f4bf;
+  background-color: #23373B;
+}
+.remark-code-line-highlighted { background-color: rgba(66, 244, 191, 0.3); }
+
+.inverse {
+  background-color: #2ba882;
+}
+.inverse, .inverse h1, .inverse h2, .inverse h3, .inverse a, inverse a > code {
+  color: #fff; background-image: "";
+}
+
+.remark-slide-content > h1 code {
+  background-color: black;    
+}
+
+.img-attr {
+    font-size: 0.7rem;
+    font-style: italic;
+}
+
+.img-attr a, a > code {
+  background-color: transparent;
+  color: black;
+  font-weight: bold;
+  font-style: italic;
+}
+
+
+.title-slide {
+  background-image: url("https://s.cdpn.io/79/light-beams.jpg");   
+  border-top: 0;
+}
