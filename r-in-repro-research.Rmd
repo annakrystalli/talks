@@ -75,7 +75,7 @@ class: inverse, center, middle
 ![](assets/reproducible-data-analysis-02.png)
 ]
 
-.img-attr[slide: [_Kartik Ram: rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)]
+.img-attr[slide: [_Karthik Ram: rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)]
 
 ---
 
@@ -959,7 +959,7 @@ collection**."
 ![](assets/reproducible-data-analysis-13.png)
 ]
 
-.img-attr[slides: [_Kartik Ram: rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)]
+.img-attr[slides: [_Karthik Ram: rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)]
 
 <br>
 
@@ -1179,7 +1179,7 @@ background-size: contain
 <br>
 
 .bottom[
-.img-attr[slide: [_Kartik Ram: rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)]
+.img-attr[slide: [_Karthik Ram: rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)]
 ]
 ---
 class: inverse, center, middle
@@ -1199,12 +1199,15 @@ class: inverse, center, middle
 #### RMarkdown
 
 - [R Markdown: The Definitive guide](https://bookdown.org/yihui/rmarkdown/)
+- [RMarkdown Driven Development (RmdDD)](https://emilyriederer.netlify.com/post/rmarkdown-driven-development/): Blog post by Emily Riederer
 
 #### R Packages
 
 - [R packages](https://r-pkgs.org/) by Hadley Wickham and Jenny Bryan
 
 ]
+
+.pull-right[
 #### Research Compendia
 
 - Karthik Ram: [_rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)
@@ -1214,3 +1217,4 @@ class: inverse, center, middle
 - [Rstudio Essentials](https://resources.rstudio.com/) Webinar series
 
 - [rrresearch](https://annakrystalli.me/rrresearch/): ACCE DTP course on Research Data & Project Management
+]
