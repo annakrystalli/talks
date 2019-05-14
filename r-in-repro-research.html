@@ -275,7 +275,7 @@ plan
 ```
 ## # A tibble: 3 x 2
 ##   target   command                                                         
-##   &lt;chr&gt;    &lt;expr&gt;                                                          
+##   &lt;chr&gt;    &lt;S3: expr_list&gt;                                                 
 ## 1 raw_data readr::read_csv(here::here("data", "iris.csv"))                …
 ## 2 data     raw_data %&gt;% dplyr::mutate(Species = forcats::fct_inorder(Speci…
 ## 3 fit      lm(Sepal.Width ~ Petal.Width + Species, data)                  …
@@ -323,8 +323,8 @@ drake::readd(fit)
 drake::vis_drake_graph(drake::drake_config(plan))
 ```
 
-<div id="htmlwidget-debe4902d468513a49e6" style="width:864px;height:360px;" class="visNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-debe4902d468513a49e6">{"x":{"nodes":{"id":["n-NBSXEZJ2HJUGK4TF","n-OJSWCZDSHI5HEZLBMRPWG43W","n-MZXXEY3BORZTUOTGMN2F62LON5ZGIZLS","n-MRYGY6LSHI5G25LUMF2GK","raw_data","data","fit"],"imported":[true,true,true,true,false,false,false],"label":["here::here","readr::read_csv","forcats::fct_inorder","dplyr::mutate","raw_data\n0.07s","data\n0.013s","fit\n0.011s"],"status":["imported","imported","imported","imported","up to date","up to date","up to date"],"type":["function","function","function","function","object","object","object"],"font.size":[20,20,20,20,20,20,20],"color":["#1874CD","#1874CD","#1874CD","#1874CD","#228B22","#228B22","#228B22"],"shape":["triangle","triangle","triangle","triangle","dot","dot","dot"],"level":[1,1,1,1,2,3,4],"x":[-1,-1,-1,-1,-0.333333333333333,0.333333333333333,1],"y":[-1,-0.333333333333333,0.333333333333333,1,-2.22044604925031e-16,-2.22044604925031e-16,-2.22044604925031e-16]},"edges":{"from":["n-NBSXEZJ2HJUGK4TF","n-OJSWCZDSHI5HEZLBMRPWG43W","raw_data","n-MZXXEY3BORZTUOTGMN2F62LON5ZGIZLS","n-MRYGY6LSHI5G25LUMF2GK","data"],"to":["raw_data","raw_data","data","data","data","fit"],"arrows":["to","to","to","to","to","to"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"LR"}},"interaction":{"navigationButtons":true}},"groups":null,"width":null,"height":null,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)"},"main":{"text":"Dependency graph","style":"font-family:Georgia, Times New Roman, Times, serif;font-weight:bold;font-size:20px;text-align:center;"},"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":false,"hoverNearest":false,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"legend":{"width":0.2,"useGroups":false,"position":"left","ncol":1,"stepX":100,"stepY":100,"zoom":true,"nodes":{"label":["Up to date","Imported","Object","Function"],"color":["#228B22","#1874CD","#888888","#888888"],"shape":["dot","dot","dot","triangle"],"font.color":["black","black","black","black"],"font.size":[20,20,20,20],"id":[1,5,7,8]},"nodesToDataframe":true},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-673dadd65470d5dd547b" style="width:864px;height:360px;" class="visNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-673dadd65470d5dd547b">{"x":{"nodes":{"id":["n-NBSXEZJ2HJUGK4TF","n-OJSWCZDSHI5HEZLBMRPWG43W","n-MZXXEY3BORZTUOTGMN2F62LON5ZGIZLS","n-MRYGY6LSHI5G25LUMF2GK","raw_data","data","fit"],"imported":[true,true,true,true,false,false,false],"label":["here::here","readr::read_csv","forcats::fct_inorder","dplyr::mutate","raw_data\n0.07s","data\n0.013s","fit\n0.011s"],"status":["imported","imported","imported","imported","up to date","up to date","up to date"],"type":["function","function","function","function","object","object","object"],"font.size":[20,20,20,20,20,20,20],"color":["#1874CD","#1874CD","#1874CD","#1874CD","#228B22","#228B22","#228B22"],"shape":["triangle","triangle","triangle","triangle","dot","dot","dot"],"level":[1,1,1,1,2,3,4],"x":[-1,-1,-1,-1,-0.333333333333333,0.333333333333333,1],"y":[-1,-0.333333333333333,0.333333333333333,1,-2.22044604925031e-16,-2.22044604925031e-16,-2.22044604925031e-16]},"edges":{"from":["n-NBSXEZJ2HJUGK4TF","n-OJSWCZDSHI5HEZLBMRPWG43W","raw_data","n-MZXXEY3BORZTUOTGMN2F62LON5ZGIZLS","n-MRYGY6LSHI5G25LUMF2GK","data"],"to":["raw_data","raw_data","data","data","data","fit"],"arrows":["to","to","to","to","to","to"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"LR"}},"interaction":{"navigationButtons":true}},"groups":null,"width":null,"height":null,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)"},"main":{"text":"Dependency graph","style":"font-family:Georgia, Times New Roman, Times, serif;font-weight:bold;font-size:20px;text-align:center;"},"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":false,"hoverNearest":false,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"legend":{"width":0.2,"useGroups":false,"position":"left","ncol":1,"stepX":100,"stepY":100,"zoom":true,"nodes":{"label":["Up to date","Imported","Object","Function"],"color":["#228B22","#1874CD","#888888","#888888"],"shape":["dot","dot","dot","triangle"],"font.color":["black","black","black","black"],"font.size":[20,20,20,20],"id":[1,5,7,8]},"nodesToDataframe":true},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);"},"evals":[],"jsHooks":[]}</script>
 ]
 
 ---
@@ -964,20 +964,25 @@ test_that("add works", {
 ---
 # Continuous Integration
 
-A cloud testing framework that can automate your tests
+## A cloud testing framework for automating your tests
 - Monitor the effect of changes to the code
 - Safe onboarding of contributions
 
-### Use a `.travis.yml` files
+.pull-left[
+### Start with a `.travis.yml` file
 
 
 ```r
 usethis::use_travis()
 ```
+]
 
+.pull-right.center[
+&lt;img src="assets/travis.png" height=250px&gt;
+]
 ---
 
-#### `.travis.yml` file template
+#### Resulting `.travis.yml` file template
 
 ```
 language: R
@@ -1043,7 +1048,7 @@ collection**."
 
 &lt;br&gt;
 
-### Ben Marwick, Carl Boettiger &amp; Lincoln Mullen (2018) [_Packaging Data Analytical Work Reproducibly Using R (and Friends)_](https://peerj.com/preprints/3192/)
+**Ben Marwick, Carl Boettiger &amp; Lincoln Mullen (2018)** [_Packaging Data Analytical Work Reproducibly Using R (and Friends)_](https://peerj.com/preprints/3192/)
 
 ---
 
@@ -1081,6 +1086,8 @@ collection**."
 
 
 &lt;br&gt;
+
+--
 
 ### Install [`rrtools`](https://github.com/benmarwick/rrtools) from GitHub
 
@@ -1226,20 +1233,20 @@ Imports:
 ---
 # Further Helpers
 
-.pull-left[
-### 📦 `rticles`
+
+## 📦 `rticles`
 
 Contains a **suite of custom R Markdown templates for popular journals**, simplifying the creation of documents that conform to research paper submission standards. 
 
-]
+---
 
-.pull-right[
-### 📦 `citr`
+# 📦 `citr` 
+
+RStudio Add-in to **Insert Markdown Citations**
+
+&lt;img src="assets/citr-insert.png" width="700px"&gt;
 
 
-&lt;img src="assets/citr-insert.png" width="500px"&gt;
-
-]
 
 ---
 background-image: url('assets/reproducible-data-analysis_042.png')

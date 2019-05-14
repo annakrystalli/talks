@@ -880,19 +880,24 @@ test_that("add works", {
 ---
 # Continuous Integration
 
-A cloud testing framework that can automate your tests
+## A cloud testing framework for automating your tests
 - Monitor the effect of changes to the code
 - Safe onboarding of contributions
 
-### Use a `.travis.yml` files
+.pull-left[
+### Start with a `.travis.yml` file
 
 ```{r, eval=FALSE}
 usethis::use_travis()
 ```
+]
 
+.pull-right.center[
+<img src="assets/travis.png" height=250px>
+]
 ---
 
-#### `.travis.yml` file template
+#### Resulting `.travis.yml` file template
 
 ```
 language: R
@@ -958,7 +963,7 @@ collection**."
 
 <br>
 
-### Ben Marwick, Carl Boettiger & Lincoln Mullen (2018) [_Packaging Data Analytical Work Reproducibly Using R (and Friends)_](https://peerj.com/preprints/3192/)
+**Ben Marwick, Carl Boettiger & Lincoln Mullen (2018)** [_Packaging Data Analytical Work Reproducibly Using R (and Friends)_](https://peerj.com/preprints/3192/)
 
 ---
 
@@ -996,6 +1001,8 @@ collection**."
 
 
 <br>
+
+--
 
 ### Install [`rrtools`](https://github.com/benmarwick/rrtools) from GitHub
 ```{r, eval=FALSE}
@@ -1136,20 +1143,20 @@ Imports:
 ---
 # Further Helpers
 
-.pull-left[
-### `r emo::ji("package")` `rticles`
+
+## `r emo::ji("package")` `rticles`
 
 Contains a **suite of custom R Markdown templates for popular journals**, simplifying the creation of documents that conform to research paper submission standards. 
 
-]
+---
 
-.pull-right[
-### `r emo::ji("package")` `citr`
+# `r emo::ji("package")` `citr` 
+
+RStudio Add-in to **Insert Markdown Citations**
+
+<img src="assets/citr-insert.png" width="700px">
 
 
-<img src="assets/citr-insert.png" width="500px">
-
-]
 
 ---
 background-image: url('assets/reproducible-data-analysis_042.png')
