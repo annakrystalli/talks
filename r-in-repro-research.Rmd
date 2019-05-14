@@ -91,21 +91,22 @@ class: inverse, center, middle
 
 # R for Open Reproducible Research
 
-## A whistle-stop tour of tools, practices and conventions in R for more
-
-- ### Reproducible
+## A whistle-stop tour of tools, practices and conventions in R for more:
 --
 
-- ### Robust
+- ### **Reproducible**
 --
 
-- ### Transparent
+- ### **Robust**
 --
 
-- ### Reusable
+- ### **Transparent**
 --
 
-- ### Shareable Research materials
+- ### **Reusable**
+--
+
+- ### **Shareable** research materials
 
 
 
@@ -886,7 +887,7 @@ A cloud testing framework that can automate your tests
 ### Use a `.travis.yml` files
 
 ```{r, eval=FALSE}
-use_travis()
+usethis::use_travis()
 ```
 
 ---
