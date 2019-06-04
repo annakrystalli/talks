@@ -1,0 +1,46 @@
+
+/* regular slide */
+.remark-slide-content {
+  background-color: #FAFAFA;
+  border-bottom: 5px solid #6600cc;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.2;
+  padding: 1em 3em 1em 3em;
+}
+
+.inverse {
+  background-color: #121316;
+  color: #d9b3ff;
+}
+
+/* title slide */
+.title-slide {
+  background-color: #121316;
+}
+
+.title-slide h1  {
+  color: #d9b3ff;
+  font-size: 50px;
+  font-weight: 500;
+  text-align: left;
+  margin-left: 40px;
+  padding-top: 60px;
+}
+.title-slide h2  {
+  color: #FAFAFA;
+  font-size: 35px;
+  font-weight: 350;
+  text-align: left;
+  margin-left: 40px;
+  margin-top: -25px;
+  padding-bottom: -20px;
+}
+.title-slide h3  {
+  color: #b7b7b7;
+  font-size: 25px;
+  font-weight: 300;
+  text-align: left;
+  margin-left: 40px;
+  margin-bottom: 0;
+}
