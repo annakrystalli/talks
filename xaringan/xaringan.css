@@ -9,10 +9,36 @@
   padding: 1em 3em 1em 3em;
 }
 
-.inverse {
-  background-color: #121316;
-  color: #d9b3ff;
+h1, h2, h3 {
+  margin-top: 0;
+  padding-top: 0.5em;
+  font-family: 'Oswald';
+  font-weight: 400;
+  margin-left: 0;
 }
+
+/* header colors are the same regardless of inverse or not*/
+.remark-slide-content h1 {
+  font-size: 35px;
+}
+
+.remark-slide-content h2, .inverse h2 {
+  font-size: 30px;
+}
+
+.remark-slide-content h3, .inverse h3 {
+  font-size: 25px;
+}
+
+
+.remark-slide-content.inverse h1 {
+  font-size: 65px;
+}
+
+.remark-slide-content h1 {
+  color: #6600cc;
+}
+
 
 /* title slide */
 .title-slide {
@@ -43,4 +69,18 @@
   text-align: left;
   margin-left: 40px;
   margin-bottom: 0;
+}
+
+
+.inverse {
+  background-color: #121316;
+  color: #d9b3ff;
+}
+
+.large {
+  font-size: 23px;
+}
+
+.small {
+  font-size: 15px;
 }

@@ -6,8 +6,9 @@ date: "2016/12/12 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    css: [default, fc-fonts, xaringan.css]
+    css: [default, metropolis-fonts, xaringan.css, xaringan-fonts.css]
     nature:
+      dev: svg
       beforeInit: "../assets/js/macros.js"
       highlightStyle: github
       highlightLines: true
@@ -29,27 +30,49 @@ output:
 
 <br>
 
-### slides: **bit.ly/r-in-repro-research**
+### slides: **http://bit.ly/xaringan-shef**
 
 ---
+class: center, middle, inverse
 
-
-background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 ```
 
-???
 
-Image credit: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sharingan_triple.svg)
+# Background
 
 ---
-class: center, middle
 
 # xaringan
 
+.pull-left[
+
 ### /ʃaː.'riŋ.ɡan/
+
+The R package name **xaringan** was derived from **Sharingan**, a dōjutsu in the Japanese anime _Naruto_ with two abilities:
+
+- the "Eye of Insight"
+
+- the "Eye of Hypnotism"
+
+]
+
+.pull-right[
+
+![:scale 200%](https://media1.tenor.com/images/31a1e8fc525526de04d785740a46db8e/tenor.gif?itemid=6062752)
+
+]
+
+<br>
+
+> I think a **presentation is basically a way to communicate insights** to the audience, and a **great presentation may even "hypnotize"** the audience. <br> _Yihui Xie_
+
+
+
+
+
 
 ---
 class: inverse, center, middle
@@ -60,6 +83,8 @@ class: inverse, center, middle
 
 # Hello World
 
+### Install
+
 Install the **xaringan** package from [Github](https://github.com/yihui/xaringan):
 
 ```{r eval=FALSE, tidy=FALSE}
@@ -68,23 +93,24 @@ devtools::install_github("yihui/xaringan")
 
 --
 
+### Create new
+
 You are recommended to use the [RStudio IDE](https://www.rstudio.com/products/rstudio/), but you do not have to.
 
-- Create a new R Markdown document from the menu `File -> New File -> R Markdown -> From Template -> Ninja Presentation`;<sup>1</sup>
+- Create a new R Markdown document from the menu:
+
+  **`File -> New File -> R Markdown -> From Template -> Ninja Presentation`**
 
 --
 
-- Click the `Knit` button to compile it;
+### Render to html
 
---
+- **Click the `Knit`** button to compile it;
 
-- or use the [RStudio Addin](https://rstudio.github.io/rstudioaddins/)<sup>2</sup> "Infinite Moon Reader" to live preview the slides (every time you update and save the Rmd document, the slides will be automatically reloaded in RStudio Viewer.
 
-.footnote[
-[1] 中文用户请看[这份教程](http://slides.yihui.name/xaringan/zh-CN.html)
+- or **use the [RStudio Addin](https://rstudio.github.io/rstudioaddins/) "Infinite Moon Reader"** to live preview the slides 
+  + _every time you update and save the Rmd document, the slides will be automatically reloaded in RStudio Viewer._
 
-[2] See [#2](https://github.com/yihui/xaringan/issues/2) if you do not see the template or addin in RStudio.
-]
 
 ---
 background-image: url(`r xaringan:::karl`)
@@ -95,40 +121,36 @@ class: center, bottom, inverse
 
 ---
 
-# Hello Ninja
+# Backend
 
-As a presentation ninja, you certainly should not be satisfied by the "Hello World" example. You need to understand more about two things:
+### Xaringan package wraps the [remark.js](https://remarkjs.com) library
 
-1. The [remark.js](https://remarkjs.com) library;
++ A simple, in-browser, markdown-driven slideshow tool.
 
-1. The **xaringan** package;
++  You can find an introduction of remark.js from [its homepage](https://remarkjs.com). 
 
-Basically **xaringan** injected the chakra of R Markdown (minus Pandoc) into **remark.js**. The slides are rendered by remark.js in the web browser, and the Markdown source needed by remark.js is generated from R Markdown (**knitr**).
+  <iframe width="560" height="315" src="https://remarkjs.com" frameborder="0" allowfullscreen></iframe>
 
----
++ Check the [Xaringan Wiki](https://github.com/yihui/xaringan/wiki) for more in depth info on customising your presentations
 
-# remark.js
-
-You can see an introduction of remark.js from [its homepage](https://remarkjs.com). You should read the [remark.js Wiki](https://github.com/gnab/remark/wiki) at least once to know how to
-
-- create a new slide (Markdown syntax<sup>*</sup> and slide properties);
-
-- format a slide (e.g. text alignment);
-
-- configure the slideshow;
-
-- and use the presentation (keyboard shortcuts).
-
-It is important to be familiar with remark.js before you can understand the options in **xaringan**.
-
-.footnote[[*] It is different with Pandoc's Markdown! It is limited but should be enough for presentation purposes. Come on... You do not need a slide for the Table of Contents! Well, the Markdown support in remark.js [may be improved](https://github.com/gnab/remark/issues/142) in the future.]
 
 ---
-background-image: url(`r xaringan:::karl`)
-background-size: cover
-class: center, bottom, inverse
 
-# I was so happy to have discovered remark.js!
+#  Xaringan features
+
+
+
+1. Start with an **R Markdown document** 
+  + powered by markdown
+  + can embed R/other code chunks
+
+1. **MathJax support** for mathematical expressions
+
+1. **Code highlighting**;
+
+1. The **RStudio addin "Infinite Moon Reader"** to automatically refresh slides on changes;
+
+
 
 ---
 class: inverse, middle, center
@@ -137,7 +159,7 @@ class: inverse, middle, center
 
 ---
 
-# xaringan
+# Presentation level settings
 
 Provides an R Markdown output format `xaringan::moon_reader` as a wrapper for remark.js, and you can use it in the YAML metadata, e.g.
 
@@ -152,49 +174,312 @@ output:
 ---
 ```
 
-See the help page `?xaringan::moon_reader` for all possible options that you can use.
+See the **help page `?xaringan::moon_reader` for all possible options** that you can use.
 
 ---
 
-# remark.js vs xaringan
+# Selected settings
 
-Some differences between using remark.js (left) and using **xaringan** (right):
+## Autoplay
+
+Slides can be automatically played if you set the `autoplay` option under `nature`, .small[e.g. go to the next slide every 30 seconds in a lightning talk:]
+
+```yaml
+    output:
+      xaringan::moon_reader:
+        nature:
+          autoplay: 30000
+```
+
+
+--
+
+## Countdown timer
+
+A countdown timer can be added to every page of the slides using the `countdown` option under `nature`, .small[e.g. if you want to spend one minute on every page when you give the talk, you can set:]
+
+```yaml
+    output:
+      xaringan::moon_reader:
+        nature:
+          countdown: 60000
+```
+
+.small[Then you will see a timer counting down from `01:00`, to `00:59`, `00:58`, ... ]
+    
+---
+
+# Title Slide
+
+The **title slide is created automatically by `xaringan`**, but it is just another remark.js slide added before your other slides.
+
+The title slide is **set to `class: center, middle, inverse, title-slide` by default**. 
+
+You can change the classes applied to the title slide with the **`titleSlideClass` option of `nature`** (`title-slide` is always applied).
+
+```yaml
+    output:
+      xaringan::moon_reader:
+        nature:
+          titleSlideClass: [top, left, inverse]
+```
+    
+--
+
+### custom title slide
+
+- If you'd like to create your own title slide, disable **xaringan**'s title slide with the `seal = FALSE` option of `moon_reader`.
+
+```yaml
+    output:
+      xaringan::moon_reader:
+        seal: false
+```
+
+---
+class: inverse, middle, center
+
+# Working with slides
+
+
+---
+# Create a new slide
+
+Delimit slides **using three hyphens (`---`)**, eg:
+
+
+```md
+
+---
+
+# This is the title of the slide
+
+The body of the slide is in **markdown**. You can use markdown for:
+
+## Subheadings (eg this h2)
+
+You can use it for lists:
+- _list item_
+- _another list item_
+
+And of course [hyperlinks](https://en.wikipedia.org/wiki/Hyperlink)
+
+---
+
+```
+
+***
+
+For more information on markdown see [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) or this tutorial or [Literate Programming in R](https://annakrystalli.me/literate-programming/)
+
+
+---
+
+# This is the title of the slide
+
+The body of the slide is in **markdown**. You can use markdown for:
+
+## Subheadings (eg this h2)
+
+You can use it for lists:
+- _list item_
+- _another list item_
+
+And of course [hyperlinks](https://en.wikipedia.org/wiki/Hyperlink)
+
+---
+# Slide properties
+
+A slide **can have a few properties**, including **`class`** and **`background-image`**, etc.
+
+--
+
+Properties are **specified in the beginning of a slide**, e.g.
+
+```markdown
+
+---
+class: inverse, middle, center
+# A Subsection slide
+
+---
+
+```
+will create the following slide `r emo::ji("point_right")`
+
+
+---
+class: inverse, middle, center
+# A Subsection slide
+
+---
+
+# Background images
+
+**Background images can be set via the `background-image` property**.
+
+The image can be either a local file or an online image. 
+The **path should be put inside `url()`**, which is the CSS syntax. 
+You can also **set the background image size and position**, e.g.,
+
+```yaml
+
+---
+background-image: url("../assets/logos/xaringan-hex.png")
+background-position: center
+background-size: contain
+
+---
+
+```
+
+---
+background-image: url("../assets/logos/xaringan-hex.png")
+background-position: center
+background-size: contain
+
+
+---
+background-image: url("https://media1.tenor.com/images/28ee6748d1e75ed138a58dfda27a0469/tenor.gif?itemid=4855087")
+background-position: center
+background-size: contain
+class: inverse
+
+
+# Works with gifs too!
+
+---
+class: middle, center, inverse
+
+# Content classes
+
+### You can assign classes to any elements on a slide, too. 
+
+## The syntax is `.className[content]`.
+
+
+---
+
+# Positioning elements
+
+
+
+- There are a few built-in content classes, `.left[ ]`, `.center[ ]`, and `.right[ ]`, to align elements horizontally on a slide, e.g., 
+  ```markdown
+  .center[![xaringan hex](../assets/logos/xaringan-hex.png)]
+  ```
+.center[![xaringan hex](../assets/logos/xaringan-hex.png)]
+---
+# Sidebar layout
+
+`.left-column[ ]` and `.right-column[ ]` provide a sidebar layout.
+
+```markdown
+
+.left-column[ 
+## Sidebar header
+
+Sidebar description
+]
+
+![xaringan hex](../assets/logos/xaringan-hex.png)
+
+```
+---
+
+# Sidebar output
+
+.left-column[ 
+## Sidebar header
+
+Sidebar description
+]
+
+![xaringan hex](../assets/logos/xaringan-hex.png)
+
+---
+
+
+# two-column layout
+
+`.pull-left[ ]` and `.pull-right[ ]` provide a two-column layout, and the two columns are of the same width.
+
+```markdown
 
 .pull-left[
-1. Start with a boilerplate HTML file;
+- One bullet.
 
-1. Plain Markdown;
-
-1. Write JavaScript to autoplay slides;
-
-1. Manually configure MathJax;
-
-1. Highlight code with `*`;
-
-1. Edit Markdown source and refresh browser to see updated slides;
+- Another bullet.
 ]
 
 .pull-right[
-1. Start with an R Markdown document;
+![xaringan hex](../assets/logos/xaringan-hex.png)
+]
+```
 
-1. R Markdown (can embed R/other code chunks);
+---
 
-1. Provide an option `autoplay`;
+# two-column: _output_
 
-1. MathJax just works;<sup>*</sup>
+.pull-left[
+- One bullet.
 
-1. Highlight code with `{{}}`;
-
-1. The RStudio addin "Infinite Moon Reader" automatically refreshes slides on changes;
+- Another bullet.
 ]
 
-.footnote[[*] Not really. See next page.]
+.pull-right[
+![an image](../assets/logos/xaringan-hex.png)
+]
+---
+
+
+
+
+# Incremental slide content
+
+The easiest way to **define incremental splits is by using `--`**
+
+--
+
+```md
+
+- Incremental point 1
+
+--
+
+- Incremental point 2
+
+```
+
+*** 
+
+--
+
+- Incremental point 1
+
+--
+
+- Incremental point 2
+
+
+--
+
+***
+
+For more options see [this presentation](https://slides.yihui.name/xaringan/incremental.html).
+
+---
+
 
 ---
 
 # Math Expressions
 
-You can write LaTeX math expressions inside a pair of dollar signs, e.g. &#36;\alpha+\beta$ renders $\alpha+\beta$. You can use the display style with double dollar signs:
+You can write LaTeX math expressions inside dollar signs
+
+## Display
+
+You can use the display style with double dollar signs:
 
 ```
 $$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
@@ -204,11 +489,12 @@ $$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
 
 ## Inline
 
+You can use the inline style with single dollar signs:
 ```
-Where $\bar{X}$ in the mean of the observations $X$.
+Where $\bar{X}$ is the mean of the observations $X$.
 ```
 
-Where $\bar{X}$ in the mean of the observations $X$.
+Where $\bar{X}$ is the mean of the observations $X$.
 
 
 
@@ -218,10 +504,13 @@ Where $\bar{X}$ in the mean of the observations $X$.
 
 Print the results of statistical tests
 ```{r comment='#'}
-# a boring regression
 fit = lm(dist ~ 1 + speed, data = cars)
 coef(summary(fit))
 ```
+
+---
+
+# R Code
 
 Print tibbles
 
@@ -233,12 +522,17 @@ gapminder::gapminder
 ---
 
 # R Plots
+Easy to include plots in your presentations. Can configure the output using chunk options .small[(e.g. `fig.width`/`fig.height`, hide/show code with `echo=T/F`, `dev='svg'` etc)].
 
-```{r cars, fig.height=4, dev='svg'}
-par(mar = c(4, 4, 1, .1))
-plot(cars, pch = 19, col = 'darkgray', las = 1)
-abline(fit, lwd = 2)
+```{r, message=FALSE, warning=FALSE, dev='svg', fig.height=4}
+library(ggplot2)
+p <- ggplot(gapminder::gapminder, aes(gdpPercap, lifeExp, color = continent)) +
+  geom_point(alpha = 0.5) + geom_smooth() + scale_x_log10() + theme_bw()
+p
 ```
+
+
+
 
 ---
 
@@ -251,16 +545,13 @@ knitr::kable(head(iris), format = 'html')
 ```
 
 ---
+class: inverse, center, middle
 
 # HTML Widgets
 
-I have not thoroughly tested HTML widgets against **xaringan**. Some may work well, and some may not. It is a little tricky.
-
-Similarly, the Shiny mode (`runtime: shiny`) does not work. I might get these issues fixed in the future, but these are not of high priority to me. I never turn my presentation into a Shiny app. When I need to demonstrate more complicated examples, I just launch them separately. It is convenient to share slides with other people when they are plain HTML/JS applications.
-
-See the next page for two HTML widgets.
 
 ---
+# Leaflet maps
 
 ```{r out.width='100%', fig.height=6, eval=require('leaflet')}
 library(leaflet)
@@ -268,6 +559,7 @@ leaflet() %>% addTiles() %>% setView(-1.479538, 53.380851, zoom = 17)
 ```
 
 ---
+# Interactive data tables
 
 ```{r eval=require('DT'), tidy=FALSE}
 DT::datatable(
@@ -276,75 +568,58 @@ DT::datatable(
 )
 ```
 
-# Some Tips
-
-- Slides can be automatically played if you set the `autoplay` option under `nature`, e.g. go to the next slide every 30 seconds in a lightning talk:
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        nature:
-          autoplay: 30000
-    ```
-
---
-
-- A countdown timer can be added to every page of the slides using the `countdown` option under `nature`, e.g. if you want to spend one minute on every page when you give the talk, you can set:
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        nature:
-          countdown: 60000
-    ```
-
-    Then you will see a timer counting down from `01:00`, to `00:59`, `00:58`, ... When the time is out, the timer will continue but the time turns red.
-    
----
-
-# Some Tips
-
-- The title slide is created automatically by **xaringan**, but it is just another remark.js slide added before your other slides.
-
-    The title slide is set to `class: center, middle, inverse, title-slide` by default. You can change the classes applied to the title slide with the `titleSlideClass` option of `nature` (`title-slide` is always applied).
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        nature:
-          titleSlideClass: [top, left, inverse]
-    ```
-    
---
-
-- If you'd like to create your own title slide, disable **xaringan**'s title slide with the `seal = FALSE` option of `moon_reader`.
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        seal: false
-    ```
 
 ---
 
-# Some Tips
+## Interactive R plots
 
-- There are several ways to build incremental slides. See [this presentation](https://slides.yihui.name/xaringan/incremental.html) for examples.
+```{r, fig.show = "animate", message=FALSE, warning=FALSE}
 
-- The option `highlightLines: true` of `nature` will highlight code lines that start with `*`, or are wrapped in `{{ }}`, or have trailing comments `#<<`;
+```
 
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        nature:
-          highlightLines: true
-    ```
+```{r, message=FALSE, warning=FALSE, fig.height=5}
+plotly::ggplotly(p)
+```
 
-    See examples on the next page.
 
 ---
 
-# Some Tips
+## Animated R plots
+
+```{r, fig.show = "animate", message=FALSE, warning=FALSE}
+p <- ggplot(gapminder::gapminder, 
+            aes(gdpPercap, lifeExp, size = pop, color = continent, frame = year)) +
+  geom_point() + scale_x_log10() + theme_bw()
+```
+
+```{r, message=FALSE, warning=FALSE, fig.height=5}
+plotly::ggplotly(p)
+```
+
+
+
+---
+# Highlight Code
+
+Xaringan supports highlighting of code. **Enable using option `highlightLines: true` in `nature`** 
+
+```yaml
+  output:
+    xaringan::moon_reader:
+      nature:
+        highlightLines: true
+```
+
+Once enabled, code lines that:
+- start with **`*`**, 
+- are wrapped in **`{{ }}`**
+- have trailing comments **`#<<`**
+
+will be highlighted
+
+---
+
+# Highlight Code: `*` or `{{}}`
 
 
 .pull-left[
@@ -362,7 +637,7 @@ if (TRUE) {
 }
 ```
 
-This is invalid R code, so it is a plain fenced code block that is not executed.
+**This is invalid R code**, so it is a plain fenced code block that is not executed.
 ]
 
 .pull-right[
@@ -382,12 +657,14 @@ if (TRUE) {
 }
 ```
 
-It is valid R code so you can run it. Note that `{{}}` can wrap an R expression of multiple lines.
+**This is valid R code** so you can run it. Note that `{{}}` can wrap an R expression of multiple lines.
 ]
+
+
 
 ---
 
-# Some Tips
+# Highlight Code: _trailing comment_
 
 An example of using the trailing comment `#<<` to highlight lines:
 
@@ -413,9 +690,9 @@ ggplot(mtcars) +
 
 ---
 
-# Some Tips: Highlight Code
+# Highlight Output: _chunk options_
 
-You can also use the **chunk option `highlight.output` to highlight specific lines** of the text output from a code chunk. eg: 
+You can also use the **chunk option `highlight.output`**  to highlight specific lines of the **text output** from a code chunk. eg: 
 - `highlight.output = TRUE` `r emo::ji("right_arrow")` highlight all lines
 - `highlight.output = c(1, 3)` `r emo::ji("right_arrow")`  highlight the first and third line.
 
@@ -445,7 +722,7 @@ head(gapminder::gapminder)
 
 ---
 
-# Some Tips: Emojis
+# Emojis
 
 ```{r, eval = FALSE }
 devtools::install_github("hadley/emo")
@@ -466,24 +743,6 @@ emo::ji("sparkles")
 ]
 
 .pull-right[add sparkles with emojis! `r emo::ji("sparkles")`]
-
----
-
-# Some Tips: Working Offline
-
-- To make slides work offline, you need to download a copy of remark.js in advance, because **xaringan** uses the online version by default (see the help page `?xaringan::moon_reader`).
-
-- You can use `xaringan::summon_remark()` to download the latest or a specified version of remark.js. By default, it is downloaded to `libs/remark-latest.min.js`.
-
-- Then change the `chakra` option in YAML to point to this file, e.g.
-
-    ```yaml
-    output:
-      xaringan::moon_reader:
-        chakra: libs/remark-latest.min.js
-    ```
-
-- If you used Google fonts in slides (the default theme uses _Yanone Kaffeesatz_, _Droid Serif_, and _Source Code Pro_), they won't work offline unless you download or install them locally. The Heroku app [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/fonts) can help you download fonts and generate the necessary CSS.
 
 
 ---
@@ -512,15 +771,19 @@ Randomly places a slide with a photo of [Karl Broman]() in the presentation `r e
 
 # CSS
 
-Among all options in `xaringan::moon_reader`, the most challenging but perhaps also the most rewarding one is `css`, because it allows you to customize the appearance of your slides using any CSS rules or hacks you know.
+Among all options in `xaringan::moon_reader`, the most challenging but perhaps also the most rewarding one is **`css`, because it allows you to customize the appearance of your slides** using any CSS rules or hacks you know.
 
-You can see the default CSS file [here](https://github.com/yihui/xaringan/blob/master/inst/rmarkdown/templates/xaringan/resources/default.css). You can completely replace it with your own CSS files, or define new rules to override the default. See the help page `?xaringan::moon_reader` for more information.
+You can see the default CSS file [here](https://github.com/yihui/xaringan/blob/master/inst/rmarkdown/templates/xaringan/resources/default.css). 
+
+You can completely replace it with your own CSS files, or define new rules to override the default. See the help page `?xaringan::moon_reader` for more information.
 
 ---
 
 # CSS
 
-For example, suppose you want to change the font for code from the default "Source Code Pro" to "Ubuntu Mono". You can create a CSS file named, say, `ubuntu-mono.css`:
+For example, suppose you **want to change the font for code to "Ubuntu Mono"**. 
+
+### Create CSS file `ubuntu-mono.css`:
 
 ```css
 @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
@@ -528,7 +791,7 @@ For example, suppose you want to change the font for code from the default "Sour
 .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
 ```
 
-Then set the `css` option in the YAML metadata:
+### Set css in YAML
 
 ```yaml
 output:
@@ -538,13 +801,17 @@ output:
 
 Here I assume `ubuntu-mono.css` is under the same directory as your Rmd.
 
-See [yihui/xaringan#83](https://github.com/yihui/xaringan/issues/83) for an example of using the [Fira Code](https://github.com/tonsky/FiraCode) font, which supports ligatures in program code.
-
 ---
 
 # Themes
 
-Don't want to learn CSS? Okay, you can use some user-contributed themes. A theme typically consists of two CSS files `foo.css` and `foo-fonts.css`, where `foo` is the theme name. Below are some existing themes:
+Don't want to learn CSS? Okay, you can use some user-contributed themes. 
+
+A theme typically consists of two CSS files:
+- `foo.css` and 
+- `foo-fonts.css`, where `foo` is the theme name. 
+
+### Existing themes:
 
 ```{r}
 names(xaringan:::list_css())
@@ -591,6 +858,26 @@ output:
 * [William Chase](https://twitter.com/W_R_Chase) - [What I Wish I Knew When I Started R](https://www.williamrchase.com/slides/intro_r_anthropology_2018) ([source files](https://github.com/will-r-chase/blog/tree/master/static/slides))
 
 * [Eric Nantz](https://twitter.com/thercast) - [The officer package - making PowerPoint slides from R](https://rpodcast.github.io/officer-advrmarkdown) ([source_files](https://github.com/rpodcast/officer-advrmarkdown))
+
+
+
+---
+
+# Some Tips: Working Offline
+
+- To make slides work offline, you need to download a copy of remark.js in advance, because **xaringan** uses the online version by default (see the help page `?xaringan::moon_reader`).
+
+- You can use `xaringan::summon_remark()` to download the latest or a specified version of remark.js. By default, it is downloaded to `libs/remark-latest.min.js`.
+
+- Then change the `chakra` option in YAML to point to this file, e.g.
+
+    ```yaml
+    output:
+      xaringan::moon_reader:
+        chakra: libs/remark-latest.min.js
+    ```
+
+- If you used Google fonts in slides (the default theme uses _Yanone Kaffeesatz_, _Droid Serif_, and _Source Code Pro_), they won't work offline unless you download or install them locally. The Heroku app [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/fonts) can help you download fonts and generate the necessary CSS.
 
 
 
