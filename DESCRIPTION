@@ -1,0 +1,45 @@
+Type: Compendium
+Package: Talks
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.1
+Authors@R: 
+    person(given = "Anna",
+           family = "Krystalli",
+           role = c("aut", "cre"),
+           email = "annakrystalli@googlemail.com",
+           comment = c(ORCID = "0000-0002-2378-4915"))
+Description: Materials associated with my talks
+License: MIT + file LICENSE
+Depends: 
+    anicon,
+    devtools,
+    DiagrammeR,
+    dplyr,
+    drake,
+    DT,
+    emo,
+    forcats,
+    gapminder,
+    ggplot2,
+    googlesheets,
+    here,
+    knitr,
+    leaflet,
+    magick,
+    magrittr,
+    plotly,
+    RColorBrewer,
+    readr,
+    reprex,
+    revealjs,
+    rmarkdown,
+    rrtools,
+    shiny,
+    stringr,
+    tidyverse,
+    usethis,
+    VennDiagram,
+    wordcloud,
+    xaringan
+Encoding: UTF-8
+LazyData: true
