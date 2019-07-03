@@ -1,0 +1,83 @@
+---
+title: "What can RSEs do for U?"
+subtitle: 
+author: "<br><br>Anna Krystalli &nbsp;`r anicon::faa('twitter', animate='float', rtext='@annakrystalli')`"
+date: "9th July 2019"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [assets/css/kunoichi_ak.css, assets/css/ninjutsu_ak.css ,  assets/css/nimpo.css]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+## **Motivation**
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+---
+class: bg-main1, middle, center
+
+background-image: url("https://media2.giphy.com/media/CTX0ivSQbI78A/giphy.gif?cid=790b76115d1b7e926846634941fe29b4&rid=giphy.gif")
+
+
+
+
+---
+background-image: url("https://media0.giphy.com/media/GiXbMe92rt9NS/giphy.gif?cid=790b76115d1b7980625653776b9da236&rid=giphy.gif")
+
+---
+# RSE History
+
+
+---
+## Software Engineering Practices
+
+
+---
+## Open Source Ethos
+
+
+---
+class: bg-main1, middle, center
+
+# What can they do for U?
+
+---
+
+.pull-left[
+.profile[
+![](assets/angus.jpeg)
+]
+]
+
+
+---
+class: bg-main1, middle, center
+
+# Capacity Building
+
+---
+## Core skills
+
+- Version Control
+- Dependency Management
+- Data management
+- 
+
+
+---
+
+## Training
+
+- Software Carpentry
+- Bespoke
+
+---
+
+
