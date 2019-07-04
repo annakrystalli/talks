@@ -1,0 +1,15 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.httr-oauth
+render.R
+*.DS_Store
+assets/John_sc*
+assets/angus*
+assets/tim_snow*
+test*
+VENN*
+rse_shef*
+.drake/*
+hacktoberfest*
