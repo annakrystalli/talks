@@ -2,7 +2,7 @@
 title: "Presentation Ninja"
 subtitle: "⚔<br/>with xaringan"
 author: "Anna Krystalli (channeling Yihui Xie)"
-date: "2016/12/12 (updated: `r Sys.Date()`)"
+date: "`r Sys.Date()`"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -128,8 +128,6 @@ class: center, bottom, inverse
 + A simple, in-browser, markdown-driven slideshow tool.
 
 +  You can find an introduction of remark.js from [its homepage](https://remarkjs.com). 
-
-  <iframe width="560" height="315" src="https://remarkjs.com" frameborder="0" allowfullscreen></iframe>
 
 + Check the [Xaringan Wiki](https://github.com/yihui/xaringan/wiki) for more in depth info on customising your presentations
 
