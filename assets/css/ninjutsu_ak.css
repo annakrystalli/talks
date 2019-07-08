@@ -66,7 +66,7 @@
 .img-contain img { object-fit: contain; height:100%; width:100%;  overflow: hidden}
 .img-cover img { object-fit: cover; height:100%; width:100%;  overflow: hidden}
 .img-none img { object-fit: none; height:100%; width:100%; }
-
+.img-fit img { width:100%; }
 
 /*********** background-color ***********/
 .bg-red { background-color: var(--color-red); }
@@ -89,6 +89,7 @@
 .bg-gray { background-color: var(--color-gray); }
 .bg-blue-gray { background-color: var(--color-blue-gray); }
 .bg-white { background-color: var(--color-white); }
+.bg-white-transp { background-color: rgb(255, 255, 255, 0.6); }
 .bg-black { background-color: var(--color-black); }
 
 /*********** color ***********/

@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css?family=Barriecito|Inconsolata|Neucha|Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Barriecito|Inconsolata|Neucha|Hind|Open+Sans&display=swap');
 /******************
  kunoichi.css must also be coupled with ninjutsu.css to be effective
  See https://emitanaka.github.io/ninja-theme/kunoichi-theme-example.html for an example.
@@ -13,17 +13,20 @@
     --main-color3: #ffff66;
     --main-color4: #008d69;
     --main-color5: white;
+    --main-ro-color: #6083AB;
+    --main-ro-transp: rgb(96, 131, 171, 0.75);
+    --text-ro-color: white;
     --text-color1: white;
     --text-color2: white;
-    --text-color3: white;
+    --text-color3: black;
     --text-color4: white;
     --text-color5: black;
     --text-opacity: white;
-    --link-color: #ecadec;
+    --link-color: black;
     --alert-color: #CF3C18;
     --text-alert: white;
     --code-background: #f8f8f8;
-    --code-inline-color: #FFD740;
+    --code-inline-color: black;
     --code-text-color: black;
     --code-highlight: rgba(136, 57, 138, 0.3);
     --color-title: rgba(0, 141, 152, 0.85);
@@ -84,6 +87,8 @@
 .bg-main3 { background-color: var(--main-color3); color: var(--text-color3);}
 .bg-main4 { background-color: var(--main-color4); color: var(--text-color4);}
 .bg-main5 { background-color: var(--main-color5); color: var(--text-color5);}
+.bg-ro { background-color: var(--main-ro-color); color: var(--text-ro-color);}
+.bg-ro-transp { background-color: var(--main-ro-transp); color: var(--text-ro-color);}
 .bgcolor_alert { background-color: var(--alert-color)!important; color: var(--text-alert); }
 
 .color-main1 { color: var(--main-color1);}
@@ -102,7 +107,7 @@
 
 .remark-visible .remark-slide-scaler {overflow-y: auto;}
 .remark-code {
-  font-size: 20px;
+  font-size: 15px;
   line-height: 1.25;
 }
 
@@ -113,18 +118,11 @@
 
 .remark-code-line-highlighted { background-color: var(--code-highlight); }
 
-h1 {
-  font-family: 'Barriecito';
-  font-weight: normal;
-}
 
-h2, h3, h4, h5 {
-  font-family: 'Neucha';
-  font-weight: normal;
-}
+
 
 body{
-  font-family: 'Open Sans';
+  font-family: 'Hind';
   font-weight: normal;
 }
 
@@ -144,11 +142,20 @@ pre {
   padding: 5px;
 }
 
-h1, h2, h3, h4 {
+h1 {
+    font-family: 'Barriecito';
     font-weight: 400;
     margin-bottom: 0;
     margin-top: 10px;
 }
+
+h2, h3, h4 {
+    font-family: 'Hind';
+    font-weight: 800;
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
 h1 { font-size: 3.5em; }
 h2 { font-size: 3em; }
 h3 { font-size: 1.6em; }
@@ -158,7 +165,7 @@ body{
   font-size: 1em;
 }
 
-a { color: var(--link-color); text-decoration: none; }
+a { text-decoration: underline;}
 
 .image_profile img {
   border-radius: 50%;
@@ -172,4 +179,24 @@ a { color: var(--link-color); text-decoration: none; }
 .pull-right {
   float: right;
   width: 47%;
+}
+
+
+
+div.bes-footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 25px;
+    width: 100%;
+}
+div.bes-footer span {
+    font-size: 10pt;
+    position: absolute;
+    left: 15px;
+    bottom: 2px;
+}
+
+div.bes-footer a {
+    color: #42f4bf;
 }
