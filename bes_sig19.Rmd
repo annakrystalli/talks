@@ -36,8 +36,6 @@ options(htmltools.dir.version = FALSE)
 
 - **Software Sustainability Institute Fellow 2019**
 
-- **Co-organiser:** [Sheffield R Users group](https://www.meetup.com/SheffieldR-Sheffield-R-Users-Group/)
-
 <br>
 
 ### slides: **bit.ly/bes_rse**
@@ -157,6 +155,7 @@ background-size: contain
 
 --
 
+<br>
 <br>
 <br>
 
@@ -570,7 +569,7 @@ _North Western Universities R Day 2018_
 
 <br>
 
---
+
 
 ### [Practical Data management](https://github.com/annakrystalli/dataspice-tutorial)
 
@@ -601,7 +600,7 @@ class: bg-main1
 --
 
 
-- .font_large[**Organising your lab's digital assets**]
+- .font_large[**Organising your research group's digital assets**]
 
 --
 
