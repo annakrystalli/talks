@@ -2,7 +2,7 @@
 title: "What can RSEs do for U?"
 subtitle: 
 author: "<br><br>Anna Krystalli &nbsp;`r anicon::faa('twitter', animate='float', rtext='@annakrystalli')`"
-date: "9th July 2019"
+date: "<small>9th July 2019 | #BESQuantMove2019 </small>"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -161,6 +161,21 @@ background-size: contain
 
 ### User focused
 
+---
+background-image: url("assets/domains.png")
+background-position: center
+
+# Background in Research
+
+
+```{r, echo=FALSE, out.width='100%', eval=FALSE}
+set.seed(2)
+backgrounds <- data.frame(word = c("Marine Macroecology", "Physics", "Maths", "Arts", "Civil Engineering", "Computer Science", "Computer Architecture"),
+                              freq = 1)
+wordcloud2::wordcloud2(backgrounds, size = 0.3, fontFamily="Courier")
+```
+
+
 
 ---
 background-image: url("https://yoast.com/app/uploads/2017/06/Open_Source_FI.jpg")
@@ -183,20 +198,6 @@ class: bg-main4
 _\* personal opinion_
 
 .bottom_abs.font_small[image source: https://yoast.com/interview-with-joost-on-open-source/]
----
-background-image: url("assets/domains.png")
-background-position: center
-
-# Background in Research
-
-
-```{r, echo=FALSE, out.width='100%', eval=FALSE}
-set.seed(2)
-backgrounds <- data.frame(word = c("Marine Macroecology", "Physics", "Maths", "Arts", "Civil Engineering", "Computer Science", "Computer Architecture"),
-                              freq = 1)
-wordcloud2::wordcloud2(backgrounds, size = 0.3, fontFamily="Courier")
-```
-
 
 ---
 class: middle, center
