@@ -9,3 +9,5 @@ repo for talks
 
 - 2019/05/14 Royal Statistical Society Sheffield Node: [_"Putting the R into Reproducible Research"_](http://annakrystalli.me/talks/r-in-repro-research.html)
 
+- 2019/07/09 British Ecological Society Quantitative & Movement Ecology Special Interest Group joint meeting: [_"What can RSEs do for U?"_](https://annakrystalli.me/talks/bes_sig19.html#1)
+
