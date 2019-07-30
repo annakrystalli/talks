@@ -5,7 +5,7 @@ author: "<br><br>Anna Krystalli &nbsp;`r anicon::faa('twitter', animate='float',
 date: "rOpenSci Community Call 2019-07-30"
 output:
   xaringan::moon_reader:
-    css: [default, metropolis, assets/css/footer.css, metropolis-fonts, assets/css/ro-reprohack/styles.css]
+    css: [default, metropolis, assets/css/ro-reprohack/footer.css, metropolis-fonts, assets/css/ro-reprohack/styles.css]
     lib_dir: libs
     nature:
       beforeInit: "https://platform.twitter.com/widgets.js"
