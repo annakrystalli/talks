@@ -11,3 +11,5 @@ repo for talks
 
 - 2019/07/09 British Ecological Society Quantitative & Movement Ecology Special Interest Group joint meeting: [_"What can RSEs do for U?"_](https://annakrystalli.me/talks/bes_sig19.html#1)
 
+- 2019/07/30 rOpenSci Community Call: [_"ReproHacks, One-day hands-on Reproducibility hackathons"_](https://annakrystalli.me/talks/ro-reprohack.html#1)
+
