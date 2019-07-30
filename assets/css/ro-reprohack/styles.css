@@ -1,0 +1,98 @@
+h1, h2, h3 {
+  font-weight: normal;
+  color: #562457;
+}
+a, a > code {
+  color: #42f4bf;
+  background-color: #23373B;
+}
+.remark-code-line-highlighted { background-color: rgba(66, 244, 191, 0.3); }
+
+.inverse {
+  background-color: #2ba882;
+}
+.inverse, .inverse h1, .inverse h2, .inverse h3, .inverse a, inverse a > code {
+  color: #fff; background-image: "";
+}
+
+.remark-slide-content > h1 code {
+  background-color: black;    
+}
+
+.img-attr {
+    font-size: 0.7rem;
+    font-style: italic;
+}
+
+.img-attr a, a > code {
+  background-color: transparent;
+  color: black;
+  font-weight: bold;
+  font-style: italic;
+}
+
+
+/*********** figures ***********/
+
+.figb img {
+  width: 99%;
+  padding: 0;
+  margin: 0;
+  margin-left: -2%;
+}
+.figb90 img {
+  width: 90% !important;
+  padding: 5%;
+  margin: -2.5%;
+}
+
+.fig img {
+  width: 104%;
+  padding: 0;
+  margin: 0;
+  margin-left: -2%;
+}
+.fig90 img {
+  width: 90% !important;
+  padding: 5%;
+  margin: 0;
+}
+.figh img {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  margin-left: -2%;
+}
+
+.img-fill img { object-fit: fill; height:100%; width:100%; overflow: hidden;}
+.img-contain img { object-fit: contain; height:100%; width:100%;  overflow: hidden}
+.img-cover img { object-fit: cover; height:100%; width:100%;  overflow: hidden}
+.img-none img { object-fit: none; height:100%; width:100%; }
+.img-fit img { width:100%; }
+
+.image_profile img {
+  border-radius: 50%;
+  width: 50%;
+}
+
+
+/*************** fonts *******************/
+
+
+.font_small {font-size: 0.75em;}
+.font_tiny {font-size: 0.5em;}
+.font_medium {font-size: 1.25em;}
+.font_large {font-size: 1.5em;}
+.font_title {font-size: 2em;}
+
+/***************** position ***************/
+
+.top_40 { top: 40% !important;}
+.top_60 { top: 60% !important;}
+.top_50 { top: 50% !important;}
+.top_70 { top: 70% !important;}
+.top_80 { top: 80% !important;}
+
+.bottom_abs { position: absolute; bottom: 0; z-index:1;}
+.top_abs    { position: absolute; top: 0; z-index:1;}
+.width100 {width: 100%!important;}
