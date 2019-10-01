@@ -14,3 +14,7 @@ rse_shef*
 .drake/*
 hactoberfest.html
 assets/.DS_Store
+data/*
+*_files/
+docs/*
+scripts/*
