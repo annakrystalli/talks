@@ -6,7 +6,7 @@ date: "Hacktoberbest 2019 Kickoff"
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    css: [xaringan-themer.css, assets/css/custom.css]
+    css: [assets/css/hacktoberfest-xaringan-themer.css, assets/css/custom.css]
     nature:
       highlightStyle: github
       highlightLines: true
@@ -28,9 +28,9 @@ duo_accent(
   header_font_google = google_font("Space Mono", "400"),
   text_font_google   = google_font("Montserrat", "300", "300i"),
   code_font_google   = google_font("Source Code Pro"),
-  title_slide_background_image = "assets/Hacktoberfest-19-bgr.png",
-  background_image = "assets/hacktober19_slide.png",
-background_size = "cover"
+  title_slide_background_image = "../Hacktoberfest-19-bgr.png",
+  background_image = "../hacktober19_slide.png",
+  background_size = "cover", outfile = "assets/css/hacktoberfest-xaringan-themer.css"
 )
 ```
 
