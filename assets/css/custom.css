@@ -1,0 +1,11 @@
+.inverse h1, .inverse h2 {
+    color: white;
+    background-color: rgba(153,41,201, 0.85);
+    border-radius: 8px;
+    padding: 8px;
+    margin: 2px 8px 2px 0;
+}
+
+.inverse {
+    background-image: "assets/hacktober19_slide.png"";
+}

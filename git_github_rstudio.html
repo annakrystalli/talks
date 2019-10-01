@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Git &amp; GitHub</title>
+    <meta charset="utf-8" />
+    <meta name="author" content=".left[Anna Krystalli  <span>&lt;i class="fab  fa-twitter faa-float animated "&gt;&lt;/i&gt;@annakrystalli</span>]" />
+    <link href="libs/font-awesome-animation/font-awesome-animation-emi.css" rel="stylesheet" />
+    <script src="libs/fontawesome/js/fontawesome-all.min.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Git &amp; GitHub
+## in R &amp; Rstudio
+### .left[<em>Anna Krystalli  <span>&lt;i class="fab  fa-twitter faa-float animated "&gt;&lt;/i&gt;@annakrystalli</span></em>]
+### Hacktoberbest 2019 Kickoff
+
+---
+
+
+
+
+
+
+
+# Overview
+
+- ### Setting up git &amp; GitHub through R
+
+- ### Working with git in Rstudio
+
+- ### Practical: Forking and making a Pull Request!
+
+---
+# Prerequisites
+
+### You will need:
+
+- Git [installed](https://carpentries.github.io/workshop-template/#git)
+- A [GitHub](https://github.com/) account
+- Your account registered with [Hacktoberfest](https://hacktoberfest.digitalocean.com/)* (optional: for your PR to count)
+
+
+---
+
+# Git, Github &amp; Rstudio
+
+#### Before: git only through the terminal 😢 or external GUI
+
+--
+
+### Now: Rstudio + `usethis` 📦 == ❤️ `Git` &amp; `GitHub` 🤩
+
+.center[
+![](https://media.giphy.com/media/GA2FNpP1kAQNi/giphy.gif)
+]
+
+---
+# Configure git &amp; GitHub
+
+### Configure git
+
+**Set your configuration**
+
+Use your github username and and the email you used to sign-up on GitHub
+
+
+```r
+usethis::use_git_config(
+    user.name = "Jane",
+    user.email = "jane@example.org")
+```
+
+---
+### Configure GitHub authentication
+
+#### Get GITHUB Personal Authorisation Token
+
+
+```r
+usethis::browse_github_pat()
+```
+
+
+&lt;img src="assets/browse_github.png" height="300px"&gt;
+
+---
+
+### Store in `.Renviron` file
+
+
+```r
+usethis::edit_r_environ()
+```
+
+&lt;img src="assets/GITHUB_PAT.png" height="400px"&gt;
+
+
+---
+# Initialise git
+
+
+### Initialise **Rstudio project** with Git by **just checking a box!**
+
+It's now **a repository**
+
+&lt;img src="assets/project_git.png" height="200px"&gt;
+
+
+Forgot to? use `usethis::use_git()`
+
+
+---
+# Git panel
+
+### Integrated graphical user interface
+
+
+
+.center[
+&lt;img src="assets/git_tab.png" height="300px"&gt;
+]
+
+---
+# Git Rstudio workflow
+
+.pull-left[
+#### view file status
+&lt;img src="assets/git_view.png" height="150px"&gt;
+
+#### stage files
+&lt;img src="assets/git_add.png" height="150px"&gt;
+]
+
+.pull-right[
+#### commit changes
+&lt;img src="assets/git_commit.png" width="600px"&gt;
+]
+---
+
+# Share on GitHub
+
+#### Create repo
+
+
+
+```r
+usethis::use_github(protocol = "https")
+```
+
+&lt;img src="assets/my_awesome_repo.png" width="500px"&gt;
+
+#### Push further changes
+
+&lt;img src="assets/push_github.png" height="50px"&gt;
+
+
+---
+class: inverse, center, middle
+
+# #Evolottery
+
+### Welcome to the evolutionary lottery of skull and beak morphology
+
+Sign up for Hacktoberfest so the pull request counts towards your tally!
+
+---
+
+
+
+## **#EvoLottery**
+
+
+
+#### **Beak and skull shapes in birds of prey (“raptors”) are strongly coupled and largely controlled by size.** 
+
+.pull-left[
+
+- In this exercise, each participant will **fork a GitHub repo**, and **contribute a file** required to simulate the *evolutionary trajectory of an imaginary species' body size*.
+
+- We'll use **GitHub to collate all species files** and **plot** them all up together at the end! We'll also **discover the skull and beak shapes** associated with each simulated species size.
+]
+
+.pull-right[
+![](assets/gif.gif)
+]
+---
+class: inverse, center, middle
+
+# GO! 🏁
+
+---
+
+
+## **GitHub:** 
+**start with a repo**
+
+#### [bit.ly/evolottery](http://bit.ly/evolottery)
+
+&lt;img src="assets/repo.png" width="700px" /&gt;
+
+
+
+---
+class: inverse, center, middle
+
+# Fork repo
+
+---
+
+## **GitHub:** 
+make your **own copy of the repository** on GitHub
+
+- fork are linked and traceable
+
+&lt;img src="assets/fork-1.png" width="700px" /&gt; 
+
+
+
+---
+
+## **GitHub:** 
+GitHub makes a **copy into your account**
+
+&lt;img src="assets/fork-2.png" width="700px" /&gt;
+ 
+
+
+
+
+---
+
+## **GitHub:** 
+**clone it: copy repo link** to create Rstudio project
+    
+&lt;img src="assets/fork-3.png" width="700px" /&gt;
+
+
+
+
+---
+class: inverse, center, middle
+
+# Clone project in Rstudio
+
+---
+
+## **rstudio:** 
+Create **new project**
+
+&lt;img src="assets/newproj-1.png" width="700px" /&gt;
+
+
+
+---
+
+## **rstudio:** 
+Checkout from **version control repository**
+
+&lt;img src="assets/newproj-2.png" width="700px" /&gt;
+
+
+
+---
+
+## **rstudio:** 
+Clone project from a **git** repository
+
+&lt;img src="assets/newproj-3.png" width="700px" /&gt;
+
+
+
+---
+
+## **rstudio:** 
+Paste **repo link copied from GitHub** into **Repository URL** field. Click **`Create Project`**. 
+
+&lt;img src="assets/newproj-4.png" width="700px" /&gt;
+
+
+
+---
+
+## **rstudio:** 
+Rstudio project now **contains all files from the GitHub repo.**
+
+&lt;img src="assets/newproj-5.png" width="700px" /&gt;
+
+
+
+
+
+
+---
+class: inverse, center, middle
+
+# Make a change to the repo
+
+---
+
+## **rstudio:** 
+open **`params/params_tmpl.R`**
+
+&lt;img src="assets/edit-1.png" width="700px" /&gt;
+
+
+
+---
+
+## **rstudio:** 
+
+&lt;div class="inverse"&gt;&lt;strong&gt;SAVE AS NEW &lt;code&gt;.R&lt;/code&gt; script in &lt;code&gt;params/&lt;/code&gt; folder&lt;/strong&gt;&lt;/div&gt; 
+
+Use species name of your choice to name new file. Please **!!DO NOT OVERWRITE `params/params_tmpl.R`!!**.
+
+&lt;img src="assets/edit-2.png" width="700px" /&gt;
+
+
+
+---
+
+## **rstudio:** 
+edit file with parameters of your choice and save.
+
+&lt;img src="assets/edit-3.png" width="700px" /&gt;
+
+
+
+
+
+---
+
+### The parameters each participants need to supply are:
+
+**NB: remember to save the changes to your file**
+
+
+
+- **`sig2`:** A numeric value greater than 0 but smaller than 5
+
+- **`species.name`:** a character string e.g. `"anas_krystallinus"`. Try to create a species name out of your name!
+
+- **`color`:**  a character string e.g. `"red"`, `"#FFFFFF"` (Check out list of [**colours in R**](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf))
+
+
+
+
+
+
+---
+class: inverse, center, middle
+
+# Commit changes locally to git
+
+---
+
+## **rstudio:** 
+in the *git* tab, select the **new file** you created and click **`Commit`**.
+### !! Please **ONLY COMMIT YOUR NEW FILE** !!
+
+&lt;img src="assets/commit-1.png" width="700px" /&gt;
+
+
+
+---
+
+## **rstudio:** 
+write an informative commit message and click **`Commit`**  
+
+&lt;img src="assets/commit-2.png" width="700px" /&gt;
+
+
+
+---
+
+## **rstudio:** 
+your new file has now been commited  
+
+&lt;img src="assets/commit-3.png" width="700px" /&gt;
+
+
+
+
+---
+class: inverse, center, middle
+
+# Push changes to GitHub
+
+---
+
+## **rstudio:** 
+on the *git* tab click ⇧  to **push changes to GitHub**
+
+&lt;img src="assets/push-1.png" width="700px" /&gt;
+
+
+
+---
+
+## **rstudio:** 
+changes have now been updated in the **GitHub repo**
+
+&lt;img src="assets/push-2.png" width="700px" /&gt;
+
+
+
+
+---
+class: inverse, center, middle
+
+# Create pull request
+
+---
+
+## **GitHub:** 
+in your repository, create **`new pull request`** 
+to merge fork to master repo (ie the original repo you forked)
+
+&lt;img src="assets/merge-1.png" width="700px" /&gt;
+
+
+
+---
+
+## **GitHub:** 
+GitHub checks whether your requested merge creates any coflicts. 
+If all is good, click on **`Create pull request`**
+
+&lt;img src="assets/merge-2.png" width="700px" /&gt;
+
+
+
+---
+
+## **GitHub:** 
+write an informative message explaining your changes to the master repo administrators. Click on **`Create pull request`**
+
+&lt;img src="assets/merge-3.png" width="700px" /&gt;
+
+
+
+---
+
+## **GitHub:** 
+check original repo to see **your merged changes**
+
+&lt;img src="assets/merged.png" width="700px" /&gt;
+
+
+
+
+
+---
+
+## Check out the merged and [plotted contributions!](https://rse.shef.ac.uk/collaborative_github_exercise/plot_trait_evolution.html) 
+
+---
+background-image: assets/hacktober19_slide.png
+
+# Go forth and make PRs!
+
+You need **3 more** to get your snazzy t-shirt!
+
+### Join us at a 👩‍💻 👨‍💻 session!
+
+**Meeting room 1, the Diamond, 5:30 pm to 8:00 pm**
+_The University of Sheffield, 32 Leavygreave Rd, S3 7RD_ 
+- 8th October
+- 15th October
+- 22nd October
+- 29th October
+
+Hack together and get support from a member of the [Sheffield Research Software Engineering](https://rse.shef.ac.uk/) team if you get stuck!
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
