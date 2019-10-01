@@ -13,7 +13,7 @@ repo for talks
 
 - 2019/07/30 rOpenSci Community Call: [_"ReproHacks, One-day hands-on Reproducibility hackathons"_](https://annakrystalli.me/talks/ro-reprohack.html#1)
 
-
+- 2019/10/01 Sheffield R Users Group, Hacktoberfest 2019 Kick-off: [_"Git & GitHub in R & Rstudio"_](https://annakrystalli.me/talks/git_github_rstudio.html#1)
 
 <br>
 
