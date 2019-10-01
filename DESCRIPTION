@@ -1,6 +1,6 @@
 Type: Compendium
 Package: Talks
-Title: What the Package Does (One Line, Title Case)
+Title: Talk materials
 Version: 0.0.1
 Authors@R: 
     person(given = "Anna",
@@ -43,3 +43,5 @@ Depends:
     xaringan
 Encoding: UTF-8
 LazyData: true
+Imports: 
+    xaringanthemer
