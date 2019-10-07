@@ -15,6 +15,8 @@ repo for talks
 
 - 2019/10/01 Sheffield R Users Group, Hacktoberfest 2019 Kick-off: [_"Git & GitHub in R & Rstudio"_](https://annakrystalli.me/talks/git_github_rstudio.html#1)
 
+- 2019/10/08 British Ecological Society Quantitative Ecology Special Interest Group Hackathon: [_"Adventures in Open Code & Data: Why I love Hackathons!❤️"_](https://annakrystalli.me/talks/bes_hackathon.html#1)
+
 <br>
 
 ***
