@@ -1,7 +1,7 @@
 ---
 title: "Adventures in Open Code & Data"
 subtitle:  "_why I love hackathons!_"
-author: ".left[_Anna Krystalli &nbsp;`r anicon::faa('twitter', animate='float', rtext='@annakrystalli')`_] "
+author: "_Anna Krystalli_ `r anicon::faa('twitter', animate='float', rtext='@annakrystalli')` "
 date: "2019-10-08"
 output:
   xaringan::moon_reader:
@@ -48,6 +48,8 @@ duo_accent(
 - **2019 [Software Sustainability Institute Fellow](https://software.ac.uk/)**
 
 <br>
+
+### slides: [**bit.ly/bes_hack19**](http://bit.ly/bes_hack19)
 
 ---
 class: middle, center
@@ -106,10 +108,11 @@ class: inverse
 ]
 
 ---
-#### [_Macroecological and macroevolutionary patterns emerge in the universe of GNU/Linux operating systems_](https://doi.org/10.1111/ecog.03424)
-
+> #### [**_Macroecological and macroevolutionary patterns emerge in the universe of GNU/Linux operating systems_**](https://doi.org/10.1111/ecog.03424)
+> doi:10.1111/ecog.03424
+ 
 .pull-left[
-doi:10.1111/ecog.03424
+
 
 ![](assets/ecography_gnu.png)
 ]
@@ -117,21 +120,16 @@ doi:10.1111/ecog.03424
 --
 
 .pull-right[
-![](assets/ecography_gnu_fig4.jpg)
+
+<img src="assets/ecography_gnu_fig4.jpg" height=430px>
 ]
 
 ---
-#### [_Macroecological and macroevolutionary patterns emerge in the universe of GNU/Linux operating systems_](https://doi.org/10.1111/ecog.03424)
+> #### [**_Macroecological and macroevolutionary patterns emerge in the universe of GNU/Linux operating systems_**](https://doi.org/10.1111/ecog.03424)
+> doi:10.1111/ecog.03424
 
-.pull-left[
-doi:10.1111/ecog.03424
-
-![](assets/ecography_gnu.png)
-]
-
-
-.pull-right[
-![](assets/ecography_gnu_fig5.jpg)
+.center[
+<img src="assets/ecography_gnu_fig5.jpg" height=470px>
 ]
 
 ---
@@ -358,8 +356,8 @@ class: middle, center, inverse
 
 # Space for:
 
-- ## taking time out to work on a fresh challenge
-- ## learning from and getting more done by banding together
+- ## **taking time out to work on a fresh challenge**
+- ## **learning from and getting more done by banding together**
 
 
 ---
@@ -377,16 +375,13 @@ class: inverse, middle, center
 
 
 ---
-
 # [rOpenSci Unconf 18](http://unconf18.ropensci.org/)
 #### May 21 - 22, 2018. Seattle
 
 ![](assets/seattle.svg)
-
-
-
 ---    
 
+---
 # rOpenSci Unconf mission
 
 
@@ -397,7 +392,6 @@ class: inverse, middle, center
 #### Ideas for projects submitted through GitHub [**issues**](https://github.com/ropensci/unconf18/issues) in the [**runconf18** repo](https://github.com/ropensci/unconf18)
 
 ---
-
 ## issue [#72](https://github.com/ropensci/unconf18/issues/72) `r emo::ji("raising_hand_woman")`
 
 
@@ -436,11 +430,12 @@ Luckily, a **whole bunch of other awesome folks** were also thinking about these
 --
 
 ### Features
-- Metadata **collected in `csv` files**
-
---
 
 - Metadata fields are **based on [schema.org](http://schema.org/Dataset)**
+
+--
+- Metadata **collected in `csv` files**
+
 
 --
 
@@ -474,11 +469,18 @@ Luckily, a **whole bunch of other awesome folks** were also thinking about these
 ]
 ---
 background-image: url("assets/Hacktoberfest-19-bgr.png")
+class: inverse, center
+
+### **[hacktoberfest.digitalocean.com](https://hacktoberfest.digitalocean.com/)**
 
 
 ---
 background-image: url("https://media2.giphy.com/media/eCwAEs05phtK/giphy.gif?cid=790b7611273eba8f4372b56af02d1757756e030aa0d55970&rid=giphy.gif")
-### slides: **bit.ly/r-in-repro-research**
+class: inverse, center, middle
+
+# Happy Hacking
+
+## slides: [**bit.ly/bes_hack19**](http://bit.ly/bes_hack19)
 
 
 ---
@@ -489,6 +491,6 @@ background-image: url("https://media2.giphy.com/media/eCwAEs05phtK/giphy.gif?cid
 
 - backround-slide: Image by <a href="https://pixabay.com/users/TheDigitalArtist-202249/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3357642">Pete Linforth</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3357642">Pixabay</a>
 
-- slide background no. : Jill Cirasella. Graphics: Les Larue. License: Creative Commons: Attribution, Non-Commercial
 - slide background no. 12-18:  Mozilla and Working Open <https://www.youtube.com/watch?v=quKdaqlR_9w>
 - slide background no. 20:  The best stats you've ever seen | Hans Rosling <https://youtu.be/hVimVzgtD6w?t=15m3s>
+- slide background no. 29: Jill Cirasella. Graphics: Les Larue. License: Creative Commons: Attribution, Non-Commercial
