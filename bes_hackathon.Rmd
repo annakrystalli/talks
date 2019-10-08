@@ -45,7 +45,6 @@ duo_accent(
 
 - **Co-organiser: [Sheffield R Users group](https://www.meetup.com/SheffieldR-Sheffield-R-Users-Group/)**
 
-- **2019 [Software Sustainability Institute Fellow](https://software.ac.uk/)**
 
 <br>
 
