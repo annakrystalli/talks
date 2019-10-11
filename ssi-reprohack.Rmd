@@ -1,7 +1,7 @@
 ---
 title: "ReproHack"
 subtitle: "<img src='https://github.com/reprohack/reprohack-hq/raw/master/hex/reprohack.png' height=200px><br/>one-day reproducibility hackathons"
-author: "<br><br>Anna Krystalli"
+author: "<br><br>Anna Krystalli `r anicon::faa('twitter', animate='float', rtext='@annakrystalli')`"
 date: "SSI Fellowship 2020 Call 2019-10-11"
 output:
   xaringan::moon_reader:
@@ -15,7 +15,6 @@ output:
       countIncrementalSlides: false
       slideNumberFormat: ""
 ---
-
 
 # `r emo::ji("wave")` Hello
 
@@ -32,7 +31,7 @@ output:
 
 <br>
 
-### slides: **bit.ly/r-in-repro-research**
+### slides: **bit.ly/ssi_reprohack**
 
 ---
 
@@ -227,13 +226,6 @@ class: inverse, bottom, left
 ]
 
 ---
-class: inverse, left, bottom
-
-
-# .font_title[Some lessons]
-
-***
----
 
 # Reproducing papers is fun!! 
 
@@ -262,7 +254,9 @@ class: inverse, left, bottom
 class: inverse, left, bottom
 
 
-# .font_title[Future Development]
+# .font_title[
+Since the fellowship
+]
 
 ***
 ---
@@ -366,6 +360,8 @@ Postdoc at the National Agricultural Technology Institute of Argentina
 ---
 # Reproducible Reprohacks
 
+## Developing custom website
+
 .pull-left[
 
 #### Current setup
@@ -396,9 +392,6 @@ Postdoc at the National Agricultural Technology Institute of Argentina
 ]
 
 
-
-
-
 ---
 # Lessons
 
@@ -416,11 +409,8 @@ Postdoc at the National Agricultural Technology Institute of Argentina
 - Use the opportunity to collaborate
 - Have fun!
 
-
-
 ---
-
-et involved!
+# Get involved!
 
 
 ### [reprohack-hq](https://github.com/reprohack/reprohack-hq) repository
