@@ -17,6 +17,8 @@ repo for talks
 
 - 2019/10/08 British Ecological Society Quantitative Ecology Special Interest Group Hackathon: [_"Adventures in Open Code & Data: Why I love Hackathons!❤️"_](https://annakrystalli.me/talks/bes_hackathon.html#1)
 
+- 2019/10/11 SSI Fellowship 2020 Launch Call: [_"ReproHacks, One-day hands-on Reproducibility hackathons"_](https://annakrystalli.me/talks/ssi-reprohack.html#1)
+
 <br>
 
 ***
