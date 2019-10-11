@@ -234,9 +234,18 @@ class: inverse, bottom, left
 ]
 
 ---
+class: inverse, left, bottom
 
 
-# Reproducing papers is fun!! 
+# .font_title[
+Since the fellowship
+]
+
+***
+
+---
+
+# Manchester Carpentry Connect 2019 
 
 .pull-left[
 
@@ -250,15 +259,6 @@ class: inverse, bottom, left
 
 ]
 
----
-class: inverse, left, bottom
-
-
-# .font_title[
-Since the fellowship
-]
-
-***
 ---
 # A growing team!
 .row[
@@ -347,15 +347,6 @@ Postdoc at the National Agricultural Technology Institute of Argentina
 - What else?
 
 ]
-
-
----
-
-# Many ways to ReproHack
-
-<img src="https://github.com/reprohack/reprohack-hq/blob/master/assets/workflow.png?raw=true" width=700px />
-
-
 
 ---
 # Reproducible Reprohacks
