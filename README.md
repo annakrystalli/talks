@@ -19,6 +19,8 @@ repo for talks
 
 - 2019/10/11 SSI Fellowship 2020 Launch Call: [_"ReproHacks, One-day hands-on Reproducibility hackathons"_](https://annakrystalli.me/talks/ssi-reprohack.html#1)
 
+- 2019/11/11 Imperial College Seminar: [_"Putting the R into Reproducible Research: Director's Cut"_](http://annakrystalli.me/talks/r-in-repro-research-dc.html)
+
 <br>
 
 ***
