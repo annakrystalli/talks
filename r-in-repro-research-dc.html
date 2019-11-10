@@ -1,0 +1,2009 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Putting the  into Reproducible Research</title>
+    <meta charset="utf-8" />
+    <meta name="author" content=" Dr Anna Krystalli    University of Sheffield RSE" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <link href="libs/font-awesome-5.3.1/css/all.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome-5.3.1/css/v4-shims.min.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+    <link href="libs/vis-4.20.1/vis.css" rel="stylesheet" />
+    <script src="libs/vis-4.20.1/vis.min.js"></script>
+    <script src="libs/visNetwork-binding-2.0.6/visNetwork.js"></script>
+    <link rel="stylesheet" href="assets/css/footer.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/metropolis-ak_dc.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: middle, left, title-slide
+
+# Putting the <img src='assets/logos/R_logo.svg' height=45px> into Reproducible Research
+## Directors Cut
+### <br/><strong>Dr Anna Krystalli </strong> <br/> University of Sheffield RSE
+### <br> 2019/11/11 - <small> Imperial College, London </small>
+
+---
+
+layout: true
+
+&lt;div class="my-footer"&gt;&lt;span&gt;Imperial College, London - Seminar    
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+                    @annakrystalli &lt;a href="https://twitter.com/annakrystalli"&gt;<i class="fab fa-twitter"></i> &lt;/a&gt;
+                    @annakrystalli &lt;a href="https://github.com/annakrystalli"&gt;<i class="fab fa-github-alt"></i> &lt;/a&gt;
+                    &lt;/span&gt;&lt;/div&gt;
+
+
+
+
+
+---
+# 👋 Hello
+
+### me: **Dr Anna Krystalli**
+
+- **Research Software Engineer**, _University of Sheffield_
+    + twitter **@annakrystalli**
+    + github **@annakrystalli**
+    + email **a.krystalli[at]sheffield.ac.uk**
+    
+- **Editor [rOpenSci](http://onboarding.ropensci.org/)**
+
+- **Co-organiser:** [Sheffield R Users group](https://www.meetup.com/SheffieldR-Sheffield-R-Users-Group/)
+
+&lt;br&gt;
+
+### slides: **bit.ly/r-in-repro-research-dc**
+
+---
+class: inverse, center, middle
+
+# Motivation
+
+
+---
+
+
+# Calls for reproducibility
+
+&gt; ### **Reproducibility** has the potential to serve as a **minimum standard for judging scientific claims** when full independent replication of a study is not possible.
+
+ &lt;br&gt;
+
+
+.center[
+&lt;img src="assets/repro-spectrum.jpg" width="650px" /&gt;
+]
+.img-attr[Reproducible Research in Computational Science
+_ROGER D. PENG, SCIENCE 02 DEC 2011 : 1226-1227_
+]
+&lt;br&gt;
+
+
+---
+# Is code and data enough?
+
+.center[
+![](assets/reproducible-data-analysis-02.png)
+]
+
+.img-attr[slide: [_Karthik Ram: rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)]
+
+---
+
+# Calls for open science
+
+&lt;img src="assets/pgls.png" width="350px" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4957270/"/&gt;
+
+&gt; ... highlight problems with users jumping straight into software implementations of methods (e.g. in r) that may lack documentation on biases and assumptions that are mentioned in the original papers.
+
+&gt; &lt;small&gt; To help solve these problems, we make a number of suggestions including **providing blog posts** or **videos** to **explain new methods in less technical terms**, **encouraging reproducibility and code sharing**, making **wiki-style pages** summarising the literature on popular methods, more careful consideration and testing of whether a method is appropriate for a given question/data set, **increased collaboration**, and a shift from publishing purely novel methods to **publishing improvements to existing methods** and ways of detecting biases or testing model fit. Many of these points are applicable across methods in ecology and evolution, not just phylogenetic comparative methods.&lt;/small&gt;
+
+---
+
+# R for Open Reproducible Research
+
+## A whistle-stop tour of tools, practices and conventions in R for more:
+--
+
+- ### **Reproducible**
+--
+
+- ### **Robust**
+--
+
+- ### **Transparent**
+--
+
+- ### **Reusable**
+--
+
+- ### **Shareable** research materials
+
+
+
+---
+class: inverse, center, middle
+
+# Project management
+
+&lt;img src="assets/project.svg" height=200px&gt;
+
+.img-attr.bottom[Icon by [Freepik](https://www.freepik.com/) from [flaticon.com](www.flaticon.com)]
+
+---
+
+# Rstudio Projects
+
+## Use Rstudio projects to keep materials associated with a particular analysis together
+
+&lt;br&gt;
+ 
+.pull-left[
+- **Self contained** and **portable**
+- **Working directory set to root** of project on launch
+- **Fresh session** everytime the project is launched
+
+See Jenny Bryan's post on [**project oriented workflows**](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/) for more details
+]
+
+.pull-right.center[
+
+**File &gt; New Project &gt; New Directory**
+
+&lt;img src="assets/new_project.png" height=200px&gt;
+]
+
+---
+background-image: url('assets/my_awesome_project.png')
+background-size: contain
+
+
+
+---
+# 📦 `here`
+
+## Use 📦 `here` to create robust relative paths
+
+&lt;br&gt;
+
+.pull-left[
+
+- **Robust paths relative to project root**
+  + portable
+  + independent of:
+     - working directory
+     -  source code location
+
+]
+
+.pull-right.center[
+&lt;img src="assets/you-are-here.svg" height=150px&gt;
+
+
+]
+
+
+```r
+here::here()
+```
+
+```
+## [1] "/Users/Anna/Documents/workflows/talks"
+```
+
+
+
+```r
+here::here("data", "summaries.csv")
+```
+
+```
+## [1] "/Users/Anna/Documents/workflows/talks/data/summaries.csv"
+```
+
+.img-attr.right[Icon by [Freepik](https://www.freepik.com/) from [flaticon.com](www.flaticon.com)]
+
+
+---
+
+# Dependency management
+
+### Minimal approach
+
+##### include an `install.R` script
+
+
+```r
+install.packages("dplyr")
+install.packages("purrr")
+```
+
+
+.pull-left[
+
+### Most robust approach
+
+##### use 📦 `packrat` 
+
+- Create and manage a per project library of packages
+- intialise during project set up
+]
+
+.pull-right[
+&lt;img src="assets/packrat_init.png" height=200px&gt;
+]
+
+_will revisit later on_
+
+---
+# 📦 `drake`
+
+## Use 📦 `drake` to orchestrate your workflows
+
+&lt;br&gt;
+
+.pull-left[
+&lt;img src="assets/drake_workflow.svg" height=150px&gt;
+]
+
+.pull-right.center[
+&lt;img src="assets/drake_badge.svg" height=150px&gt;
+]
+
+#### make plan
+
+
+```r
+plan &lt;- drake::drake_plan(
+  raw_data = readr::read_csv(here::here("data", "iris.csv")),
+  data = raw_data %&gt;%
+    dplyr::mutate(Species = forcats::fct_inorder(Species)),
+  fit = lm(Sepal.Width ~ Petal.Width + Species, data))
+```
+
+---
+# Plan
+
+#### view plan
+
+
+```r
+plan
+```
+
+```
+## # A tibble: 3 x 2
+##   target   command                                                         
+##   &lt;chr&gt;    &lt;expr_lst&gt;                                                      
+## 1 raw_data readr::read_csv(here::here("data", "iris.csv"))                …
+## 2 data     raw_data %&gt;% dplyr::mutate(Species = forcats::fct_inorder(Speci…
+## 3 fit      lm(Sepal.Width ~ Petal.Width + Species, data)                  …
+```
+
+#### re-execute plan
+
+
+```r
+drake::make(plan)
+```
+
+```
+## All targets are already up to date.
+```
+
+---
+
+#### inspect targets
+
+
+```r
+drake::readd(fit)
+```
+
+```
+## 
+## Call:
+## lm(formula = Sepal.Width ~ Petal.Width + Species, data = data)
+## 
+## Coefficients:
+##       (Intercept)        Petal.Width  Speciesversicolor  
+##             3.236              0.781             -1.501  
+##  Speciesvirginica  
+##            -1.844
+```
+
+---
+# visualise workflow
+
+.centre[
+
+
+```r
+drake::vis_drake_graph(drake::drake_config(plan))
+```
+
+<div id="htmlwidget-9d44f472999dc9ffb993" style="width:864px;height:360px;" class="visNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9d44f472999dc9ffb993">{"x":{"nodes":{"id":["n-NBSXEZJ2HJUGK4TF","n-OJSWCZDSHI5HEZLBMRPWG43W","n-MZXXEY3BORZTUOTGMN2F62LON5ZGIZLS","n-MRYGY6LSHI5G25LUMF2GK","raw_data","data","fit"],"imported":[true,true,true,true,false,false,false],"label":["here::here","readr::read_csv","forcats::fct_inorder","dplyr::mutate","raw_data\n0.07s","data\n0.013s","fit\n0.011s"],"status":["imported","imported","imported","imported","up to date","up to date","up to date"],"type":["function","function","function","function","object","object","object"],"font.size":[20,20,20,20,20,20,20],"color":["#1874CD","#1874CD","#1874CD","#1874CD","#228B22","#228B22","#228B22"],"shape":["triangle","triangle","triangle","triangle","dot","dot","dot"],"level":[1,1,1,1,2,3,4],"x":[-1,-1,-1,-1,-0.333333333333333,0.333333333333333,1],"y":[-1,-0.333333333333333,0.333333333333333,1,-2.22044604925031e-16,-2.22044604925031e-16,-2.22044604925031e-16]},"edges":{"from":["n-NBSXEZJ2HJUGK4TF","n-OJSWCZDSHI5HEZLBMRPWG43W","raw_data","n-MZXXEY3BORZTUOTGMN2F62LON5ZGIZLS","n-MRYGY6LSHI5G25LUMF2GK","data"],"to":["raw_data","raw_data","data","data","data","fit"],"arrows":["to","to","to","to","to","to"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"LR"}},"interaction":{"navigationButtons":true}},"groups":null,"width":null,"height":null,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)"},"main":{"text":"Dependency graph","style":"font-family:Georgia, Times New Roman, Times, serif;font-weight:bold;font-size:20px;text-align:center;"},"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":false,"hoverNearest":false,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"legend":{"width":0.2,"useGroups":false,"position":"left","ncol":1,"stepX":100,"stepY":100,"zoom":true,"nodes":{"label":["Up to date","Imported","Object","Function"],"color":["#228B22","#1874CD","#888888","#888888"],"shape":["dot","dot","dot","triangle"],"font.color":["black","black","black","black"],"font.size":[20,20,20,20],"id":[1,5,7,8]},"nodesToDataframe":true},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);"},"evals":[],"jsHooks":[]}</script>
+]
+
+---
+
+class: inverse, center, middle
+
+# Version Control
+
+
+---
+
+# Version Control
+
+### What is it? 🤔
+
+The **management of changes** to documents, computer programs, large web sites, and other collections of information.
+
+### Git &lt;img src="https://git-scm.com/images/logos/downloads/Git-Logo-2Color.png" height="25px" &gt;
+
+Open source (free to use) **Version control software.**
+
+### GitHub &lt;img src="https://raw.githubusercontent.com/annakrystalli/rrresearch/master/docs/assets/github_logo.jpg" height="25px"&gt;
+
+A **website** (https://github.com/) that allows you to **store your Git repositories online** and makes it easy to collaborate with others.
+
+---
+# Why use them in research? 
+
+.pull-left[
+### Exhibit A
+
+
+&lt;img src="http://smutch.github.io/VersionControlTutorial/_images/vc-xkcd.jpg" width="400px"&gt;
+.img-attr[Image: xkcd CC BY-NC 2.5 ]
+]
+
+.pull-right[
+### Exhibit B
+
+ &lt;img src="http://www.phdcomics.com/comics/archive/phd101212s.gif" height="400px"&gt;
+ 
+.img-attr[ Image: Jorge Cham www.phdcomics.com]
+
+]
+---
+
+# Git, Github &amp; Rstudio
+
+#### Before: git only through the terminal 😢
+
+--
+
+***
+
+## Now: Rstudio + `usethis` 📦 == ❤️ `Git` &amp; `GitHub` 🤩
+
+.center[
+![](https://media.giphy.com/media/GA2FNpP1kAQNi/giphy.gif)
+]
+
+
+---
+# Configure git &amp; GitHub
+
+### Configure git
+
+**Check your configuration**
+
+
+```r
+usethis::use_git_config()
+```
+
+
+**Set your configuration**
+
+Use your github username and and the email you used to sign-up on GitHub
+
+
+```r
+usethis::use_git_config(
+    user.name = "Jane",
+    user.email = "jane@example.org")
+```
+
+---
+# Configure GitHub authentication
+
+### Get GITHUB Personal Authorisation Token
+
+
+```r
+usethis::browse_github_pat()
+```
+
+
+&lt;img src="assets/browse_github.png" height="300px"&gt;
+
+---
+
+### Store in `.Renviron` file
+
+
+```r
+usethis::edit_r_environ()
+```
+
+&lt;img src="assets/GITHUB_PAT.png" height="400px"&gt;
+
+
+---
+# Initialise git
+
+
+### Initialise **Rstudio project** with Git by **just checking a box!**
+
+It's now **a repository**
+
+&lt;img src="assets/project_git.png" height="200px"&gt;
+
+
+Forgot to? use `usethis::use_git()`
+
+
+---
+# Git panel
+
+## Integrated graphical user interface
+
+&lt;br&gt;
+
+.center[
+&lt;img src="assets/git_tab.png" height="300px"&gt;
+]
+
+---
+# Git Rstudio workflow
+
+.pull-left[
+#### view file status
+&lt;img src="assets/git_view.png" height="150px"&gt;
+
+#### stage files
+&lt;img src="assets/git_add.png" height="150px"&gt;
+]
+
+.pull-right[
+#### commit changes
+&lt;img src="assets/git_commit.png" width="600px"&gt;
+]
+---
+
+# Share on GitHub
+
+#### Create repo
+
+
+
+```r
+usethis::use_github(protocol = "https")
+```
+
+&lt;img src="assets/my_awesome_repo.png" width="500px"&gt;
+
+#### Push further changes
+
+&lt;img src="assets/push_github.png" height="50px"&gt;
+
+
+---
+
+# Anatomy of a GitHub Repo
+
+- **`README`**. Explain what your project is, and how to use it. 
+  + `usethis::use_readme_md()`
+  + `usethis::use_readme_rmd()`
+
+- **`LICENSE`**. Without a licence, the contents of the repository are technically closed. 
+  + Examples licence [MIT](https://tldrlegal.com/license/mit-license): `usethis::use_mit_license(name = "Anna Krystalli")`
+  + `?licenses`: details of functions available to generate licenses
+  + [https://choosealicense.com/](https://choosealicense.com/) help on choosing a licence.
+
+    
+- **`CONTRIBUTING.md`** - guidelines for contributors.
+  + `usethis::use_tidy_contributing()` provides a realtively strict but instructive template
+
+- **`CODE_OF_CONDUCT.md`** set the tone for discourse between contributors. 
+  + `use_code_of_conduct()`
+
+---
+# GitHub issues
+
+### use GitHub issues to plan, record and discuss tasks.
+
+.pull-left[
+#### issues
+&lt;img src="assets/github_issues.png" width="600px"&gt;
+
+]
+
+.pull-right[
+#### projects
+&lt;img src="assets/github_projects.png" width="600px"&gt;
+]
+
+
+---
+
+class: inverse, center, middle
+
+# Literate programming with Rmarkdown
+
+
+
+---
+
+# Literate programming
+
+
+Programming paradigm first introduced by **Donald E. Knuth**. 
+
+&gt; ### Treat program as literature to be understandable to human beings
+
+&gt; &lt;br&gt;
+
+&gt; - focus on the logic and flow of human thought and understanding
+&gt; - single document to integrate data analysis (executable code) with textual documentation, **linking data, code, and text**
+
+
+
+
+
+---
+
+# Literate programming in R
+
+### Rmarkdown (`.Rmd`) integrates:
+
+- a **documentantion** language (`.md`)
+
+- a **programming** language (`R`)
+
+- functionality to **"knit" them together** through 📦 `knitr`
+
+&lt;br&gt;
+
+### features
+
+- ✅ provides a framework for writing narratives around code and data
+
+- ✅ Code re-run in a clean environment every time the document is "knit"
+
+---
+background-image: url('assets/1728_TURI_Book sprint_25 pandoc_rmd_040619.jpg')
+background-size: contain
+
+# Rmarkdown outputs
+
+
+.img-attr[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence.]
+
+---
+# Rmarkdown to html
+
+#### **File &gt; New File &gt; RMarkdown... &gt; Document**
+
+.pull-left[
+![](assets/report_raw.png)
+]
+
+.pull-right.top[
+&lt;img src="assets/report_knit.png" width = 435px&gt;
+]
+
+
+---
+# Applications in research
+
+### Rmd documents can be useful for a number of research related [long form documentation](http://r-pkgs.had.co.nz/vignettes.html) materials:
+
+.pull-left[
+
+&lt;br&gt;
+
+- Documentation of code &amp; data (eg 📦 [DataMaid](https://github.com/ekstroem/dataMaid))
+- Electronic Notebooks
+- Supplementary materials
+- Reports
+- Papers
+]
+
+.pull-right[
+![](assets/document-all-the-things.jpg)
+]
+---
+# Rmd Vs Word
+
+#### Spell check in Rstudio! &lt;img src="assets/spell_check.png" height=40px&gt;
+
+## 📦 [redoc](https://github.com/noamross/redoc) &lt;small&gt;**HOT OFF THE PRESS**&lt;/small&gt;
+
+**Enables a two-way R Markdown-Microsoft Word workflow**. It generates Word documents that can be de-rendered back into R Markdown, **retaining edits on the Word document**, including tracked changes.
+
+![](assets/redoc.png)
+
+
+---
+
+# Publish to the web for free!
+
+- **RPubs**: Publish rendered rmarkdown documents on the web with the click of a button &lt;http://rpubs.com/&gt;
+
+
+- **GitHub**: Host your site through [`gh-pages`](https://pages.github.com/) on GitHub. Enable in GitHub repo ⚙️**Settings**
+
+.center[
+&lt;img src="assets/gh-pages.png" height=400px&gt;
+]
+
+
+---
+
+class: inverse, center, middle
+
+# Rmarkdown extensions
+
+Many great packages and applications build on rmarkdown.
+
+All this makes it [incredibly versatile](https://rmarkdown.rstudio.com/gallery.html).
+
+---
+
+# [bookdown](https://bookdown.org/yihui/bookdown/)
+
+#### Create and mantain online books
+
+Authoring with R Markdown. Offers:
+
+- cross-references, 
+- citations, 
+- HTML widgets and Shiny apps,
+- tables of content and section numbering
+
+The publication can be exported to HTML, PDF, and e-books (e.g. EPUB)
+
+### Examples
+
+
+
+- [rOpenSci Software Review policies](https://ropensci.github.io/dev_guide/)
+- [Geocomputation in R](https://geocompr.robinlovelace.net/)
+
+### [Thesisdown](https://github.com/ismayc/thesisdown)
+
+An updated R Markdown thesis template using the bookdown package
+
+
+
+---
+
+# [pkgdown](http://pkgdown.r-lib.org/articles/pkgdown.html)
+
+#### For buidling package documentation
+
+Produce **function references** from `.Rd` files and **demonstrate function use** through long form documentation (vignettes).
+
+
+![](assets/pkgreviewr.png)
+
+---
+
+# [workflowr](https://jdblischak.github.io/workflowr/) pkg
+
+#### Build analyses websites and organise your project
+
+Makes it easier for researchers to organize projects and share results. Includes **checks to ensure rendered versions correspond to up to date versions of code**.
+
+
+.pull-left[
+![](assets/workflowr-index.png)
+]
+.pull-right[
+![](assets/workflowr-article.png)
+]
+---
+
+# [blogdown](https://bookdown.org/yihui/blogdown/)
+
+## For creating and mantaining blogs through R.
+
+Check out &lt;https://awesome-blogdown.com/&gt;, **a curated list of awesome #rstats blogs in blogdown** for inspiration!
+
+[![](assets/maelle_blog.png)](https://masalmon.eu/)
+
+---
+# presentations
+
+## A number of existing frameworks
+
+### [xaringan](https://github.com/yihui/xaringan) 📦 Presentation Ninja 幻灯忍者 · 写轮眼
+
+.center[
+[&lt;img src='assets/xaringan.png' height=350px&gt;](https://slides.yihui.name/xaringan/#1)
+]
+
+---
+class: inverse, center, middle
+
+# Managing code
+
+---
+# Managing analysis code
+
+## Separate function definition and application
+
+
+
+.pull-left[
+&lt;br&gt;
+
+- When a project is new and shiny, an **analysis script usually contains many lines of directly executated code.** 
+
+- As it matures, **reusable chunks get pulled into their own functions**. 
+
+- The actual analysis scripts then become relatively short, and **functions defined in separate R scripts.** ]
+
+.pull-right[
+![](assets/script.svg)
+]
+
+---
+
+# R Package Structure
+
+## Used to share functionality with the R community
+
+- Useful **conventions**
+
+- Useful **software development tools**
+
+- Easy **publishing** through GitHub
+
+&lt;br&gt;
+
+.center[
+&lt;img src="assets/package_friends.png" height=250px&gt;
+]
+---
+# Build panel
+
+## Integrated graphical user interface
+
+&lt;br&gt;
+
+.center[
+&lt;img src="assets/build_panel.png" height="300px"&gt;
+]
+---
+
+
+# R Package conventions:
+
+- **metadata**: in the **`DESCRIPTION` file**
+
+- **functions** in **`.R` scripts** in the **`R/` folder**
+
+- **tests** in the **`tests/` folder**
+
+- **Documentation:**
+    - _functions_ using **Roxygen notation**
+    - _workflows_ using **`.Rmd` documents** in the **`vignettes/`** folder
+
+
+---
+
+# `DESCRIPTION` file
+
+#### Package metadata
+
+```
+Package: gaitr
+Type: Package
+Title: Functions to support BMC gait analysis
+Description: Helpers to analyse processed gait data.
+Version: 0.0.9000
+Authors@R: 
+    c(person(given = "Anna",
+             family = "Krystalli",
+             role = c("aut", "cre"),
+             email = "annakrystalli@googlemail.com"),
+      person(given = "Lorenza",
+             family = "Angelini",
+             role = "aut",
+             email = "l.angelini@sheffield.ac.uk"))
+License: MIT + file LICENSE
+
+```
+
+---
+
+# citation
+
+
+```r
+citation("gaitr")
+```
+
+```
+## 
+## To cite package 'gaitr' in publications use:
+## 
+##   Anna Krystalli and Lorenza Angelini (2019). gaitr: Functions to
+##   support BMC gait analysis. R package version 0.1.1.
+##   https://github.com/annakrystalli/gaitr
+## 
+## A BibTeX entry for LaTeX users is
+## 
+##   @Manual{,
+##     title = {gaitr: Functions to support BMC gait analysis},
+##     author = {Anna Krystalli and Lorenza Angelini},
+##     year = {2019},
+##     note = {R package version 0.1.1},
+##     url = {https://github.com/annakrystalli/gaitr},
+##   }
+```
+
+
+---
+# Dependency management
+
+
+It’s the job of the `DESCRIPTION` file to **list the packages that your code depends on**.
+
+```
+Imports: 
+    dplyr,
+    purrr,
+    here,
+    broom,
+    tibble,
+    magrittr,
+    janitor,
+    ggplot2
+Suggests: 
+    knitr,
+    rmarkdown
+```
+
+#### add dependency
+
+
+```r
+usethis::use_package("forcats", type = "Imports")
+```
+
+
+---
+# Functions in `R/`
+
+### example function script
+
+Create a new function `.R` file in the `R/` folder
+
+```r
+usethis::use_r("add")
+```
+
+```
+R
+└── add.R
+
+0 directories, 1 files
+```
+
+---
+# Document functions with `Roxygen`
+
+- Create help files on build (autogenerated `.Rd` files in `man/`)
+- Specify which functions are exported (autogenerated `NAMESPACE`)
+
+
+```r
+#' Add together two numbers.
+#' 
+#' @param x A number.
+#' @param y A number.
+#' @return The sum of x and y.
+#' @examples
+#' add(1, 1)
+#' add(10, 1)
+add &lt;- function(x, y) {
+  x + y
+}
+```
+
+
+---
+
+# [tests](http://r-pkgs.had.co.nz/tests.html)
+
+## Tests provide confidence in what the code is doing.
+
+.center[
+![](https://github.com/r-lib/testthat/raw/master/man/figures/logo.png)
+]
+
+
+
+---
+
+# Example test
+
+
+```r
+usethis::use_test("add")
+```
+
+Creates a `tests/` folder with the following files
+
+```
+tests
+├── testthat
+│   ├── test-add.R
+└── testthat.R
+```
+##### test-add.R
+
+
+```r
+context("test-add")
+
+test_that("add works", {
+  expect_equal(add(2, 2), 4)
+})
+```
+
+
+---
+# Continuous Integration w/ Travis
+
+## A cloud testing framework for automating your tests
+.pull-left[
+- Monitor the effect of changes to the code
+- Safe onboarding of contributions
+
+.center[&lt;img src="assets/travis.png" height=150px&gt;]
+]
+
+### Start with a `.travis.yml` file
+
+
+```r
+usethis::use_travis()
+```
+
+
+.pull-right.center[
+&lt;br&gt;
+&lt;br&gt;
+![](assets/1728_TURI_Book sprint_17 continuous integration_040619.jpg)
+
+.img-attr[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence.
+]
+]
+---
+# `.travis.yml`
+
+#### Resulting `.travis.yml` file template
+
+```
+language: R
+sudo: false
+cache: packages
+
+```
+#### instructions to enable TRAVIS CI
+
+```
+✔ Writing '.travis.yml'
+✔ Adding '^\\.travis\\.yml$' to '.Rbuildignore'
+● Turn on travis for your repo at https://travis-ci.org/profile/annakrystalli
+● Copy and paste the following lines into '/Users/Anna/Documents/workflows/talks/README.md':
+  &lt;!-- badges: start --&gt;
+  [![Travis build status](https://travis-ci.org/annakrystalli/talks.svg?branch=master)](https://travis-ci.org/annakrystalli/talks)
+  &lt;!-- badges: end --&gt;
+```
+
+---
+
+class: inverse, center, middle
+
+
+# Research compendia
+
+
+
+---
+# A Research compendium
+
+### The paper is the advertisement
+
+&gt; “an article about computational result is advertising, not scholarship. The **actual scholarship is the full software environment, code and data, that produced the result.**”
+
+*John Claerbout paraphrased in [Buckheit and Donoho (1995)](https://statweb.stanford.edu/~wavelab/Wavelab_850/wavelab.pdf)*
+
+
+### The concept of a Research Compendium
+
+&gt;“
+...We introduce the **concept of a compendium**
+as both a **container for the different elements**
+that make up the document and its computations (i.e. text, code, data, ...), and as a **means for distributing, managing and updating the
+collection**."
+
+[_Gentleman and Temple Lang, 2004_](https://biostats.bepress.com/bioconductor/paper2/)
+
+
+---
+# Research compendia in R
+
+.pull-left[
+![](assets/reproducible-data-analysis-11.png)
+]
+
+.pull-right[
+
+![](assets/reproducible-data-analysis-13.png)
+]
+
+.img-attr[slides: [_Karthik Ram: rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)]
+
+&lt;br&gt;
+
+**Ben Marwick, Carl Boettiger &amp; Lincoln Mullen (2018)** [_Packaging Data Analytical Work Reproducibly Using R (and Friends)_](https://peerj.com/preprints/3192/)
+
+---
+
+# Example compendium
+
+
+.pull-left[
+
+**Paper**:
+
+##### Boettiger, C. (2018) *From noise to knowledge: how randomness generates novel phenomena and reveals information*. &lt;https://doi.org/10.1111/ele.13085&gt;
+
+&lt;img src="assets/Boettiger-2018.png" heigth="250px" width="400px"&gt;
+
+]
+
+
+.pull-right[
+
+**Compendium**
+
+##### *cboettig/noise-phenomena: Supplement to: "From noise to knowledge: how randomness generates novel phenomena and reveals information"* http://doi.org/10.5281/zenodo.1219780
+
+&lt;img src="assets/boettiger_compendium.png" heigth="250px" width="400px"&gt;
+
+]
+
+
+
+---
+
+# `rrtools`: Creating Compendia in R
+
+### "The goal of rrtools is to provide **instructions, templates, and functions** for making a **basic compendium** suitable for writing **reproducible research with R**."
+
+
+&lt;br&gt;
+
+--
+
+### Install [`rrtools`](https://github.com/benmarwick/rrtools) from GitHub
+
+```r
+# install.packages("devtools")
+devtools::install_github("benmarwick/rrtools")
+```
+
+
+---
+# Create compendium
+
+
+
+```r
+rrtools::create_compendium("~/Documents/workflows/rrcompendium")
+```
+
+
+```
+✔ Setting active project to '/Users/Anna/Documents/workflows/rrcompendium'
+✔ Creating 'R/'
+✔ Creating 'man/'
+✔ Writing 'DESCRIPTION'
+✔ Writing 'NAMESPACE'
+✔ Writing 'rrcompendium.Rproj'
+✔ Adding '.Rproj.user' to '.gitignore'
+✔ Adding '^rrcompendium\\.Rproj$', '^\\.Rproj\\.user$' to '.Rbuildignore'
+✔ Opening new project 'rrcompendium' in RStudio
+✔ The package rrcompendium has been created
+✔ Opening the new compendium in a new RStudio session...
+
+Next, you need to:  ↓ ↓ ↓ 
+● Edit the DESCRIPTION file
+● Use other 'rrtools' functions to add components to the compendium
+```
+
+---
+
+# Prepare for GitHub
+
+
+
+```r
+rrtools::use_readme_rmd()
+```
+
+.pull-left[
+
+```
+
+✔ Creating 'README.Rmd' from template.
+✔ Adding 'README.Rmd' to `.Rbuildignore`.
+● Modify 'README.Rmd'
+✔ Rendering README.Rmd to README.md for GitHub.
+✔ Adding code of conduct.
+✔ Creating 'CONDUCT.md' from template.
+✔ Adding 'CONDUCT.md' to `.Rbuildignore`.
+✔ Adding instructions to contributors.
+✔ Creating 'CONTRIBUTING.md' from template.
+✔ Adding 'CONTRIBUTING.md' to `.Rbuildignore`.
+
+```
+]
+
+.pull-right[
+![](assets/README-webshot.png)
+
+]
+
+
+---
+# Create analysis folder
+
+
+```r
+rrtools::use_analysis()
+```
+
+
+```
+✔ Adding bookdown to Imports
+✔ Creating 'analysis' directory and contents
+✔ Creating 'analysis'
+✔ Creating 'analysis/paper'
+✔ Creating 'analysis/figures'
+✔ Creating 'analysis/templates'
+✔ Creating 'analysis/data'
+✔ Creating 'analysis/data/raw_data'
+✔ Creating 'analysis/data/derived_data'
+✔ Creating 'references.bib' from template.
+✔ Creating 'paper.Rmd' from template.
+
+Next, you need to:  ↓ ↓ ↓ ↓ 
+● Write your article/report/thesis, start at the paper.Rmd file
+● Add the citation style library file (csl) to replace the default provided here, see https://github.com/citation-style-language/
+● Add bibliographic details of cited items to the 'references.bib' file
+● For adding captions &amp; cross-referencing in an Rmd, see https://bookdown.org/yihui/bookdown/
+● For adding citations &amp; reference lists in an Rmd, see http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html
+```
+
+---
+# `paper.Rmd` to `paper.pdf`
+
+
+.pull-left[
+
+**Rmd**
+
+&lt;img src="assets/paper_rmd.png" &gt;
+
+]
+
+
+.pull-right[
+
+**pdf**
+
+&lt;img src="assets/paper_pdf.png" &gt;
+
+]
+
+
+---
+# Capturing dependencies
+
+
+```r
+rrtools::add_dependencies_to_description()
+```
+
+```
+Imports: 
+    bookdown,
+    ggplot2 (&gt;= 3.0.0),
+    ggthemes (&gt;= 3.5.0),
+    here (&gt;= 0.1),
+    knitr (&gt;= 1.20),
+    rticles (&gt;= 0.6)
+    
+```
+
+---
+# Further Helpers
+
+
+## 📦 `rticles`
+
+Contains a **suite of custom R Markdown templates for popular journals**, simplifying the creation of documents that conform to research paper submission standards. 
+
+---
+
+# 📦 `citr` 
+
+RStudio Add-in to **Insert Markdown Citations**
+
+&lt;img src="assets/citr-insert.png" width="700px"&gt;
+
+---
+class: inverse, center, middle
+
+# Reproducible Computational Environments
+
+---
+# Why isn't sharing code enough?
+
+
+### Case Study: Sharing a Geospatial Analysis in R
+
+***
+
+#### On a computer without System Library `GDAL` ❌
+
+.pull-left[
+
+
+```r
+package ‘rgdal’ successfully unpacked 
+and MD5 sums checked
+
+configure: gdal-config: gdal-config
+checking gdal-config usability... ./configure: 
+line 1353: gdal-config: command not found
+no
+*Error: gdal-config not found
+...
+*ERROR: configuration failed for 
+package ‘rgdal’
+
+```
+]
+
+.pull-right[
+&lt;br&gt;
+&lt;br&gt;
+![](assets/reproducible-data-analysis-02.png)
+.img-attr[slide: [_Karthik Ram: rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)]
+
+]
+
+---
+# What are Docker containers?
+
+
+## standardized units of software
+
+**package up everything needed to run an application:** _code, runtime, system tools, system libraries_ and settings in a lightweight, standalone, executable package 
+
+--
+
+- #### **Dockerfile**: Text file containing recipe for setting up computation environment.
+
+- #### **Docker Image**: Executable **built** from the **Dockerfile** with all required dependencies installed. Can have many images from the same `Dockerfile`.
+
+- #### **Docker Container**: **Docker Images** become containers at **runtime**
+
+.center[
+&lt;img src="assets/docker_workflow.png" height=230px&gt;
+]
+
+---
+
+# Rocker on DockerHub
+
+#### using the `rocker/geospatial` Docker Image ✅
+
+
+***
+
+.pull-left[
+
+
+![](assets/rocker_geospatial.png)
+]
+
+.pull-right[
+&lt;br&gt;
+&lt;br&gt;
+![](assets/reproducible-data-analysis_042.png)
+.img-attr[slide: [_Karthik Ram: rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)]
+
+
+]
+
+
+---
+# Create Dockerfile w/ `rrtools`
+
+
+```r
+rrtools::use_dockerfile()
+```
+
+```r
+✔ Creating 'Dockerfile' from template.
+✔ Adding 'Dockerfile' to `.Rbuildignore`.
+● Modify 
+Next: 
+ * Edit the dockerfile with your name &amp; email
+ * Edit the dockerfile to include system dependencies, such as linux libraries that are needed by the R packages you're using
+ * Check the last line of the dockerfile to specify which Rmd should be rendered in the Docker container, edit if necessary
+```
+
+---
+# `Dockerfile`
+
+
+```bash
+# get the base image, the rocker/verse has R, RStudio and pandoc
+FROM rocker/verse:3.6.0
+
+# required
+*MAINTAINER Anna Krystalli &lt;annakrystallil@googlemail.com&gt;
+
+COPY . /rrcompendiumDTB
+
+# go into the repo directory
+RUN . /etc/environment \
+  # Install linux depedendencies here
+  # e.g. need this for ggforce::geom_sina
+  &amp;&amp; sudo apt-get update \
+  &amp;&amp; sudo apt-get install libudunits2-dev -y \
+  # build this compendium package
+  &amp;&amp; R -e "devtools::install('/rrcompendiumDTB', dep=TRUE)" \
+  # render the manuscript into a docx, you'll need to edit this if you've
+  # customised the location and name of your main Rmd file
+* &amp;&amp; R -e "rmarkdown::render('/rrcompendiumDTB/analysis/paper/paper.Rmd')"
+```
+---
+
+# Docker + Travis
+
+## Create `.travis.yml`
+
+
+```r
+rrtools::use_travis()
+```
+
+```r
+✔ Creating '.travis.yml' from template.
+✔ Adding '.travis.yml' to `.Rbuildignore`.
+Next: 
+ * Add a travis shield to your README.Rmd:
+[![Travis-CI Build Status](https://travis-ci.org/annakrystalli/rrcompendiumDTB.svg?branch=master)](https://travis-ci.org/annakrystalli/rrcompendiumDTB)
+ * Turn on travis for your repo at https://travis-ci.org/annakrystalli/rrcompendiumDTB
+** To connect Docker, go to https://travis-ci.org/, and add your environment 
+*variables: DOCKER_EMAIL, DOCKER_USER, DOCKER_PASS to enable pushing to the 
+*Docker Hub
+```
+---
+# `.travis.yml`
+
+```bash
+env:
+  global:
+  - REPO=$DOCKER_USER/rrcompendiumdtb
+
+sudo: required
+
+warnings_are_errors: false
+
+language: generic
+
+services:
+  - docker
+
+before_install:
+* - docker build -t $REPO .
+```
+Create &amp; run container using dockerfile, i.e. compile pkg and render Rmd to Word doc
+
+---
+# `.travis.yml`
+
+
+Push our custom docker container to docker hub, env vars stored on travis-ci.org
+```bash
+
+after_success:
+* - docker login -u $DOCKER_USER -p $DOCKER_PASS
+  - export REPO=$DOCKER_USER/rrcompendiumdtb
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+  - docker build -f Dockerfile -t $REPO:$COMMIT .
+  - docker tag $REPO:$COMMIT $REPO:$TAG
+  - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
+* - docker push $REPO
+
+```
+
+
+### Travis repository settings
+
+![](assets/travis_docker_settings.png)
+---
+
+# Travis build passes!
+![](assets/travis_rrcompendiumDTB_pass.png)
+
+.centre[
+[![Travis-CI Build Status](https://travis-ci.com/annakrystalli/rrcompendiumDTB.svg?branch=master)](https://travis-ci.com/annakrystalli/rrcompendiumDTB)
+]
+
+---
+# Image on Dockerhub
+
+![](assets/rrcompendiumDTB_dockerhub.png)
+
+
+##### &lt;https://hub.docker.com/repository/docker/akrystalli/rrcompendiumdtb&gt;
+
+---
+# Working with the Docker Image
+
+#### Pull it from Dockerhub.
+
+```bash
+docker pull akrystalli/rrcompendiumdtb:latest
+```
+
+
+#### Run in Rstudio in your browser
+
+More on [using the RStudio image](https://github.com/rocker-org/rocker/wiki/Using-the-RStudio-image)
+
+
+```bash
+
+docker container run -e PASSWORD=&lt;password&gt; -e USERID=$UID -p 
+8787:8787 --detach --name rrcompendiumdtb
+akrystalli/rrcompendiumdtb:latest
+
+```
+
+
+---
+class: inverse, center, middle
+
+# Binder
+
+---
+background-image: url('assets/binder.png')
+background-size: contain
+
+# What is binder? https://mybinder.org/
+
+---
+background-image: url('assets/1728_TURI_Book sprint_45 repo2docker_040619_v2_MK.jpg')
+background-size: contain
+
+
+# Binderhub Ecosystem
+
+
+.img-attr[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence.]
+
+---
+background-image: url('assets/holepunch_readme.png')
+background-size: contain
+
+# Binder for R
+
+---
+background-image: url('assets/reproducible-data-analysis_033.png')
+background-size: contain
+
+
+# R repository options for Binder
+
+.img-attr[slide: [_Karthik Ram: rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)]
+
+---
+
+# Binderise your R projects w/ `holepunch`
+
+### &lt;https://github.com/karthik/holepunch&gt;
+
+
+```r
+remotes::install_github("karthik/holepunch")
+```
+
+#### Create `.binder/Dockerfile`
+
+
+```r
+holepunch::write_dockerfile(maintainer = "Anna Krystalli") 
+```
+
+```r
+→ Setting R version to 3.6.0
+→ Locking packages down at 2019-11-09
+✔ Dockerfile generated at ./.binder/Dockerfile
+```
+---
+# `.binder/Dockerfile`
+
+```bash
+*FROM rocker/binder:3.6.0
+LABEL maintainer='Anna Krystalli'
+USER root
+COPY . ${HOME}
+RUN chown -R ${NB_USER} ${HOME}
+USER ${NB_USER}
+
+
+
+RUN wget https://github.com/annakrystalli/rrcompendiumDTB/raw/master/DESCRIPTION &amp;&amp; R -e "options(repos = list(CRAN = 'http://mran.revolutionanalytics.com/snapshot/2019-11-09/'));
+*devtools::install_deps(); devtools::install(); tinytex::install_tinytex()"
+
+RUN rm DESCRIPTION.1; exit 0
+```
+---
+# Add binder `README` badge
+
+
+```r
+holepunch::generate_badge()
+```
+
+
+```r
+● Copy and paste the following lines into '/Users/Anna/Documents/workflows/compendia/rrcompendium-full/README.Rmd':
+  &lt;!-- badges: start --&gt;
+  [![Launch Rstudio Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/annakrystalli/rrcompendiumDTB/master?urlpath=rstudio)
+  &lt;!-- badges: end --&gt;
+  [Copied to clipboard]
+```
+
+.center[
+[![Launch Rstudio Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/annakrystalli/rrcompendiumDTB/master?urlpath=rstudio)
+&lt;img src="assets/rrcompendiumDTB_badges.png" height=250px&gt;
+]
+
+---
+background-image: url('assets/binder_rrcompendium.png')
+background-size: contain
+
+# Launched Binderised Compendium
+
+--
+.center[
+&lt;img src="assets/binder_pdf.png" width=50%&gt;
+]
+
+---
+class: inverse, center, middle
+#  Reproducibility in Practice
+
+---
+# ReproHacks
+
+## one day reproducibility hackathons
+
+***
+
+### **Mission:  Reproduce papers from code and data**
+
+- Record experiences and feedback to authors
+
+- Available soon: Publish Reproducibility Report in ReScience C
+
+.pull-left[
+![](assets/rh-on_the_day.png)
+]
+.pull-right[
+&lt;img src="assets/SSIHex.png" height=200px&gt;
+]
+---
+class: inverse, middle, center
+
+# ReproHack Benefits
+
+***
+
+---
+# Participants
+
+.pull-left[
+1. #### Practical reproducibility they can implement in their own work
+]
+
+.pull-right[
+![](assets/owl1.jpeg)
+]
+
+---
+
+# Participants
+
+.pull-left[
+1. #### Practical reproducibility they can implement in their own work
+]
+
+.pull-right[
+![](assets/owl2.jpg)
+]
+
+---
+
+# Participants
+
+.pull-left[
+1. Practical reproducibility they can implement in their own work
+
+2. #### Inspiration from working with other people’s code and data.
+]
+
+.pull-right[
+![](https://media3.giphy.com/media/xT9DPIBYf0pAviBLzO/giphy.gif?cid=790b76115d3eb6465766537863e176fc&amp;rid=giphy.gif)
+]
+
+---
+# Participants
+
+.pull-left[
+1. Practical reproducibility they can implement in their own work
+
+2. Inspiration from working with other people’s code and data.
+
+3. #### Reproduction as community value
+]
+
+.pull-right[
+![](assets/reprohack-logo dark.png)
+]
+
+
+---
+# Authors
+
+
+.pull-left[
+1. #### Useful feedback on the reproducibility of their work
+
+]
+
+.pull-right[
+![](assets/rh-feedback.png)
+]
+
+---
+# Authors
+
+
+.pull-left[
+1. Useful feedback on the reproducibility of their work
+
+2. #### Appreciation for their efforts in making their work reproducible
+]
+
+.pull-right[
+![](https://media0.giphy.com/media/d8lUKXD00IXSw/giphy.gif?cid=790b76115d3edf09684f487359963965&amp;rid=giphy.gif)
+]
+
+---
+
+# Authors
+
+
+.pull-left[
+1. Useful feedback on the reproducibility of their work
+
+2. #### Appreciation for their efforts in making their work reproducible
+]
+
+.pull-right[
+![](https://media1.giphy.com/media/3o6ZtlnVulRCN8QAb6/giphy.gif?cid=790b76115d3ede1d5053575977cb6f1c&amp;rid=giphy.gif)
+]
+
+---
+# Authors
+
+
+.pull-left[
+1. Useful feedback on the reproducibility of their work
+
+2. Appreciation for their efforts in making their work reproducible
+
+3. #### An opportunity to engage others with their research.
+]
+
+.pull-right[
+![](assets/science-cat.jpg)
+]
+
+---
+
+# Reproducing papers is fun!! 
+
+.pull-left[
+![](assets/rh-success.png)
+]
+
+.pull-right[
+
+&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="en" dir="ltr"&gt;Huge thanks to &lt;a href="https://twitter.com/EnviroKaty?ref_src=twsrc%5Etfw"&gt;@EnviroKaty&lt;/a&gt; for submitting a fab 🦋 🦋🦋 paper to the &lt;a href="https://twitter.com/hashtag/CCMcr19?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#CCMcr19&lt;/a&gt; &lt;a href="https://twitter.com/hashtag/ReproHack?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#ReproHack&lt;/a&gt;! I had loads of fun reproducing the analysis for this really cool paper &lt;a href="https://t.co/v1ww2D5xhg"&gt;https://t.co/v1ww2D5xhg&lt;/a&gt; &lt;a href="https://t.co/r8rYMAMvPm"&gt;pic.twitter.com/r8rYMAMvPm&lt;/a&gt;&lt;/p&gt;&amp;mdash; Jessica Ward (@JKRWard) &lt;a href="https://twitter.com/JKRWard/status/1144254546841165827?ref_src=twsrc%5Etfw"&gt;June 27, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+]
+
+
+---
+
+# Upcoming ReproHacks!
+
+.pull-left[
+
+&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="en" dir="ltr"&gt;This thing is really happening! &lt;a href="https://t.co/d2xnHNo9z2"&gt;pic.twitter.com/d2xnHNo9z2&lt;/a&gt;&lt;/p&gt;&amp;mdash; ReproHack NL ♻️ (@ReproHackNL) &lt;a href="https://twitter.com/ReproHackNL/status/1174998682879631360?ref_src=twsrc%5Etfw"&gt;September 20, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+]
+
+.pull-right[
+![](assets/reprohack-webad_N8-01.png)
+]
+
+---
+class: inverse, center, middle
+# Take home
+
+---
+background-image: url('assets/1728_TURI_Book sprint_38 computer readable_040619.jpg')
+background-size: contain
+
+# Following conventions ➡️
+
+.img-attr[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence.
+]
+
+---
+background-image: url('assets/reproducible-data-analysis_042.png')
+background-size: contain
+
+# Successful Reproducibility ➡️
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+.img-attr[slide: [_Karthik Ram: rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)]
+
+---
+background-image: url('assets/1728_TURI_Book sprint_36 data research cycle_040619.jpg')
+background-size: contain
+
+
+#  Enhanced Research Cycle 🔄
+
+.img-attr[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence.
+]
+
+
+---
+background-image: url('assets/1728_TURI_Book sprint_26 culture shift_040619.jpg')
+background-size: contain
+
+# Reproducibility as standard 👍
+
+.img-attr[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence.
+]
+
+---
+class: inverse, center, middle
+# Resources
+
+---
+# The Turing Way
+
+.pull-left[
+
+### Book
+#### a lightly opinionated guide to reproducible data science
+&lt;https://the-turing-way.netlify.com&gt; 
+  
+&lt;img src="assets/1728_TURI_Book sprint_12 chapter_040619.jpg"
+height="150px"&gt;
+]
+
+.pull-right[
+
+### workshops
+
+- **Boost Your Research Reproducibility with Binder** [materials](https://github.com/alan-turing-institute/the-turing-way/tree/master/workshops/boost-research-reproducibility-binder)
+
+- **Build a binderhub** [materials](https://github.com/alan-turing-institute/the-turing-way/tree/master/workshops/build-a-binderhub)
+
+]
+
+### &lt;https://github.com/alan-turing-institute/the-turing-way&gt;
+
+---
+# Reproducibility in R
+
+.pull-left[
+
+#### Version Control
+- [Happy Git and GitHub for the useR](https://happygitwithr.com/)
+
+#### RMarkdown
+
+- [R Markdown: The Definitive guide](https://bookdown.org/yihui/rmarkdown/)
+- [RMarkdown Driven Development (RmdDD)](https://emilyriederer.netlify.com/post/rmarkdown-driven-development/): Blog post by Emily Riederer
+
+#### R Packages
+
+- [R packages](https://r-pkgs.org/) by Hadley Wickham and Jenny Bryan
+
+]
+
+.pull-right[
+#### Research Compendia
+
+- Karthik Ram: [_rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)
+
+#### Tutorials
+
+- [Rstudio Essentials](https://resources.rstudio.com/) Webinar series
+
+- [rrresearch](https://annakrystalli.me/rrresearch/): ACCE DTP course on Research Data &amp; Project Management
+]
+
+---
+
+# ReproHacks
+
+
+### [reprohack-hq](https://github.com/reprohack/reprohack-hq) repository
+
+#### Check out our [issues](https://github.com/reprohack/reprohack-hq/issues)
+
+
+#### Chat to us:
+
+[![Gitter](https://badges.gitter.im/reprohack/community.svg)](https://gitter.im/reprohack/community?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge)
+
+#### Sign up to our Newsletter
+
+ &lt;form style="border:1px solid #ccc;padding:3px;text-align:center;" action="https://tinyletter.com/reprohack-hq" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/reprohack-hq', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"&gt;&lt;p&gt;&lt;label for="tlemail"&gt;Enter your email address&lt;/label&gt;&lt;/p&gt;&lt;p&gt;&lt;input type="text" style="width:140px" name="email" id="tlemail" /&gt;&lt;/p&gt;&lt;input type="hidden" value="1" name="embed"/&gt;&lt;input type="submit" value="Subscribe" /&gt;&lt;p&gt;&lt;a href="https://tinyletter.com" target="_blank"&gt;powered by TinyLetter&lt;/a&gt;&lt;/p&gt;&lt;/form&gt;
+         
+
+
+
+---
+class: inverse, center, middle
+# Questions?
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
