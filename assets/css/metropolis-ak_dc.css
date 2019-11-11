@@ -5,6 +5,8 @@ h1, h2, h3 {
 a, a > code {
   color: #42f4bf;
   background-color: #23373B;
+  border-radius: 5x;
+  padding: 5px;
 }
 .remark-code-line-highlighted { background-color: rgba(66, 244, 191, 0.3); }
 
