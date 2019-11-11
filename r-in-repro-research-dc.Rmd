@@ -205,7 +205,7 @@ install.packages("purrr")
 
 ### Most robust approach
 
-##### use `r emo::ji("package")` `packrat` 
+##### use `r emo::ji("package")` `renv` (previously `packrat`) 
 
 - Create and manage a per project library of packages
 - intialise during project set up
@@ -343,7 +343,7 @@ A **website** (https://github.com/) that allows you to **store your Git reposito
 **Check your configuration**
 
 ```{r, eval=FALSE}
-usethis::use_git_config()
+usethis::git_sitrep()
 ```
 
 
@@ -890,8 +890,6 @@ test_that("add works", {
 - Monitor the effect of changes to the code
 - Safe onboarding of contributions
 
-.center[<img src="assets/travis.png" height=150px>]
-]
 
 ### Start with a `.travis.yml` file
 
@@ -899,14 +897,13 @@ test_that("add works", {
 usethis::use_travis()
 ```
 
+]
 
 .pull-right.center[
 <br>
 <br>
-![](assets/1728_TURI_Book sprint_17 continuous integration_040619.jpg)
+.center[<img src="assets/travis.png" height=300px>]
 
-.img-attr[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence.
-]
 ]
 ---
 # `.travis.yml`
@@ -1793,6 +1790,11 @@ height="150px">
 #### Research Compendia
 
 - Karthik Ram: [_rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)
+
+#### Docker & Binder
+
+- Getting started with binder [docs](https://mybinder.readthedocs.io/en/latest/introduction.html)
+- rOpenSci [Docker tutorial](https://ropenscilabs.github.io/r-docker-tutorial/)
 
 #### Tutorials
 

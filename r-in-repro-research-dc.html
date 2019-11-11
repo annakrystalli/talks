@@ -227,7 +227,7 @@ install.packages("purrr")
 
 ### Most robust approach
 
-##### use 📦 `packrat` 
+##### use 📦 `renv` (previously `packrat`) 
 
 - Create and manage a per project library of packages
 - intialise during project set up
@@ -326,8 +326,8 @@ drake::readd(fit)
 drake::vis_drake_graph(drake::drake_config(plan))
 ```
 
-<div id="htmlwidget-9d44f472999dc9ffb993" style="width:864px;height:360px;" class="visNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9d44f472999dc9ffb993">{"x":{"nodes":{"id":["n-NBSXEZJ2HJUGK4TF","n-OJSWCZDSHI5HEZLBMRPWG43W","n-MZXXEY3BORZTUOTGMN2F62LON5ZGIZLS","n-MRYGY6LSHI5G25LUMF2GK","raw_data","data","fit"],"imported":[true,true,true,true,false,false,false],"label":["here::here","readr::read_csv","forcats::fct_inorder","dplyr::mutate","raw_data\n0.07s","data\n0.013s","fit\n0.011s"],"status":["imported","imported","imported","imported","up to date","up to date","up to date"],"type":["function","function","function","function","object","object","object"],"font.size":[20,20,20,20,20,20,20],"color":["#1874CD","#1874CD","#1874CD","#1874CD","#228B22","#228B22","#228B22"],"shape":["triangle","triangle","triangle","triangle","dot","dot","dot"],"level":[1,1,1,1,2,3,4],"x":[-1,-1,-1,-1,-0.333333333333333,0.333333333333333,1],"y":[-1,-0.333333333333333,0.333333333333333,1,-2.22044604925031e-16,-2.22044604925031e-16,-2.22044604925031e-16]},"edges":{"from":["n-NBSXEZJ2HJUGK4TF","n-OJSWCZDSHI5HEZLBMRPWG43W","raw_data","n-MZXXEY3BORZTUOTGMN2F62LON5ZGIZLS","n-MRYGY6LSHI5G25LUMF2GK","data"],"to":["raw_data","raw_data","data","data","data","fit"],"arrows":["to","to","to","to","to","to"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"LR"}},"interaction":{"navigationButtons":true}},"groups":null,"width":null,"height":null,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)"},"main":{"text":"Dependency graph","style":"font-family:Georgia, Times New Roman, Times, serif;font-weight:bold;font-size:20px;text-align:center;"},"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":false,"hoverNearest":false,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"legend":{"width":0.2,"useGroups":false,"position":"left","ncol":1,"stepX":100,"stepY":100,"zoom":true,"nodes":{"label":["Up to date","Imported","Object","Function"],"color":["#228B22","#1874CD","#888888","#888888"],"shape":["dot","dot","dot","triangle"],"font.color":["black","black","black","black"],"font.size":[20,20,20,20],"id":[1,5,7,8]},"nodesToDataframe":true},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f5f5825017a4b8b76b73" style="width:864px;height:360px;" class="visNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f5f5825017a4b8b76b73">{"x":{"nodes":{"id":["n-NBSXEZJ2HJUGK4TF","n-OJSWCZDSHI5HEZLBMRPWG43W","n-MZXXEY3BORZTUOTGMN2F62LON5ZGIZLS","n-MRYGY6LSHI5G25LUMF2GK","raw_data","data","fit"],"imported":[true,true,true,true,false,false,false],"label":["here::here","readr::read_csv","forcats::fct_inorder","dplyr::mutate","raw_data\n0.07s","data\n0.013s","fit\n0.011s"],"status":["imported","imported","imported","imported","up to date","up to date","up to date"],"type":["function","function","function","function","object","object","object"],"font.size":[20,20,20,20,20,20,20],"color":["#1874CD","#1874CD","#1874CD","#1874CD","#228B22","#228B22","#228B22"],"shape":["triangle","triangle","triangle","triangle","dot","dot","dot"],"level":[1,1,1,1,2,3,4],"x":[-1,-1,-1,-1,-0.333333333333333,0.333333333333333,1],"y":[-1,-0.333333333333333,0.333333333333333,1,-2.22044604925031e-16,-2.22044604925031e-16,-2.22044604925031e-16]},"edges":{"from":["n-NBSXEZJ2HJUGK4TF","n-OJSWCZDSHI5HEZLBMRPWG43W","raw_data","n-MZXXEY3BORZTUOTGMN2F62LON5ZGIZLS","n-MRYGY6LSHI5G25LUMF2GK","data"],"to":["raw_data","raw_data","data","data","data","fit"],"arrows":["to","to","to","to","to","to"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"LR"}},"interaction":{"navigationButtons":true}},"groups":null,"width":null,"height":null,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)"},"main":{"text":"Dependency graph","style":"font-family:Georgia, Times New Roman, Times, serif;font-weight:bold;font-size:20px;text-align:center;"},"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":false,"hoverNearest":false,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"legend":{"width":0.2,"useGroups":false,"position":"left","ncol":1,"stepX":100,"stepY":100,"zoom":true,"nodes":{"label":["Up to date","Imported","Object","Function"],"color":["#228B22","#1874CD","#888888","#888888"],"shape":["dot","dot","dot","triangle"],"font.color":["black","black","black","black"],"font.size":[20,20,20,20],"id":[1,5,7,8]},"nodesToDataframe":true},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);"},"evals":[],"jsHooks":[]}</script>
 ]
 
 ---
@@ -398,7 +398,7 @@ A **website** (https://github.com/) that allows you to **store your Git reposito
 
 
 ```r
-usethis::use_git_config()
+usethis::git_sitrep()
 ```
 
 
@@ -973,8 +973,6 @@ test_that("add works", {
 - Monitor the effect of changes to the code
 - Safe onboarding of contributions
 
-.center[&lt;img src="assets/travis.png" height=150px&gt;]
-]
 
 ### Start with a `.travis.yml` file
 
@@ -983,14 +981,13 @@ test_that("add works", {
 usethis::use_travis()
 ```
 
+]
 
 .pull-right.center[
 &lt;br&gt;
 &lt;br&gt;
-![](assets/1728_TURI_Book sprint_17 continuous integration_040619.jpg)
+.center[&lt;img src="assets/travis.png" height=300px&gt;]
 
-.img-attr[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence.
-]
 ]
 ---
 # `.travis.yml`
@@ -1460,7 +1457,7 @@ after_success:
 # Travis build passes!
 ![](assets/travis_rrcompendiumDTB_pass.png)
 
-.centre[
+.center[
 [![Travis-CI Build Status](https://travis-ci.com/annakrystalli/rrcompendiumDTB.svg?branch=master)](https://travis-ci.com/annakrystalli/rrcompendiumDTB)
 ]
 
@@ -1469,9 +1466,13 @@ after_success:
 
 ![](assets/rrcompendiumDTB_dockerhub.png)
 
+.center[
 
-##### &lt;https://hub.docker.com/repository/docker/akrystalli/rrcompendiumdtb&gt;
+##### Docker Image: &lt;https://hub.docker.com/repository/docker/akrystalli/rrcompendiumdtb&gt;
 
+##### Compendium Repository: &lt;https://github.com/annakrystalli/rrcompendiumDTB&gt;
+
+]
 ---
 # Working with the Docker Image
 
@@ -1592,7 +1593,8 @@ holepunch::generate_badge()
 
 .center[
 [![Launch Rstudio Binder](http://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/annakrystalli/rrcompendiumDTB/master?urlpath=rstudio)
-&lt;img src="assets/rrcompendiumDTB_badges.png" height=250px&gt;
+
+&lt;img src="assets/rrcompendiumDTB_badges.png" height=270px&gt;
 ]
 
 ---
@@ -1883,6 +1885,11 @@ height="150px"&gt;
 #### Research Compendia
 
 - Karthik Ram: [_rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)
+
+#### Docker &amp; Binder
+
+- Getting started with binder [docs](https://mybinder.readthedocs.io/en/latest/introduction.html)
+- rOpenSci [Docker tutorial](https://ropenscilabs.github.io/r-docker-tutorial/)
 
 #### Tutorials
 
