@@ -4,9 +4,8 @@
     <title>rrtools:</title>
     <meta charset="utf-8">
     <meta name="author" content="Anna Krystalli - @ Sheffield R Users Group" />
-    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/little_ak.css" type="text/css" />
-    <link rel="stylesheet" href="assets/css/little_ak-fonts.css" type="text/css" />
+    <link href="rrtools_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="rrtools_files/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
   </head>
   <body>
     <textarea id="source">
@@ -154,13 +153,13 @@ rrtools::use_compendium("../../dummy/rrtoolsdemo")
 ```
 
 
-![](rrtools_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+&lt;img src="rrtools_files/figure-html/unnamed-chunk-4-1.png" width="762" /&gt;
 
 ---
 
 ### Resulting compendium
 
-![](rrtools_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+&lt;img src="rrtools_files/figure-html/unnamed-chunk-5-1.png" width="1450" /&gt;
 
 ---
 
@@ -214,10 +213,11 @@ usethis::use_r("data-processing")
 ```
 
 ```
-## ● Edit 'data-processing.R'
+## ✔ Setting active project to '/Users/Anna/Documents/workflows/talks'
+## ● Edit R/data-processing.R
 ```
 
-![](rrtools_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
+&lt;img src="rrtools_files/figure-html/unnamed-chunk-10-1.png" width="300" /&gt;
 
 
 ---
@@ -226,7 +226,7 @@ usethis::use_r("data-processing")
 
 This allows documentation to be generated automatically on build
 
-![](rrtools_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+&lt;img src="rrtools_files/figure-html/unnamed-chunk-11-1.png" width="300" /&gt;
 
 ---
 
@@ -267,9 +267,9 @@ rrtools::use_github()
 ```
 
 
-![](rrtools_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+&lt;img src="rrtools_files/figure-html/unnamed-chunk-14-1.png" width="150" /&gt;
 
-![](rrtools_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
+&lt;img src="rrtools_files/figure-html/unnamed-chunk-15-1.png" width="200" /&gt;
 
 ---
 
@@ -278,13 +278,6 @@ You'll need a Personal Authorisation Token (PAT).
 
 ```r
 usethis::browse_github_pat()
-```
-
-```
-## ● Open url https://github.com/settings/tokens/new?scopes=repo,gist&amp;description=R:GITHUB_PAT
-## ● Call `edit_r_environ()` to open '.Renviron', and store your PAT with a line like:
-## GITHUB_PAT=xxxyyyzzz
-## ● Make sure '.Renviron' ends with a newline!
 ```
 
 will open up the GitHub panel to generate your PAT. 
@@ -301,7 +294,7 @@ usethis::edit_r_environ()
 Use `edit_r_environ()` to open and edit your `.Renviron` file
 
 
-![](rrtools_files/figure-html/unnamed-chunk-18-1.png)&lt;!-- --&gt;
+&lt;img src="rrtools_files/figure-html/unnamed-chunk-18-1.png" width="880" /&gt;
 
 
 ---
@@ -325,7 +318,7 @@ Also creates:
 - `CONDUCT.md`: Code of conduct associated with the project
 
 ---
-![](rrtools_files/figure-html/unnamed-chunk-20-1.png)&lt;!-- --&gt;
+&lt;img src="rrtools_files/figure-html/unnamed-chunk-20-1.png" width="200" /&gt;
 
 
 ---
@@ -338,10 +331,10 @@ usethis::use_mit_license("Anna Krystalli")
 ```
 
 
-![](rrtools_files/figure-html/unnamed-chunk-22-1.png)&lt;!-- --&gt;
+&lt;img src="rrtools_files/figure-html/unnamed-chunk-22-1.png" width="100" /&gt;
 
 
-![](rrtools_files/figure-html/unnamed-chunk-23-1.png)&lt;!-- --&gt;
+&lt;img src="rrtools_files/figure-html/unnamed-chunk-23-1.png" width="200" /&gt;
 
 ---
 
@@ -359,7 +352,7 @@ If you add functions in `R/`, include tests to ensure they function as intended
 usethis::use_testthat()
 ```
 
-![](rrtools_files/figure-html/unnamed-chunk-25-1.png)&lt;!-- --&gt;
+&lt;img src="rrtools_files/figure-html/unnamed-chunk-25-1.png" width="200" /&gt;
 
 
 
@@ -372,7 +365,7 @@ Create tests.R in `tests/testhat/` and check &lt;http://r-pkgs.had.co.nz/tests.h
 use_test("data-processing")
 ```
 
-![](rrtools_files/figure-html/unnamed-chunk-27-1.png)&lt;!-- --&gt;
+&lt;img src="rrtools_files/figure-html/unnamed-chunk-27-1.png" width="200" /&gt;
 
 ---
 
@@ -430,14 +423,10 @@ More on this from Dan.
 
 ### Rstudio for building and testing your code
 
-![](rrtools_files/figure-html/unnamed-chunk-30-1.png)&lt;!-- --&gt;
+&lt;img src="rrtools_files/figure-html/unnamed-chunk-30-1.png" width="200" /&gt;
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-<script>var slideshow = remark.create({
-"highlightStyle": "github",
-"highlightLines": true,
-"countIncrementalSlides": false
-});
+<script>var slideshow = remark.create();
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
 });

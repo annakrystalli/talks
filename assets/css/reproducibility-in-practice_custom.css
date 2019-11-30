@@ -1,0 +1,11 @@
+.box h1, .box h2, .box h3, .box h4 {
+    color: white;
+    background-color: rgba(0,0,0, 0.85);
+    border-radius: 8px;
+    padding: 8px;
+    margin: 2px 8px 2px 0;
+}
+
+.title-slide h1, .title-slide h2 {
+    color: white;
+}
