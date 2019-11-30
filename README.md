@@ -21,6 +21,8 @@ repo for talks
 
 - 2019/11/11 Imperial College Seminar: [_"Putting the R into Reproducible Research: Director's Cut"_](http://annakrystalli.me/talks/r-in-repro-research-dc.html)
 
+- 2019/11/30 Leiden ReproHack: [_"Reproducbility: the value in the practice"_](http://annakrystalli.me/talks/reproducibility-value-in-practice.html)
+
 <br>
 
 ***
