@@ -73,7 +73,7 @@ duo_accent(
 
 ## Welcome to the 4th ReproHack! `r emo::ji("tada")`
 
-### Thanks to the Software Sustainability Institute `r emo::ji("pray")`
+### Thanks to the Software Sustainability Institute
 
 
 ![](https://softwaresaved.github.io/software-deposit-guidance/images/ssi.png)
@@ -136,12 +136,10 @@ class: inverse, center, middle
 # Back to science: 
 
 ---
-### **Ooops, that's embarassing!**
 
 .pull-left[
 
-<br>
-<br>
+### Ooops, that's embarassing!
 <br>
 
 ![](assets/reproducibility-graphic-online1.jpeg)
@@ -201,7 +199,6 @@ background-size: cover
 
 ---
 background-image: url("assets/repository-fork.png")
-class: inverse
 
 --
 .pull-left[
@@ -228,7 +225,6 @@ class: inverse
 ]
 
 ---
-class: inverse
 
 > #### [**_Macroecological and macroevolutionary patterns emerge in the universe of GNU/Linux operating systems_**](https://doi.org/10.1111/ecog.03424)
 > doi:10.1111/ecog.03424
@@ -247,9 +243,8 @@ class: inverse
 ]
 
 ---
-class: inverse
 
-> #### [**_Macroecological and macroevolutionary patterns emerge in the universe of GNU/Linux operating systems_**](https://doi.org/10.1111/ecog.03424)
+> #### [_Macroecological and macroevolutionary patterns emerge in the universe of GNU/Linux operating systems_](https://doi.org/10.1111/ecog.03424)
 > doi:10.1111/ecog.03424
 
 .center[
@@ -258,13 +253,12 @@ class: inverse
 ---
 background-image: url("assets/hanslibdata.png")
 background-size: cover
-class: inverse
 
 ## Example: **gapminder.org: 2006** 
 
-.box[
+
 ### [liberating stories from data](https://youtu.be/hVimVzgtD6w?t=15m3s)
-]
+
 
 ---
 ## Gapminder today
@@ -291,7 +285,7 @@ class: inverse, center, middle
 ---
 class: inverse, center, middle
 
-# The Reproducible Research Compendium
+# Reproducible Research Compendia
 ---
 
 ### The concept of a Research Compendium
