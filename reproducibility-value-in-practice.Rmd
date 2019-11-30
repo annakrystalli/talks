@@ -53,6 +53,7 @@ duo_accent(
 ### slides: **bit.ly/repro-value-in-practice**
 
 ---
+
 ## Welcome to the 4th ReproHack! `r emo::ji("tada")`
 
 
@@ -415,7 +416,8 @@ Next, you need to:  ↓ ↓ ↓
 ```
 
 ---
-# `DESCRIPTION` file
+
+## `DESCRIPTION` file
 
 #### Package metadata
 
@@ -752,7 +754,7 @@ class: middle, inverse, center
 ---
 class: inverse, center, middle
 
-## Review as an auditor
+# Review as an auditor
 
 ---
 
@@ -763,33 +765,38 @@ class: inverse, center, middle
 ## Installation
 
 - How easy / automated was installation?
-- Were all steps sufficiently described?
-- Was anything missing?
+- Did you have any problems?
 
-## General completeness
 
-- Was a LICENSE included?
-- Was there a DOI / copyable citation details?
+## Data
+- Data were clearly separated from code and other items?
+- Large data files were deposited in a trustworthy data repository and referred to using a persistent identifier?
+- Data are documented ...somehow...
+
 
 ---
 
 ## Documentation
 
-- Was there adequate documentation describing how to use the materials to reproduce the paper?
+Was there adequate documentation describing:
+- the purpose and target audience of the compendium?
+- how to cite the compendium in a form that can be copy and pasted?
+- how to install necessary software including non-standard dependencies?
+- how to use materials to reproduce the paper?
 
+## Analysis
 
- ## Analysis
- - were all dependencies clearly specified (including System Dependencies)?
- - How automated was the reproduction
- - How fully waas the computational environment describes
- - how easy was it to link analysis code to:
+ - Were all dependencies clearly specified?
+ - Was a full computational environment captured?
+ - How automated was the reproduction?
+ - How easy was it to link analysis code to:
    - the plots it generates
    - sections in the manuscript in which it is described
- - 
  
 
 ---
 class: inverse, center, middle
+
 ## Review as a user
 
 
@@ -798,27 +805,31 @@ class: inverse, center, middle
 ![](assets/user-testing-game.jpg)
 ]
 
+--
+
 .pull-right[
 
 ## User Testing
 
 #### What did you find easy / intuitive?
 
---
+
 
 #### What did you find confusing / difficult
 
---
+
 
 #### What did you enjoy?
 
 ]
----
 
+
+---
+class: inverse, center, middle
 
 ## Feedback as a community member
 
---
+---
 
 
 ### Acknowledge author effort
@@ -832,58 +843,6 @@ class: inverse, center, middle
 
 ### Focus on community benefits
 - and system level solutions
-
----
-
-## ReproHack outputs: [ReScience C](http://rescience.github.io/)
-
-.pull-left[
-
-### Replication Report
-
-
-- Repeat a published protocol
-- Respect its spirit and intentions
-- Varying the technical details, e.g. using different software, initial conditions, etc.
-
-`r emo::ji("point_right")` **Change something that everyone believes shouldn’t matter, and see if the scientific conclusions are affected**
-
-]
-
-.pull-right[
-
-![](assets/rescience_article.png)
-]
-
-
----
-
-## ReproHack outputs: [ReScience C](http://rescience.github.io/)
-
-.pull-left[
-
-### Replication Report
-
-
-- Repeat a published protocol
-- Respect its spirit and intentions
-- Varying the technical details, e.g. using different software, initial conditions, etc.
-
-`r emo::ji("point_right")` **Change something that everyone believes shouldn’t matter, and see if the scientific conclusions are affected**
-
-]
-
-.pull-right[
-
-###  _Coming soon:_ Reproducibility Report
-
-- Accessibility of materials,
-- Installation and dependency management,
-- Documentation clarity,
-- Ease of reuse,
-- What else?
-
-]
 
 ---
 class: inverse, center, middle
@@ -1043,22 +1002,19 @@ height="150px">
 
 
 ---
+## Reviewing resources
+
+### Inspiration from paper reviews:
+
+> #### _How to Read a Research Compendium_ [arXiv:1806.09525v1](https://arxiv.org/pdf/1806.09525.pdf)  [cs.GL]
+
+### Inspiration from package reviews:
+
+> #### [rOpenSci Packages: Development, Maintenance, and Peer Review](https://devguide.ropensci.org/)
 
 
----
-# Reviewing resources
-
-## Inspiration from paper reviews:
-
-> ### _How to Read a Research Compendium_ [arXiv:1806.09525v1](https://arxiv.org/pdf/1806.09525.pdf)  [cs.GL]
-
-## Inspiration from package reviews:
-
-> ### [rOpenSci Packages: Development, Maintenance, and Peer Review](https://devguide.ropensci.org/)
-
-
-### [DataONE Reproducible Research Compendia Onboarding](https://github.com/benmarwick/onboarding-reproducible-compendia)
-- [`reviewer_template.md`](https://github.com/benmarwick/onboarding-reproducible-compendia/blob/master/reviewer_template.md)
+> ### [DataONE Reproducible Research Compendia Onboarding](https://github.com/benmarwick/onboarding-reproducible-compendia)
+> - [`reviewer_template.md`](https://github.com/benmarwick/onboarding-reproducible-compendia/blob/master/reviewer_template.md)
 
 
 ---
@@ -1077,6 +1033,60 @@ height="150px">
 #### Sign up to our Newsletter
 
  <form style="border:1px solid #ccc;padding:3px;text-align:center;" action="https://tinyletter.com/reprohack-hq" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/reprohack-hq', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"><p><label for="tlemail">Enter your email address</label></p><p><input type="text" style="width:140px" name="email" id="tlemail" /></p><input type="hidden" value="1" name="embed"/><input type="submit" value="Subscribe" /><p><a href="https://tinyletter.com" target="_blank">powered by TinyLetter</a></p></form>
+ 
+
+---
+
+## ReproHack outputs: [ReScience C](http://rescience.github.io/)
+
+.pull-left[
+
+### Replication Report
+
+
+- Repeat a published protocol
+- Respect its spirit and intentions
+- Varying the technical details, e.g. using different software, initial conditions, etc.
+
+`r emo::ji("point_right")` **Change something that everyone believes shouldn’t matter, and see if the scientific conclusions are affected**
+
+]
+
+.pull-right[
+
+![](assets/rescience_article.png)
+]
+
+
+---
+
+## ReproHack outputs: [ReScience C](http://rescience.github.io/)
+
+.pull-left[
+
+### Replication Report
+
+
+- Repeat a published protocol
+- Respect its spirit and intentions
+- Varying the technical details, e.g. using different software, initial conditions, etc.
+
+`r emo::ji("point_right")` **Change something that everyone believes shouldn’t matter, and see if the scientific conclusions are affected**
+
+]
+
+.pull-right[
+
+###  _Coming soon:_ Reproducibility Report
+
+- Accessibility of materials,
+- Installation and dependency management,
+- Documentation clarity,
+- Ease of reuse,
+- What else?
+
+]
+ 
          
 ---
 class: inverse, center, middle
