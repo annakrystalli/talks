@@ -2,7 +2,7 @@
 title: "Putting the <img src='assets/logos/R_logo.svg' height=45px> into Reproducible Research"
 subtitle: "Directors Cut"
 author: " <br/><strong>Dr Anna Krystalli </strong> <br/> University of Sheffield RSE"
-date: "<br> 2019/11/11 - <small> Imperial College, London </small>"
+date: "<br><br>  2019/11/11 - 2019/12/05 <br> <small> Imperial College, London - Leeds R Users </small>"
 output:
   xaringan::moon_reader:
     css: [default, metropolis, assets/css/footer.css, metropolis-fonts, assets/css/metropolis-ak_dc.css]
@@ -1336,13 +1336,13 @@ services:
 before_install:
 * - docker build -t $REPO .
 ```
-Create & run container using dockerfile, i.e. compile pkg and render Rmd to Word doc
+Create & build image using dockerfile, i.e. compile pkg and render Rmd to Word doc
 
 ---
 # `.travis.yml`
 
 
-Push our custom docker container to docker hub, env vars stored on travis-ci.org
+Push our custom docker image to docker hub, env vars stored on travis-ci.org
 ```bash
 
 after_success:

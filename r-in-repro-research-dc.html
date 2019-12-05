@@ -9,7 +9,7 @@
     <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
     <link href="libs/font-awesome-5.3.1/css/all.min.css" rel="stylesheet" />
     <link href="libs/font-awesome-5.3.1/css/v4-shims.min.css" rel="stylesheet" />
-    <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+    <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
     <link href="libs/vis-4.20.1/vis.css" rel="stylesheet" />
     <script src="libs/vis-4.20.1/vis.min.js"></script>
     <script src="libs/visNetwork-binding-2.0.6/visNetwork.js"></script>
@@ -23,7 +23,7 @@ class: middle, left, title-slide
 # Putting the <img src='assets/logos/R_logo.svg' height=45px> into Reproducible Research
 ## Directors Cut
 ### <br/><strong>Dr Anna Krystalli </strong> <br/> University of Sheffield RSE
-### <br> 2019/11/11 - <small> Imperial College, London </small>
+### <br><br> 2019/11/11 - 2019/12/05 <br> <small> Imperial College, London - Leeds R Users </small>
 
 ---
 
@@ -277,11 +277,11 @@ plan
 
 ```
 ## # A tibble: 3 x 2
-##   target   command                                                         
-##   &lt;chr&gt;    &lt;expr_lst&gt;                                                      
-## 1 raw_data readr::read_csv(here::here("data", "iris.csv"))                …
-## 2 data     raw_data %&gt;% dplyr::mutate(Species = forcats::fct_inorder(Speci…
-## 3 fit      lm(Sepal.Width ~ Petal.Width + Species, data)                  …
+##   target   command                                                            
+##   &lt;chr&gt;    &lt;expr_lst&gt;                                                         
+## 1 raw_data readr::read_csv(here::here("data", "iris.csv"))                    
+## 2 data     raw_data %&gt;% dplyr::mutate(Species = forcats::fct_inorder(Species))
+## 3 fit      lm(Sepal.Width ~ Petal.Width + Species, data)
 ```
 
 #### re-execute plan
@@ -310,10 +310,8 @@ drake::readd(fit)
 ## lm(formula = Sepal.Width ~ Petal.Width + Species, data = data)
 ## 
 ## Coefficients:
-##       (Intercept)        Petal.Width  Speciesversicolor  
-##             3.236              0.781             -1.501  
-##  Speciesvirginica  
-##            -1.844
+##       (Intercept)        Petal.Width  Speciesversicolor   Speciesvirginica  
+##             3.236              0.781             -1.501             -1.844
 ```
 
 ---
@@ -326,8 +324,8 @@ drake::readd(fit)
 drake::vis_drake_graph(drake::drake_config(plan))
 ```
 
-<div id="htmlwidget-f5f5825017a4b8b76b73" style="width:864px;height:360px;" class="visNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f5f5825017a4b8b76b73">{"x":{"nodes":{"id":["n-NBSXEZJ2HJUGK4TF","n-OJSWCZDSHI5HEZLBMRPWG43W","n-MZXXEY3BORZTUOTGMN2F62LON5ZGIZLS","n-MRYGY6LSHI5G25LUMF2GK","raw_data","data","fit"],"imported":[true,true,true,true,false,false,false],"label":["here::here","readr::read_csv","forcats::fct_inorder","dplyr::mutate","raw_data\n0.07s","data\n0.013s","fit\n0.011s"],"status":["imported","imported","imported","imported","up to date","up to date","up to date"],"type":["function","function","function","function","object","object","object"],"font.size":[20,20,20,20,20,20,20],"color":["#1874CD","#1874CD","#1874CD","#1874CD","#228B22","#228B22","#228B22"],"shape":["triangle","triangle","triangle","triangle","dot","dot","dot"],"level":[1,1,1,1,2,3,4],"x":[-1,-1,-1,-1,-0.333333333333333,0.333333333333333,1],"y":[-1,-0.333333333333333,0.333333333333333,1,-2.22044604925031e-16,-2.22044604925031e-16,-2.22044604925031e-16]},"edges":{"from":["n-NBSXEZJ2HJUGK4TF","n-OJSWCZDSHI5HEZLBMRPWG43W","raw_data","n-MZXXEY3BORZTUOTGMN2F62LON5ZGIZLS","n-MRYGY6LSHI5G25LUMF2GK","data"],"to":["raw_data","raw_data","data","data","data","fit"],"arrows":["to","to","to","to","to","to"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"LR"}},"interaction":{"navigationButtons":true}},"groups":null,"width":null,"height":null,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)"},"main":{"text":"Dependency graph","style":"font-family:Georgia, Times New Roman, Times, serif;font-weight:bold;font-size:20px;text-align:center;"},"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":false,"hoverNearest":false,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"legend":{"width":0.2,"useGroups":false,"position":"left","ncol":1,"stepX":100,"stepY":100,"zoom":true,"nodes":{"label":["Up to date","Imported","Object","Function"],"color":["#228B22","#1874CD","#888888","#888888"],"shape":["dot","dot","dot","triangle"],"font.color":["black","black","black","black"],"font.size":[20,20,20,20],"id":[1,5,7,8]},"nodesToDataframe":true},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-8a163b898e8a1fd3d5a1" style="width:864px;height:360px;" class="visNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8a163b898e8a1fd3d5a1">{"x":{"nodes":{"id":["n-NBSXEZJ2HJUGK4TF","n-OJSWCZDSHI5HEZLBMRPWG43W","n-MZXXEY3BORZTUOTGMN2F62LON5ZGIZLS","n-MRYGY6LSHI5G25LUMF2GK","raw_data","data","fit"],"imported":[true,true,true,true,false,false,false],"label":["here::here","readr::read_csv","forcats::fct_inorder","dplyr::mutate","raw_data\n0.07s","data\n0.013s","fit\n0.011s"],"status":["imported","imported","imported","imported","up to date","up to date","up to date"],"type":["function","function","function","function","object","object","object"],"font.size":[20,20,20,20,20,20,20],"color":["#1874CD","#1874CD","#1874CD","#1874CD","#228B22","#228B22","#228B22"],"shape":["triangle","triangle","triangle","triangle","dot","dot","dot"],"level":[1,1,1,1,2,3,4],"x":[-1,-1,-1,-1,-0.333333333333333,0.333333333333333,1],"y":[-1,-0.333333333333333,0.333333333333333,1,-2.22044604925031e-16,-2.22044604925031e-16,-2.22044604925031e-16]},"edges":{"from":["n-NBSXEZJ2HJUGK4TF","n-OJSWCZDSHI5HEZLBMRPWG43W","raw_data","n-MZXXEY3BORZTUOTGMN2F62LON5ZGIZLS","n-MRYGY6LSHI5G25LUMF2GK","data"],"to":["raw_data","raw_data","data","data","data","fit"],"arrows":["to","to","to","to","to","to"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false},"manipulation":{"enabled":false},"layout":{"hierarchical":{"enabled":true,"direction":"LR"}},"interaction":{"navigationButtons":true}},"groups":null,"width":null,"height":null,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)"},"main":{"text":"Dependency graph","style":"font-family:Georgia, Times New Roman, Times, serif;font-weight:bold;font-size:20px;text-align:center;"},"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":false,"hoverNearest":false,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"legend":{"width":0.2,"useGroups":false,"position":"left","ncol":1,"stepX":100,"stepY":100,"zoom":true,"nodes":{"label":["Up to date","Imported","Object","Function"],"color":["#228B22","#1874CD","#888888","#888888"],"shape":["dot","dot","dot","triangle"],"font.color":["black","black","black","black"],"font.size":[20,20,20,20],"id":[1,5,7,8]},"nodesToDataframe":true},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);"},"evals":[],"jsHooks":[]}</script>
 ]
 
 ---
@@ -1428,13 +1426,13 @@ services:
 before_install:
 * - docker build -t $REPO .
 ```
-Create &amp; run container using dockerfile, i.e. compile pkg and render Rmd to Word doc
+Create &amp; build image using dockerfile, i.e. compile pkg and render Rmd to Word doc
 
 ---
 # `.travis.yml`
 
 
-Push our custom docker container to docker hub, env vars stored on travis-ci.org
+Push our custom docker image to docker hub, env vars stored on travis-ci.org
 ```bash
 
 after_success:
