@@ -606,4 +606,4 @@ class: inverse, middle
 
 ## Thanks for `r emo::ji("eyes")`
 
-### slides: **bit.ly/r-in-repro-research**
+### slides: **bit.ly/rstudioconf20**
