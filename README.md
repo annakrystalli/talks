@@ -23,6 +23,8 @@ repo for talks
 
 - 2019/11/30 Leiden ReproHack: [_"Reproducbility: the value in the practice"_](http://annakrystalli.me/talks/reproducibility-value-in-practice.html)
 
+- 2020/03/04 Sheffield R Users Group: [_"Reflections on RStudio::conf 2020"_](http://annakrystalli.me/talks/rstudioconf2020.html)
+
 <br>
 
 ***
