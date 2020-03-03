@@ -158,19 +158,28 @@ knitr::include_graphics("assets/rstudioconf-facets-hist.png")
 [![](assets/rstudioconf-facets-dive-draw.png)](https://pair-code.github.io/facets/quickdraw.html)
 
 ---
-## People + AI (PAIR)
+## [People + AI Research (PAIR)](https://research.google/teams/brain/pair/)
 
-This Guidebook will help you build human-centered AI products. It’ll enable you to avoid common mistakes, design excellent experiences, and focus on people as you build AI-driven applications.
+PAIR is devoted to **advancing the research and design of people-centric AI systems**. 
+
+We're interested in the full spectrum of human interaction with machine intelligence, from supporting engineers to understanding everyday experiences with AI.
+
+
+#### [People + AI Guidebook](https://pair.withgoogle.com/)
+
+```{r, echo = FALSE}
+knitr::include_graphics("assets/rstudioconf-pair-guidebook.png")
+```
 
 ---
 ## [Auto-magic Package Development](https://resources.rstudio.com/rstudio-conf-2020/auto-magic-package-development-alicia-schep)
 
 #### _Alicia Schep_
 
-‘vlbuildr’ package seeks to provide a pipe-friendly, “R-like” functional interface for building up simple to complex specifications for Vega-Lite graphics
+**`vlbuildr`**:  R functional interface for [Vega-Lite](https://vega.github.io/vega-lite/) graphics
 
-```{r, echo = FALSE}
-knitr::include_graphics("assets/rstudioconf-facets-hist.png")
+```{r, echo = FALSE, out.width= "70%"}
+knitr::include_graphics("assets/rstudioconf-vlbuildr.png")
 ```
 
 ---
@@ -374,7 +383,7 @@ lm(Sepal.Length ~ Sepal.Width, data = iris)
 
 ### Masking by data-variables
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, message=FALSE}
 library(dplyr)
 ```
 
@@ -466,9 +475,11 @@ iris %>% mean_by(Species, Petal.Length)
 ```
 ---
 
-### Writting functions with data masking propagates it
+## Writting functions with data masking propagates it
 
-> Users will need to be aware!
+<br>
+
+> ### Users will need to be aware!
 
 ---
 
@@ -494,7 +505,7 @@ iris %>% mean_by("Species", "Petal.Length")
 
 
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, out.width= "65%"}
 knitr::include_graphics("assets/rstudioconf-1.3gr.png")
 ```
 
@@ -534,6 +545,8 @@ class: inverse, middle
 
 #### _Ryan Timpe_
 
+<p><a href="https://resources.rstudio.com/rstudio-conf-2020/learning-r-with-humorous-side-projects-ryan-timpe?wvideo=13385r30ep"><img src="https://embedwistia-a.akamaihd.net/deliveries/5ebafbb4ab5f032c58d89c9e3d48bbca.jpg?image_play_button_size=2x&amp;image_crop_resized=960x540&amp;image_play_button=1&amp;image_play_button_color=4287c7e0" width="400" height="225" style="width: 400px; height: 225px;"></a></p>
+
 ---
 
 ##### Q: Which season should I watch while playing the Golden Girls Drinking Game?
@@ -571,7 +584,7 @@ knitr::include_graphics("assets/rstudioconf-humour-tools.png")
 class: inverse, middle
 
 .center[
-# fell good moments
+# feel good moments
 ]
 ---
 
