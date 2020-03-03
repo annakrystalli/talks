@@ -19,9 +19,11 @@ repo for talks
 
 - 2019/10/11 SSI Fellowship 2020 Launch Call: [_"ReproHacks, One-day hands-on Reproducibility hackathons"_](https://annakrystalli.me/talks/ssi-reprohack.html#1)
 
-- 2019/11/11 Imperial College Seminar: [_"Putting the R into Reproducible Research: Director's Cut"_](http://annakrystalli.me/talks/r-in-repro-research-dc.html)
+- 2019/11/11 Imperial College Seminar: [_"Putting the R into Reproducible Research: Director's Cut"_](https://annakrystalli.me/talks/r-in-repro-research-dc.html)
 
-- 2019/11/30 Leiden ReproHack: [_"Reproducbility: the value in the practice"_](http://annakrystalli.me/talks/reproducibility-value-in-practice.html)
+- 2019/11/30 Leiden ReproHack: [_"Reproducbility: the value in the practice"_](https://annakrystalli.me/talks/reproducibility-value-in-practice.html)
+
+- 2020/03/04 Sheffield R Users Group: [_"Reflections on RStudio::conf 2020"_](https://annakrystalli.me/talks/rstudioconf2020.html)
 
 <br>
 
