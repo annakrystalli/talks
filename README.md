@@ -25,6 +25,8 @@ repo for talks
 
 - 2020/03/04 Sheffield R Users Group: [_"Reflections on RStudio::conf 2020"_](https://annakrystalli.me/talks/rstudioconf2020.html)
 
+- 2020/04/21 RSS Leeds / Bradford Local Group Seminar: [_"Putting the R into Reproducible Research: Director's Cut"_](https://annakrystalli.me/talks/r-in-repro-research-dc-leedsrss.html)
+
 <br>
 
 ***
