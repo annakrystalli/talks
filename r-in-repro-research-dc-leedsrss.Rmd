@@ -928,6 +928,11 @@ cache: packages
   <!-- badges: end -->
 ```
 
+
+### Update: GitHub Actions
+
+You can now run Continuous Integration on GitHub! See Jim Hester's rstudio conf 2020 talk on [Azure Pipelines and GitHub Actions](https://resources.rstudio.com/rstudio-conf-2020/azure-pipelines-and-github-actions-jim-hester)
+
 ---
 
 class: inverse, center, middle
