@@ -1,0 +1,11 @@
+.img-attr {
+    font-size: 0.7rem;
+    font-style: italic;
+}
+
+.img-attr a, a > code {
+  background-color: transparent;
+  color: black;
+  font-weight: bold;
+  font-style: italic;
+}

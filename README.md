@@ -27,6 +27,8 @@ repo for talks
 
 - 2020/04/21 RSS Leeds / Bradford Local Group Seminar: [_"Putting the R into Reproducible Research: Director's Cut"_](https://annakrystalli.me/talks/r-in-repro-research-dc-leedsrss.html)
 
+- 2020/07/10 User2020muc: [_"Computational Reproducibility: frrom theory to practice"_](https://annakrystalli.me/talks/user2020.html)
+
 <br>
 
 ***
