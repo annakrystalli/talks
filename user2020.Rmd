@@ -106,7 +106,7 @@ background-size: cover
 
 
 ---
-background-image: url(assets/curb-inspect.gif)
+background-image: url(https://www.reactiongifs.com/r/O_o.gif)
 background-size: cover
 class: inverse
 
