@@ -35,5 +35,6 @@ a, a > code {
 
 .title-slide {
   background-image: url("../light-beams_dc.png");   
+  background-size: cover;
   border-top: 0;
 }
