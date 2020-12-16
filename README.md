@@ -29,6 +29,8 @@ repo for talks
 
 - 2020/07/10 User2020muc: [_"Computational Reproducibility: frrom theory to practice"_](https://annakrystalli.me/talks/user2020.html)
 
+- 2020/12/16 UCL Tech Social: [_"Putting the R into Reproducible Research: Director's Cut"_](https://annakrystalli.me/talks/r-in-repro-research-dc-ucl.html)
+
 <br>
 
 ***
