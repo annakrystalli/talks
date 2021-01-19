@@ -50,7 +50,7 @@ layout: true
 
 &lt;br&gt;
 
-### slides: **bit.ly/r-in-repro-research-dc-ucl**
+### slides: **bit.ly/r-in-repro-research-dc-wr**
 
 ???
 
@@ -903,7 +903,7 @@ class: inverse, center, middle
 
 - As it matures, **reusable chunks get pulled into their own functions**. 
 
-- as **functions defined in separate R scripts, The actual analysis scripts then become relatively short and hopefully easier to follow, ** ]
+- as **functions defined in separate R scripts, The actual analysis scripts then become relatively short and hopefully easier to follow, ** 
 
 - But what is the best way to manage such modular code?
 
@@ -1265,6 +1265,13 @@ class: inverse, center, middle
 # Research compendia
 
 
+???
+
+Now, I want to try and bring all this together and talk about research compendia
+
+So:
+
+- What is a research compendium and why is it important?
 
 ---
 # A Research compendium
@@ -1287,6 +1294,19 @@ collection**."
 [_Gentleman and Temple Lang, 2004_](https://biostats.bepress.com/bioconductor/paper2/)
 
 
+???
+
+Well, let's start with the following quote which states that an article about a computational result is advertising, not scholarship. The **actual scholarship is the full software environment, code and data, that produced the result.**
+
+Given this, it seems important to not focus only on the paper but to start defining what form exactly the published materials associated with a computational result should take.
+
+
+In response to this, Gentleman &amp; Land proposed the concept of a research compendium. For me it's important that they gave this collection of materials a name and described it's purpose:
+- both a **container for the different elements**
+that make up the document and its computations (i.e. text, code, data, ...), 
+- and as a **means for distributing, managing and updating the
+collection**
+
 ---
 # Research compendia in R
 
@@ -1304,6 +1324,20 @@ collection**."
 &lt;br&gt;
 
 **Ben Marwick, Carl Boettiger &amp; Lincoln Mullen (2018)** [_Packaging Data Analytical Work Reproducibly Using R (and Friends)_](https://peerj.com/preprints/3192/)
+
+
+???
+
+In R, the research community members it a step further and proposed a structure for a research compendium based around R package structure that is modular and flexible to project complexity.
+
+So here you see a mple structure on the left that uses only a DESCRIPTION file to store metadata about the paper.
+
+
+While a more complex project, like the one here on the right, can borrow more elements form the package structure, like:
+- functions in an `R/` folder
+- tests
+- continuous integration
+
 
 ---
 
@@ -1331,7 +1365,12 @@ collection**."
 
 ]
 
+???
 
+I'm going to use an example compendium, 
+- which you can find at it's own DOI, 
+- that was published along with this paper 
+- to demonstrate the building of a research compendium
 
 ---
 
@@ -1351,7 +1390,18 @@ collection**."
 devtools::install_github("benmarwick/rrtools")
 ```
 
+???
 
+And I'm going to use this great package, `rrtools` that was developed initially by one the paper authors, ben marwick, whose  is 
+
+to provide **instructions, templates, and functions** 
+
+for making a **basic compendium** 
+
+suitable for writing **reproducible research with R*
+
+
+It's onlu available on github atm so you'll need to install it from there
 ---
 # Create compendium
 
