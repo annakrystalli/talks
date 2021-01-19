@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>ReproHacks: Practicing reproducibility makes better</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Anna Krystalli" />
+    <link rel="stylesheet" href="assets/css/user2020-xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/user2020-custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+background-image: url(assets/backgrounds/ro-sticker-background.jpg)
+background-size: contain
+
+&lt;img src="assets/reprohack_logo.png" width="20%" /&gt;
+
+
+# ReproHacks: 
+### Practicing reproducibility makes better
+
+&lt;br&gt;
+
+### _Anna Krystalli_ &lt;i class="fab fa-twitter "&gt;&lt;/i&gt; @annakrystalli
+.white[
+_TUoS Open Research Conversation: Reproducibility and Preregistration_
+]
+
+
+
+
+
+---
+
+
+# 👋 Hello
+
+### me: **Dr Anna Krystalli**
+
+- **Research Software Engineer**, _University of Sheffield_
+    + twitter **@annakrystalli**
+    + github **@annakrystalli**
+    + email **a.krystalli[at]sheffield.ac.uk**
+    
+- **Editor [rOpenSci](http://onboarding.ropensci.org/)**
+
+- **Co-organiser:** [Sheffield R Users group](https://www.meetup.com/SheffieldR-Sheffield-R-Users-Group/)
+
+---
+layout: true
+
+.left.footnote[&lt;i class="fab fa-twitter "&gt;&lt;/i&gt; @annakrystalli]
+
+---
+class: inverse, center, middle
+
+# Background
+
+
+???
+
+Let's start with a bit of background
+
+---
+
+.pull-left[
+
+
+
+![](assets/reproducibility-graphic-online1.jpeg)
+]
+
+.pull-right[
+![](assets/reproducibility-graphic-online4.jpg)
+]
+
+???
+
+- I'm sure most by now have heard about the reproducibility crisis.
+- I don't want to go into to much detail about the many and varied drivers of the crises and discussions about the implications.
+- but one thing that most would agree on is that the publication sustem as it stands is not fit for validating modern research which is increasingly underlaid by more and complex computational workflows
+
+---
+
+# The paper is the advertisement
+
+&gt; “an article about a computational result is advertising, not scholarship. The **actual scholarship is the full software environment, code and data, that produced the result.**”
+
+*John Claerbout paraphrased in [Buckheit and Donoho (1995)](https://statweb.stanford.edu/~wavelab/Wavelab_850/wavelab.pdf)*
+
+--
+
+### Why is our whole system geared towards **reviewing, publishing, distributing, archiving** the advertisement?
+
+
+???
+
+I feel our problem is well captured by the following quote by John Claerbout, referenced in a paepr by Buckheit and Donoho
+---
+
+## Progress: calls for reproducibility as minimum standard
+
+&gt; #### **Reproducibility** has the potential to serve as a **minimum standard for judging scientific claims** when full independent replication of a study is not possible.
+
+ &lt;br&gt;
+
+
+.center[
+&lt;img src="assets/repro-spectrum.jpg" width="90%" /&gt;
+]
+.img-attr[Reproducible Research in Computational Science
+_ROGER D. PENG, SCIENCE 02 DEC 2011 : 1226-1227_
+]
+&lt;br&gt;
+
+???
+
+We have been making progress though, with computational reproducibility, _the ability to reproduce a result from the original code and data_ being put forward as a minimum standard for validating research findings
+
+---
+class: inverse, center, middle
+
+.box[
+## Benefit #1
+]
+
+### transparency as a means of verification
+
+--
+
+
+
+## Benefit #2
+
+
+
+### transparency as a means of supercharging research cycle
+
+
+
+???
+
+- This points to the recognition that a certain level of compuatational transparency is necessary for verifying the validity of research findings
+
+- It also offers and additional superpower. Making underlying materials openly available means it's much easier to build on previous research, effectively supercharging the research cycle.
+
+---
+class: center, middle
+
+# So how are we doing?
+
+
+
+&lt;img src="assets/repro-spectrum.jpg" width="90%" /&gt;
+
+
+
+.img-attr[Reproducible Research in Computational Science
+_ROGER D. PENG, SCIENCE 02 DEC 2011 : 1226-1227_
+]
+
+???
+
+- Now, this recognition is an important first step but what does it mean in practice?
+
+- How far have we actually come?
+
+- Well that's actually a really hard question to answer because, despite an increase in the publication of more research code and data (by no means sufficient yet), there is still no systematic review of such materials to confirm that research is indeed reproducible
+---
+background-image: url(assets/annie-spratt-fallen-tree.jpg)
+background-size: cover
+class: center, middle
+
+--
+
+.bg-white[
+
+# If a paper claims to be reproducible but nobody checks it, is it really reproducible?
+
+]
+
+???
+
+This makes me think of that only philosophical question:
+
+&gt; If a tree falls in the woods and no one is there to hear it, does it make a sound?
+
+&gt; So, if a paper claims to be reproducible but no-one is there to check it, is it actually reproducible?
+
+---
+class: center 
+
+&lt;img src="assets/practice-sharon-mccutcheon-unsplash.jpg" width="60%" /&gt;
+
+# Practice
+
+
+???
+
+This lack of systematic review leads to an additional problem, that there is no opportunity to practice and get feedback on the reproducibility of our research
+
+Now anyone that has ever tried to learn an instrument, a sport or any other activity knows that far more important to success than any talent or natural ability is practice. Without an opportunity to practice we are really stuck in theoretical discussions of reproducibility
+
+---
+
+# Reprohack
+
+#### One day reproducibility hackathons
+
+***
+
+--
+
+- ### How reproducible are papers?
+
+--
+
+- ### How can we provide a sandbox environment to practice reproducibility?
+
+???
+
+So these were really the key issues that the ReproHack project sought to address:
+
+
+- How reproducible are papers with associated published code and data?
+
+- How can we provide a sandbox environment where both authors and reviewers can practice reproducibility?
+
+
+---
+
+# ReproHack History
+
+#### OpenCon Satellite: Berlin, 2016
+
+#### OpenCon Satellite: London, 2017
+
+--
+ 
+&lt;br&gt;
+
+Inspired by Owen Petchey's [Reproducible Research in Ecology, Evolution, Behaviour, and Environmental Studies](https://github.com/opetchey/RREEBES) course, 
+
+- Reproduce published results from raw data
+- Over a few months and a number of sessions
+
+--
+
+### **ReproHack mission:  Reproduce paper in a day from code and data**
+
+???
+
+Let's start with a bit of ReproHack history
+
+So I’ll start with some ReproHack history:
+
+They were originally run as part of Opencon satellite events
+
+ and were inspired by Owen Petchey’s Reproducible Research course 
+where students attempt to recreate published results from raw data, 
+And they do this over a few months and multiple sessions. 
+
+We wanted to condense that activity into one day so 
+
+set the challenge to be,  to reproduce results from published data AND code.
+
+---
+
+### Software Sustainability Institute Fellowship 2019
+
+
+
+.pull-left[
+![](assets/ssi_fellows_19.jpeg)
+]
+
+--
+
+.pull-right[
+
+&lt;img src="assets/me-reprohack.png" width="90%" /&gt;
+
+&lt;img src="https://github.com/reprohack/reprohack-2019-06-27/blob/master/CCmcrlogo.png?raw=true" width="90%" /&gt;
+
+]
+
+???
+
+Not much happened since then until
+ this year when I joined the 2019 Software Sustainability Institute Fellows cohort 
+
+and my proposal was to 
+resurrect and 
+further develop, 
+And run a series of ReproHacks
+
+The first one being at Carpentry Connect Manchester
+
+---
+
+## ReproHacks since the Fellowship
+
+
+- ### [Leiden ReproHack](https://reprohacknl.github.io/ReproHack/)
+
+- ### [N8 CIR Northern Tour ReproHack Series](https://n8cir.org.uk/news/reprohacks/) (x5)
+
+- ### [N8 CIR Remote ReproHack](https://n8cir.org.uk/events/remote-reprohack/)
+
+- ### [LatinR ReproHack](https://latin-r.com/blog/reprohack-en)
+
+- ### [UCL ReproHack for Open Access week](https://blogs.ucl.ac.uk/open-access/2020/11/17/open-access-week-the-first-reprohack-%E2%99%BB-ucl/)
+
+???
+
+Since the Fellowship, there's been a number of events run both by myself and the ReproHack community
+
+- Leiden ReproHack: lead to formation of core team
+
+- N8 CIR Northern Tour ReproHack Series] A series of (x5) events across Northern UK universities
+
+- [N8 CIR Remote ReproHack](https://n8cir.org.uk/events/remote-reprohack/): Cancellation of the Manchester event due to COVID lead to the first remote event
+
+- [LatinR ReproHack](https://latin-r.com/blog/reprohack-en): lead nicely to a remote event at last year's Latin R, where we ran the first event fully in Spanish!
+
+- [UCL ReproHack for Open Access week](https://blogs.ucl.ac.uk/open-access/2020/11/17/open-access-week-the-first-reprohack-%E2%99%BB-ucl/): In October, community members ran the first week long event for open access week
+
+---
+
+## Reprohack Core Team
+
+&lt;img src="assets/reprohack_core_team.png" width="100%" /&gt;
+
+
+???
+
+Before moving on I'd just like to give props and thanks to the ReproHack core team which have been instrumental in the development of the project and the running of all these events
+---
+class: inverse, middle, center
+
+# How does it work?
+
+---
+
+## Call for papers
+
+.pull-left[
+
+
+
+&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="en" dir="ltr"&gt;✨Do you champion &lt;a href="https://twitter.com/hashtag/reproducible?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#reproducible&lt;/a&gt; &lt;a href="https://twitter.com/hashtag/research?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#research&lt;/a&gt;? &lt;br&gt;✨Do you have a reproducible paper with open code and data?&lt;br&gt;&lt;br&gt;The &lt;a href="https://twitter.com/SoftwareSaved?ref_src=twsrc%5Etfw"&gt;@SoftwareSaved&lt;/a&gt; &lt;a href="https://twitter.com/hashtag/ReproHack?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#ReproHack&lt;/a&gt; series needs you! 🚀&lt;br&gt;&lt;br&gt;Help others learn &amp;amp; engage with your work by submitting it to our 1-day Reproducibility hackathons!&lt;a href="https://t.co/PssdXqwl8Z"&gt;https://t.co/PssdXqwl8Z&lt;/a&gt;&lt;/p&gt;&amp;mdash; annakrystalli (@annakrystalli) &lt;a href="https://twitter.com/annakrystalli/status/1138769695513952260?ref_src=twsrc%5Etfw"&gt;June 12, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+]
+
+--
+
+.pull-right.middle[
+
+&lt;img src="assets/rh-paper_list.png" width="100%" /&gt;
+
+]
+
+
+???
+
+In the current format, leading up to the event, 
+
+we have a call for papers 
+
+where we encourage authors to submit their papers for reproduction.
+
+We like this because it means authors get engaged from the start
+
+And this hopefully results in a nice paper list  for participants to work with on the day
+
+---
+background-image: url("assets/on_the_day-bg.jpg")
+background-size: cover
+
+# On the day
+
+
+- ###  Select paper and form groups
+
+- ### Work with materials and reproduce 
+
+- ### Discuss 
+
+- ### Feed back to authors
+
+???
+
+On the day, we start with a bit of an introduction in which we stress that:
+
+ - Reproducibility is hard!
+- Authors are incredibly brave to invite us into their work
+- So we set the tone to invite only constructive feedback.
+
+
+Participants are then free to review and select papers they wish to work on and attempt to reproduce them
+
+At some point we regroup to share progress and close with a final share out.
+
+Most importantly, we ask participants to feed their experiences back to the authors
+
+---
+class: inverse, center, middle
+
+# Tips for Reproducing &amp; Reviewing
+
+
+&lt;img src="assets/Hackathon.jpg" width="70%" /&gt;
+
+
+???
+
+Now I'll just go over a few of the tips we give participants for reviewing
+---
+
+## Selecting Papers
+
+.pull-left[
+- **Information submitted by authors:**
+
+  - Languages / tools used
+  
+  - Why you should attempt the paper.
+  
+- **No. attempts &lt;i class="fas fa-recycle "&gt;&lt;/i&gt;** No. times reproduction has been attempted
+
+- **Mean Repro Score &lt;i class="fas fa-check-circle "&gt;&lt;/i&gt;** Mean reproducibility score (out of 10)
+
+    - lower == harder!
+]
+
+
+.pull-right[
+&lt;img src="assets/ReprohackPickPapers.jpg" width="90%" /&gt;
+]
+
+
+---
+class:center, middle
+
+# Review as an auditor 📑
+
+???
+
+Then we ask ask participants to review using a few hats, first that of an auditor, and we ask them to reflect on anumber of acharacteristics of the materials
+---
+
+.pull-left[
+
+# Access
+
+- How **easy** was it to **gain** access to the materials?
+
+- Did you manage to download all the files you needed?
+
+]
+
+
+.pull-right[
+
+# Installation
+
+- How **easy / automated** was **installation**?
+
+- Did you have any problems?
+
+- How did you solve them?
+
+]
+
+---
+--- 
+
+.pull-left[
+
+
+# Data
+
+- Were **data clearly separated from code and other items**?
+
+- Were **large data files deposited in a trustworthy data repository** and referred to using a **persistent identifier**?
+
+- Were **data documented** ...somehow...
+
+]
+
+
+
+.pull-right[
+
+# Documentation
+
+Was there **adequate documentation** describing:
+- how to **install** necessary software including non-standard dependencies?
+
+- how to **use** materials to reproduce the paper?
+
+- how to **cite** the materials, ideally in a form that can be copy and pasted?
+
+]
+
+
+---
+
+.pull-left[
+
+# Analysis
+
+- **Were you able to fully reproduce** the paper? ✅
+
+- **How automated** was the process of reproducing the paper?
+
+- **How easy was it to link** analysis **code** to:
+   - the **plots** it generates
+   - **sections in the manuscript** in which it is described and results reported
+]
+
+--
+
+.pull-right[
+
+&lt;br&gt;
+
+### If the analysis was not fully reproducible 🚫
+ - Were there **missing dependencies?**
+ 
+ - Was the **computational environment not adequately described** / captured?
+ 
+ - Was there **bugs** in the code?
+ 
+ - Did **code run but results (e.g. model outputs, tables, figures) differ** to those published? By **how much?**
+]
+
+---
+class: center
+
+# Review as a user 🎮
+
+
+.pull-left[
+
+### New User
+
+&lt;img src="https://25.media.tumblr.com/30906cccedfe97a3d5450a23359ca298/tumblr_ml72i2eL6t1rsudnqo1_500.gif" width="80%" /&gt;
+
+
+]
+
+
+--
+
+.pull-right[
+
+### Invested User
+
+&lt;img src="https://media.giphy.com/media/9K2nFglCAQClO/source.gif" width="80%" /&gt;
+
+
+]
+
+
+???
+
+Then we also ask them to review as a potential user and in particular as two important users
+
+- First as a new user, and here the unfamiliarity of the material is actually a superpower and can unearth important gaps in the documentation or difficulties in usability of the materials
+
+- The second is as an invested user, someone who really wants to use the materials themselves. This can unearth useful usability features or ADDITIONAL USECASES
+---
+
+
+## Feedback as a community member
+
+.pull-left[
+
+#### Acknowledge author effort
+
+#### Give feedback in good faith
+
+#### Focus on community benefits and system level solutions
+
+
+&lt;img src="assets/1728_TURI_Book sprint_11 community_040619.jpg" width="100%" /&gt;
+
+]
+
+
+
+--
+
+.pull-right[
+
+&gt; #### _Help build convention on what form a Reproducible paper should take and how we should be able to use it_
+
+
+
+]
+
+???
+
+Finally we also stress the importance of reviewing as a community member.
+
+
+There is a lot wrong with our publication system and the authors that submit their work for others to learn form are not one of them!
+
+
+
+Overall, this is an opportunity for the whole community to learn and help define these materials should look like and what form would make them fit for the purposes we need and want them to.
+---
+class: inverse, center, middle
+
+# What did we learn?
+
+
+
+
+
+---
+## N8 CIR ReproHack Series Stats
+
+- ### 38 papers submitted so far
+
+- ### Total of ~ 70 participants
+
+- ### 39 completed reviews over 27 papers
+
+
+---
+
+## Review Scores
+
+&lt;img src="orc-reprohack_files/figure-html/unnamed-chunk-15-1.svg" width="90%" /&gt;
+
+
+---
+
+
+## What would improve reproducibility?
+
+- ### Better documentation
+
+- ### More complete description / capture of computational environment
+
+## What was their favourite aspect of reproducible materials?
+
+- ### Literate programming
+
+???
+
+The most low hanging fruit across the board was better documentation. FAuthors familiarity with materials means they make a lot of assumptions about users prior knowledge that reviews shine a light on. This can be from basics on specifying how materials are laid out to what software needs to be installed to run the code
+
+The second most common problem is poorly specified computational environments. The simplest way to get round this would be to atleast provide session information with the most robust being providing an executable computational environment for the analysis, for example in a docker container
+
+FInally we found that participants really enjoyed working with literate programming documents where text, code and outputs are laid out togetther in a single executable document
+
+---
+
+
+.pull-left[
+
+### Opportunity for peer skill sharing
+
+- CCMcr: Contributing to open source
+
+- Leiden: Synching GitHub repositories with Zenodo
+
+- Remote Reprohack: Docker school
+]
+
+--
+
+
+
+.pull-right[
+
+## Fit for purpose
+
+&lt;blockquote class="twitter-tweet" data-conversation="none"&gt;&lt;p lang="en" dir="ltr"&gt;On the way home, &lt;a href="https://twitter.com/df3n5?ref_src=twsrc%5Etfw"&gt;@df3n5&lt;/a&gt; said quite rightly, if all [code-producing/data-analysing] researchers would take part in at least one &lt;a href="https://twitter.com/ReproHack?ref_src=twsrc%5Etfw"&gt;@ReproHack&lt;/a&gt;, the code reproducibility and quality of documentation would generally soar!&lt;/p&gt;&amp;mdash; Durham University Advanced Research Computing (@ARC_DU) &lt;a href="https://twitter.com/ARC_DU/status/1219897416536797185?ref_src=twsrc%5Etfw"&gt;January 22, 2020&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+]
+
+???
+
+We also found the events provided excellent opportunity for skill sharing
+
+And importantly participants found they were fit for purpose. I couldn't agree with this tweet more that providing the space for working with real materials will have a real impact on the reproducibility of published work going forward
+---
+
+## ReproHacks are fun
+
+&lt;img src="assets/n8-reprohack_collage.gif" width="90%" /&gt;
+
+???
+
+Crucially though the events are fun!
+
+Participants really enjoyed the low pressure friendly and collaborative environments, felt they learnt a lot and found being able to reproduce others work extremely satisfying!
+
+---
+class: inverse, center, middle
+
+# On the future of Reviewing
+
+
+???
+
+Before I close I just want to offer a few thoughts on the future of reviewing
+
+---
+background-image: url(assets/imagine_review.png)
+background-size: contain
+class: middle, center
+
+--
+
+&lt;img src="assets/ropensci_icon_lettering_color.png" width="65%" /&gt;
+
+
+???
+
+And I want to start with these hypothetical scenarios that could transpire from having the underlying materials available during review.
+
+-  In the first, reviewers are able to correct minor typos they found
+- In the second, they are able to contribute to the research and become collaborators
+- And the 3rd is a bot of a joke but I'm sure has crossed many authors mind during review!
+
+Now these might seem far fetched but I see these sort of interactions all the time, during RrOpenSci reviews of packages aiming to help reserachers work more effectively with scientific code and data.
+---
+
+## On the scope of reproducibility
+
+.pull-left[
+- #### Reproducibility _ad infinitum_ 
+
+  + ❌ **UNREALISTIC**
+
+]
+
+???
+
+On the scope of reproducibility ,honesty I feel reproducibity ad infinitum is unrealistic at this point
+---
+
+## On the scope of reproducibility
+
+.pull-left[
+
+- #### Reproducibility _ad infinitum_ 
+
+  + ❌ **UNREALISTIC**
+
+- #### Reproducibility for 2-3 years post-publication 
+
+  + ✅ **MORE REALISTIC**
+
+  + Checked as part of publication process, e.g. CODE CHECK &lt;https://codecheck.org.uk/&gt; [![](https://codecheck.org.uk/img/codeworks-badge.svg)](https://zenodo.org/record/3865491#.XwL4VZNKhfU)
+
+]
+
+.pull-right[
+
+&lt;embed src="assets/codecheck.pdf" width="90%" height="500" type="application/pdf" /&gt;
+
+]
+
+???
+
+However, I believe having an expectation that work be reproducible for a given time period, say 2-3 years post publication is reasonable
+
+ANd this should be checked during the publication process.
+
+A project that's done a lot more work on this is codecheck whose checkers produce a reproducibilty report which accompanies the publication. The community needs the skill and capacity to perform these though and this is where we see reprohacks fitting in
+
+---
+## On the scope of reusability
+
+### Openness can help:
+
+- surface useful parts of code.
+
+- facilitate user feedback and contribution
+
+--
+
+### MAINTENANCE?!
+
+---
+class: inverse, middle, center
+
+...in the meantime
+
+### take any opportunity to practice!
+
+???
+
+In the meantime we need to take every opportunity to practice and while I hope in the long term the need for ReproHacks will be obsolete, at the minute they offer a great opportunity to practice
+---
+background-image: url(assets/reprohack_many_ways.png)
+background-size: cover
+
+
+
+???
+
+There are many ways to ReproHack and I've mentioned two of these alreay, but what I'd really like is for research groups to start reproducing and reviewing their work before publication to start normalising the process and developing the necessary skills
+---
+background-image: url(assets/reprohack_hub.png)
+background-size: cover
+
+--
+
+.center[
+&lt;img src="assets/n8cir-logo-v1-cropped-224x63.png" width="30%" /&gt;
+
+&lt;img src="assets/reprohack_hub_participate.png" width="90%" /&gt;
+
+]
+
+???
+
+With the help of N8 funding we are currently building a hub to centralise all reprohack activites and we hope this will make running reprohacks much easier for anyone interested.
+
+---
+## Interested in ReproHacking?
+
+
+### [reprohack/reprohack-hq](https://github.com/reprohack/reprohack-hq) GH repository
+
+#### Chat to us:
+
+[![Slack](https://img.shields.io/badge/slack-join%20us-brightgreen)](https://reprohack-autoinvite.herokuapp.com/)
+
+
+### Host your own event!
+
+### Submit your own papers!
+
+---
+class: inverse, center, middle
+
+## 👋 Thanks for 👀
+
+&lt;br&gt;
+
+# ❓
+
+---
+
+## Resources
+
+- [**The Turing Way**](https://the-turing-way.netlify.com/introduction/introduction): a lightly opinionated guide to reproducible data science.
+
+- [**Statistical Analyses and Reproducible Research**](https://biostats.bepress.com/bioconductor/paper2/): Gentleman and Temple Lang's introduction of the concept of Research Compendia
+
+- [**Packaging data analytical work reproducibly using R (and friends)**](https://peerj.com/preprints/3192/): how researchers can improve the reproducibility of their work using research compendia based on R packages and related tools
+
+- [How to Read a Research Compendium](https://arxiv.org/pdf/1806.09525.pdf): Introduction to existing conventions for research compendia and suggestions on how to utilise their shared properties in a structured reading process.
+
+- [Reproducible Research in R with rrtools](https://annakrystalli.me/rrtools-repro-research/): Workshop: Create a research compendium around materials associated with a published paper (text, data and code) using `rrtools`.  
+  - [**Example Compendium**](https://github.com/annakrystalli/rrcompendiumDTB): Demo Research compendium.
+
+
+---
+
+# Acknowledgements
+
+Images throughout the slides watermarked with **Scriberia** were created by [Scriberia](https://www.scriberia.co.uk/) for The Turing Way community and is used under a CC-BY licence 
+- _The Turing Way Community, &amp; Scriberia. (2019, July 11). Illustrations from the Turing Way book dashes. Zenodo. http://doi.org/10.5281/zenodo.3332808_
+
+
+&lt;span&gt;Photo on slide #24 by &lt;a href="https://unsplash.com/@anniespratt?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Annie Spratt&lt;/a&gt; on &lt;a href="https://unsplash.com/s/photos/fallen-tree?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;
+
+&lt;span&gt;Photo on slide #25 &lt;a href="https://unsplash.com/@sharonmccutcheon?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Sharon McCutcheon&lt;/a&gt; on &lt;a href="https://unsplash.com/s/photos/practice-instrument?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"dev": "svg",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": ""
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

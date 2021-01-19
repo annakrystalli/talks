@@ -27,9 +27,13 @@ repo for talks
 
 - 2020/04/21 RSS Leeds / Bradford Local Group Seminar: [_"Putting the R into Reproducible Research: Director's Cut"_](https://annakrystalli.me/talks/r-in-repro-research-dc-leedsrss.html)
 
-- 2020/07/10 User2020muc: [_"Computational Reproducibility: frrom theory to practice"_](https://annakrystalli.me/talks/user2020.html)
+- 2020/07/10 User2020muc: [_"Computational Reproducibility: from theory to practice"_](https://annakrystalli.me/talks/user2020.html)
 
 - 2020/12/16 UCL Tech Social: [_"Putting the R into Reproducible Research: Director's Cut"_](https://annakrystalli.me/talks/r-in-repro-research-dc-ucl.html)
+
+- 2021/01/18 TUoS Open Research Conversations - Reproducbility in Practice: [_"ReproHacks: Practicing Reproducibility makes better"_](https://annakrystalli.me/talks/orc-reprohack.html)
+
+- 2021/01/19 TUoS Open and Reproducible Research Workshop: [_"Putting the R into Reproducible Research: Director's Cut"_](https://annakrystalli.me/talks/r-in-repro-research-dc-wr.html)
 
 <br>
 
