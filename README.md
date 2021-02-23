@@ -35,6 +35,9 @@ repo for talks
 
 - 2021/01/19 TUoS Open and Reproducible Research Workshop: [_"Putting the R into Reproducible Research: Director's Cut"_](https://annakrystalli.me/talks/r-in-repro-research-dc-wr.html)
 
+- 2021/02/23 SSI Community Call: [_"Reprohacking through the pandemic"_](https://annakrystalli.me/talks/ssi-rh-pandemic.html)
+
+
 <br>
 
 ***
