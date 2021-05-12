@@ -37,7 +37,8 @@ repo for talks
 
 - 2021/02/23 SSI Community Call: [_"Reprohacking through the pandemic"_](https://annakrystalli.me/talks/ssi-rh-pandemic.html)
 
-
+- 2021/01/19 RSE Sheffield - LunchBytes: [_"Putting the R into Reproducible Research: Director's Cut"_](https://annakrystalli.me/talks/r-in-repro-research-dc-srse.html)
+- 
 <br>
 
 ***
