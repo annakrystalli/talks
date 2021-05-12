@@ -15,6 +15,7 @@ rse_shef*
 hactoberfest.html
 assets/.DS_Store
 data/*
-*_files/
 docs/*
 scripts/*
+.secrets
+!user2020_files/*
