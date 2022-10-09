@@ -1,0 +1,36 @@
+---
+format: 
+  revealjs:
+    theme: [assets/css/reprohack.scss]
+    logo: assets/hex-logo-small.png
+    footer: "**[reprohack.org](https://www.reprohack.org/) &nbsp;&nbsp; @ReproHack &nbsp;&nbsp; #OSD22Mannheim**"
+editor: visual
+from: markdown+emoji
+---
+
+## ReproHacks {.title-slide background-image="https://raw.githubusercontent.com/reprohack/event-slides/main/assets/background.jpg"}
+
+### A sandbox environment
+
+### for practicing reproducible research
+
+
+
+
+
+## :wave: Hello
+
+### me: **Dr Anna Krystalli**
+
+- **Research Software Engineering Consultant**, [`r-rse`](https://www.r-rse.eu/)
+    + twitter **@annakrystalli**
+    + github **@annakrystalli**
+    + email **r.rse.eu[at]gmail.com**
+    
+- **Editor [rOpenSci](http://onboarding.ropensci.org/)**
+
+- **Founder & Core Team member** [ReproHack](https://www.reprohack.org/)
+
+<br>
+
+### slides: [**bit.ly/mheim-reprohack-talk**](){.url}
