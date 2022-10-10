@@ -218,13 +218,6 @@ Crucially though the events are fun!
 Participants really enjoyed the low pressure friendly and collaborative environments, felt they learnt a lot and found being able to reproduce others work extremely satisfying!
 :::
 
-##  {background-image="assets/reprohack_many_ways.png"}
-
-::: notes
-There are many ways to ReproHack - You can attach them to an event, run them remotely, run an institutional one
-
-but what we'd love to see more of is for research groups to start reproducing and reviewing their work before publication and start normalising the process reproducbility checks and developing the necessary skills
-:::
 
 ##  {background-image="assets/hub_background.png"}
 
