@@ -2,7 +2,7 @@
 format: 
   revealjs:
     theme: [assets/css/reprohack.scss]
-    logo: assets/hex-logo-small.png
+    logo: https://raw.githubusercontent.com/reprohack/event-slides/main/assets/hex-logo-small.png
     footer: "**[reprohack.org](https://www.reprohack.org/) &nbsp;&nbsp; @ReproHack &nbsp;&nbsp; #OSD22Mannheim**"
 editor: visual
 from: markdown+emoji
@@ -14,23 +14,248 @@ from: markdown+emoji
 
 ### for practicing reproducible research
 
+<hr>
 
+<br> <br>
 
-
+> Dr Anna Krystalli (`r-rse`) @annakrystalli
+>
+> University of Mannheim Open Science Day 2022
 
 ## :wave: Hello
 
 ### me: **Dr Anna Krystalli**
 
-- **Research Software Engineering Consultant**, [`r-rse`](https://www.r-rse.eu/)
-    + twitter **@annakrystalli**
-    + github **@annakrystalli**
-    + email **r.rse.eu[at]gmail.com**
-    
-- **Editor [rOpenSci](http://onboarding.ropensci.org/)**
+-   **Research Software Engineering Consultant**, [**`r-rse`**](https://www.r-rse.eu/)
 
-- **Founder & Core Team member** [ReproHack](https://www.reprohack.org/)
+    -   twitter @annakrystalli
+    -   github @annakrystalli
+    -   email **r.rse.eu\[at\]gmail.com**
+
+-   **Editor [rOpenSci](http://onboarding.ropensci.org/)**
+
+-   **Founder & Core Team member** [**ReproHack**](https://www.reprohack.org/)
 
 <br>
 
-### slides: [**bit.ly/mheim-reprohack-talk**](){.url}
+### slides: [**bit.ly/mheim-reprohack-talk**](https://bit.ly/mheim-reprohack-talk){.url}
+
+# Motivation
+
+::: notes
+I'm going to start with some motivating background and in particular focus on two key benefits of open science
+:::
+
+## Why Open Science
+
+<hr>
+
+<br>
+
+### Benefit #1 {.larger}
+
+### Transparency as a means of verification
+
+<br>
+
+### Benefit #2 {.larger}
+
+### Transparency as a means of supercharging research cycle
+
+::: notes
+In the shadow of the reproducibility crisis, transparency allows for a minimum standard of verification of research results in the form of reproducibility. Being able to recreate results from code and data.
+
+-   Also, Making underlying materials openly available means it's much easier to for anyone to build on previous research, effectively supercharging the research cycle.
+:::
+
+# So how are we doing?
+
+::: notes
+Many have been advocating for these benefits for some time now and I feel the points have actually been widely recognised and generally accepted by now.
+
+-   How far have we actually come in terms of more open, reusable and robust science?
+
+-   Well that's actually a really hard question to answer because,
+
+-   despite an increase in the publication of more research code and data (by no means sufficient yet), there is still **no systematic review of such materials** to confirm that research is indeed reproducible
+:::
+
+## Is code and data enough?
+
+![](assets/reproducible-data-analysis-02.png)
+
+::: aside
+slide: [*Karthik Ram: rstudio::conf 2019 talk*](https://github.com/karthik/rstudio2019)
+:::
+
+::: notes
+-   Indeed trying to work with many materials can feel a lot like this where you download some materials, start playing around, can't get them to work and soon give up.
+
+-   It also begs the question:
+:::
+
+# If a paper claims to be reproducible but nobody checks it, is it really reproducible?
+
+::: notes
+Open materials != functional materials.
+
+In truth, this situation is not really surprising because **formal training in practices and standards** for researchers is **still lagging** despite demands for reproducibility.
+
+The **lack of systematic review** leads to an additional problem, that there is **no opportunity to practice** and get **feedback** on the reproducibility of our research.
+:::
+
+## Reprohacks
+
+#### One day reproducibility hackathons
+
+<hr>
+
+<br>
+
+::: incremental
+-   
+
+    ### How reproducible are papers?
+
+-   
+
+    ### How can we provide a sandbox environment to practice reproducibility?
+:::
+
+::: notes
+So these were really the key issues that the ReproHack project sought to address:
+
+-   How reproducible are papers with associated published code and data?
+
+-   How can we provide a sandbox environment where both authors and reviewers can practice reproducibility?
+:::
+
+# How does it work?
+
+------------------------------------------------------------------------
+
+## Call for papers
+
+::: columns
+::: {.column width="46%"}
+{{< tweet annakrystalli 1138769695513952260 >}}
+:::
+
+::: {.column width="46%"}
+```{r, out.width="100%"}
+knitr::include_graphics("assets/paper_list.png")
+```
+:::
+:::
+
+::: notes
+As organisers, In the current format, leading up to the event,
+
+we have a call for papers
+
+where we encourage authors to submit their papers for reproduction.
+
+We like this because it means authors get engaged from the start
+
+And this hopefully results in a nice paper list for participants to work with on the day but either way, there is always the central paper list to fall back on.
+:::
+
+## On the day {.shadow-box background-image="assets/Hackathon.jpg"}
+
+<hr>
+<br>
+
+::: incremental
+
+- ### Intro & Set the Tone
+
+-   
+
+    ### Select paper and form groups
+
+-   
+
+    ### Work with materials and reproduce
+
+-   
+
+    ### Regroup & Discuss
+
+-   
+
+    ### Feed back to authors
+
+:::
+
+
+::: notes
+On the day, we start with a bit of an introduction in which we stress that:
+
+-   Reproducibility is hard!
+-   Authors are incredibly brave to invite us into their work
+-   So we set the tone to invite only constructive feedback.
+
+Participants are then free to review and select papers they wish to work on and attempt to reproduce them
+
+At some point we regroup to share progress and close with a final share out.
+
+Most importantly, we ask participants to feed their experiences back to the authors through a structured feedback form.
+:::
+
+## Benefits
+
+![](assets/reprohack_hub_participate.png)
+
+## ReproHacks are fun
+
+```{r}
+knitr::include_graphics("assets/n8-reprohack_collage.gif")
+```
+
+::: notes
+Crucially though the events are fun!
+
+Participants really enjoyed the low pressure friendly and collaborative environments, felt they learnt a lot and found being able to reproduce others work extremely satisfying!
+:::
+
+##  {background-image="assets/reprohack_many_ways.png"}
+
+::: notes
+There are many ways to ReproHack - You can attach them to an event, run them remotely, run an institutional one
+
+but what we'd love to see more of is for research groups to start reproducing and reviewing their work before publication and start normalising the process reproducbility checks and developing the necessary skills
+:::
+
+##  {background-image="assets/hub_background.png"}
+
+::: notes
+To make it easier to engage, we've built the ReproHack hub to facilitate all reprohack activities.
+:::
+
+<br>
+
+## Interested in ReproHacking?
+
+### Join Us tomorrow!
+
+Mannheim Open Science Day Reprohack <https://www.reprohack.org/event/20/>
+
+<br>
+
+### Submit your own papers!
+
+### Host your own event!
+
+[[reprohack.org](https://www.reprohack.org/)]{.huge}
+
+<br>
+
+<hr>
+
+#### Chat to us:
+
+[![](https://img.shields.io/badge/slack-join%20us-brightgreen){fig-align="left" width="81" height="19"}](https://reprohack-autoinvite.herokuapp.com/)
+
+
+
+# :wave: Thanks for :eyes: | :question:

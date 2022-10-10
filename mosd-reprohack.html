@@ -322,24 +322,317 @@
 <h2>ReproHacks</h2>
 <h3 id="a-sandbox-environment">A sandbox environment</h3>
 <h3 id="for-practicing-reproducible-research">for practicing reproducible research</h3>
+<hr>
+<p><br> <br></p>
+<blockquote>
+<p>Dr Anna Krystalli (<code>r-rse</code>) <span class="citation" data-cites="annakrystalli">@annakrystalli</span></p>
+<p>University of Mannheim Open Science Day 2022</p>
+</blockquote>
 </section>
 <section id="hello" class="slide level2">
 <h2><span class="emoji" data-emoji="wave">👋</span> Hello</h2>
 <h3 id="me-dr-anna-krystalli">me: <strong>Dr Anna Krystalli</strong></h3>
 <ul>
-<li><p><strong>Research Software Engineering Consultant</strong>, <a href="https://www.r-rse.eu/"><code>r-rse</code></a></p>
+<li><p><strong>Research Software Engineering Consultant</strong>, <a href="https://www.r-rse.eu/"><strong><code>r-rse</code></strong></a></p>
 <ul>
-<li>twitter <strong><span class="citation" data-cites="annakrystalli">@annakrystalli</span></strong></li>
-<li>github <strong><span class="citation" data-cites="annakrystalli">@annakrystalli</span></strong></li>
+<li>twitter <span class="citation" data-cites="annakrystalli">@annakrystalli</span></li>
+<li>github <span class="citation" data-cites="annakrystalli">@annakrystalli</span></li>
 <li>email <strong>r.rse.eu[at]gmail.com</strong></li>
 </ul></li>
 <li><p><strong>Editor <a href="http://onboarding.ropensci.org/">rOpenSci</a></strong></p></li>
-<li><p><strong>Founder &amp; Core Team member</strong> <a href="https://www.reprohack.org/">ReproHack</a></p></li>
+<li><p><strong>Founder &amp; Core Team member</strong> <a href="https://www.reprohack.org/"><strong>ReproHack</strong></a></p></li>
 </ul>
 <p><br></p>
-<h3 id="slides-bit.lymheim-reprohack-talk">slides: <a href="" class="url"><strong>bit.ly/mheim-reprohack-talk</strong></a></h3>
+<h3 id="slides-bit.lymheim-reprohack-talk">slides: <a href="https://bit.ly/mheim-reprohack-talk" class="url"><strong>bit.ly/mheim-reprohack-talk</strong></a></h3>
+</section>
+<section>
+<section id="motivation" class="title-slide slide level1 center">
+<h1>Motivation</h1>
+<aside class="notes">
+<p>I’m going to start with some motivating background and in particular focus on two key benefits of open science</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="why-open-science" class="slide level2">
+<h2>Why Open Science</h2>
+<hr>
+<p><br></p>
+<h3 class="larger" id="benefit-1">Benefit #1</h3>
+<h3 id="transparency-as-a-means-of-verification">Transparency as a means of verification</h3>
+<p><br></p>
+<h3 class="larger" id="benefit-2">Benefit #2</h3>
+<h3 id="transparency-as-a-means-of-supercharging-research-cycle">Transparency as a means of supercharging research cycle</h3>
+<aside class="notes">
+<p>In the shadow of the reproducibility crisis, transparency allows for a minimum standard of verification of research results in the form of reproducibility. Being able to recreate results from code and data.</p>
+<ul>
+<li>Also, Making underlying materials openly available means it’s much easier to for anyone to build on previous research, effectively supercharging the research cycle.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="so-how-are-we-doing" class="title-slide slide level1 center">
+<h1>So how are we doing?</h1>
+<aside class="notes">
+<p>Many have been advocating for these benefits for some time now and I feel the points have actually been widely recognised and generally accepted by now.</p>
+<ul>
+<li><p>How far have we actually come in terms of more open, reusable and robust science?</p></li>
+<li><p>Well that’s actually a really hard question to answer because,</p></li>
+<li><p>despite an increase in the publication of more research code and data (by no means sufficient yet), there is still <strong>no systematic review of such materials</strong> to confirm that research is indeed reproducible</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="is-code-and-data-enough" class="slide level2">
+<h2>Is code and data enough?</h2>
+<p><img data-src="assets/reproducible-data-analysis-02.png"></p>
 
-<img src="assets/hex-logo-small.png" class="slide-logo r-stretch"><div class="footer footer-default">
+<aside class="notes">
+<ul>
+<li><p>Indeed trying to work with many materials can feel a lot like this where you download some materials, start playing around, can’t get them to work and soon give up.</p></li>
+<li><p>It also begs the question:</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<aside><div>
+<p>slide: <a href="https://github.com/karthik/rstudio2019"><em>Karthik Ram: rstudio::conf 2019 talk</em></a></p>
+</div></aside></section></section>
+<section>
+<section id="if-a-paper-claims-to-be-reproducible-but-nobody-checks-it-is-it-really-reproducible" class="title-slide slide level1 center">
+<h1>If a paper claims to be reproducible but nobody checks it, is it really reproducible?</h1>
+<aside class="notes">
+<p>Open materials != functional materials.</p>
+<p>In truth, this situation is not really surprising because <strong>formal training in practices and standards</strong> for researchers is <strong>still lagging</strong> despite demands for reproducibility.</p>
+<p>The <strong>lack of systematic review</strong> leads to an additional problem, that there is <strong>no opportunity to practice</strong> and get <strong>feedback</strong> on the reproducibility of our research.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="reprohacks-1" class="slide level2">
+<h2>Reprohacks</h2>
+<h4 id="one-day-reproducibility-hackathons">One day reproducibility hackathons</h4>
+<hr>
+<p><br></p>
+<div>
+<ul>
+<li class="fragment"><h3 id="how-reproducible-are-papers">How reproducible are papers?</h3></li>
+<li class="fragment"><h3 id="how-can-we-provide-a-sandbox-environment-to-practice-reproducibility">How can we provide a sandbox environment to practice reproducibility?</h3></li>
+</ul>
+</div>
+<aside class="notes">
+<p>So these were really the key issues that the ReproHack project sought to address:</p>
+<ul>
+<li><p>How reproducible are papers with associated published code and data?</p></li>
+<li><p>How can we provide a sandbox environment where both authors and reviewers can practice reproducibility?</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="how-does-it-work" class="title-slide slide level1 center">
+<h1>How does it work?</h1>
+
+</section>
+<section id="call-for-papers" class="slide level2">
+<h2>Call for papers</h2>
+<div class="columns">
+<div class="column" style="width:46%;">
+<p></p><div id="tweet-12283"></div><script>tweet={"url":"https:\/\/twitter.com\/annakrystalli\/status\/1138769695513952260","author_name":"annakrystalli","author_url":"https:\/\/twitter.com\/annakrystalli","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E✨Do you champion \u003Ca href=\"https:\/\/twitter.com\/hashtag\/reproducible?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#reproducible\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/research?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#research\u003C\/a\u003E? \u003Cbr\u003E✨Do you have a reproducible paper with open code and data?\u003Cbr\u003E\u003Cbr\u003EThe \u003Ca href=\"https:\/\/twitter.com\/SoftwareSaved?ref_src=twsrc%5Etfw\"\u003E@SoftwareSaved\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ReproHack?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ReproHack\u003C\/a\u003E series needs you! \uD83D\uDE80\u003Cbr\u003E\u003Cbr\u003EHelp others learn &amp; engage with your work by submitting it to our 1-day Reproducibility hackathons!\u003Ca href=\"https:\/\/t.co\/PssdXqwl8Z\"\u003Ehttps:\/\/t.co\/PssdXqwl8Z\u003C\/a\u003E\u003C\/p\u003E&mdash; annakrystalli (@annakrystalli) \u003Ca href=\"https:\/\/twitter.com\/annakrystalli\/status\/1138769695513952260?ref_src=twsrc%5Etfw\"\u003EJune 12, 2019\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-12283").innerHTML = tweet["html"];</script><p></p>
+</div><div class="column" style="width:46%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="assets/paper_list.png" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>As organisers, In the current format, leading up to the event,</p>
+<p>we have a call for papers</p>
+<p>where we encourage authors to submit their papers for reproduction.</p>
+<p>We like this because it means authors get engaged from the start</p>
+<p>And this hopefully results in a nice paper list for participants to work with on the day but either way, there is always the central paper list to fall back on.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="on-the-day" class="slide level2 shadow-box" data-background-image="assets/Hackathon.jpg">
+<h2>On the day</h2>
+<hr>
+<p><br></p>
+<div>
+<ul>
+<li class="fragment"><h3 id="intro-set-the-tone">Intro &amp; Set the Tone</h3></li>
+<li class="fragment"><h3 id="select-paper-and-form-groups">Select paper and form groups</h3></li>
+<li class="fragment"><h3 id="work-with-materials-and-reproduce">Work with materials and reproduce</h3></li>
+<li class="fragment"><h3 id="regroup-discuss">Regroup &amp; Discuss</h3></li>
+<li class="fragment"><h3 id="feed-back-to-authors">Feed back to authors</h3></li>
+</ul>
+</div>
+<aside class="notes">
+<p>On the day, we start with a bit of an introduction in which we stress that:</p>
+<ul>
+<li>Reproducibility is hard!</li>
+<li>Authors are incredibly brave to invite us into their work</li>
+<li>So we set the tone to invite only constructive feedback.</li>
+</ul>
+<p>Participants are then free to review and select papers they wish to work on and attempt to reproduce them</p>
+<p>At some point we regroup to share progress and close with a final share out.</p>
+<p>Most importantly, we ask participants to feed their experiences back to the authors through a structured feedback form.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="benefits" class="slide level2">
+<h2>Benefits</h2>
+
+<img data-src="assets/reprohack_hub_participate.png" class="r-stretch"></section>
+<section id="reprohacks-are-fun" class="slide level2">
+<h2>ReproHacks are fun</h2>
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="assets/n8-reprohack_collage.gif"></p>
+</div>
+</div>
+<aside class="notes">
+<p>Crucially though the events are fun!</p>
+<p>Participants really enjoyed the low pressure friendly and collaborative environments, felt they learnt a lot and found being able to reproduce others work extremely satisfying!</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section" class="slide level2" data-background-image="assets/reprohack_many_ways.png">
+<h2></h2>
+<aside class="notes">
+<p>There are many ways to ReproHack - You can attach them to an event, run them remotely, run an institutional one</p>
+<p>but what we’d love to see more of is for research groups to start reproducing and reviewing their work before publication and start normalising the process reproducbility checks and developing the necessary skills</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-1" class="slide level2" data-background-image="assets/hub_background.png">
+<h2></h2>
+<aside class="notes">
+<p>To make it easier to engage, we’ve built the ReproHack hub to facilitate all reprohack activities.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<p><br></p>
+</section>
+<section id="interested-in-reprohacking" class="slide level2">
+<h2>Interested in ReproHacking?</h2>
+<h3 id="join-us-tomorrow">Join Us tomorrow!</h3>
+<p>Mannheim Open Science Day Reprohack <a href="https://www.reprohack.org/event/20/" class="uri">https://www.reprohack.org/event/20/</a></p>
+<p><br></p>
+<h3 id="submit-your-own-papers">Submit your own papers!</h3>
+<h3 id="host-your-own-event">Host your own event!</h3>
+<p><span class="huge"><a href="https://www.reprohack.org/">reprohack.org</a></span></p>
+<p><br></p>
+<hr>
+<h4 id="chat-to-us">Chat to us:</h4>
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><a href="https://reprohack-autoinvite.herokuapp.com/"><img data-src="https://img.shields.io/badge/slack-join%20us-brightgreen.png" width="81" height="19"></a></p>
+</figure>
+</div>
+</section></section>
+<section id="thanks-for" class="title-slide slide level1 center">
+<h1><span class="emoji" data-emoji="wave">👋</span> Thanks for <span class="emoji" data-emoji="eyes">👀</span> | <span class="emoji" data-emoji="question">❓</span></h1>
+
+<img src="https://raw.githubusercontent.com/reprohack/event-slides/main/assets/hex-logo-small.png" class="slide-logo r-stretch"><div class="footer footer-default">
 <p><strong><a href="https://www.reprohack.org/">reprohack.org</a> &nbsp;&nbsp; <span class="citation" data-cites="ReproHack">@ReproHack</span> &nbsp;&nbsp; #OSD22Mannheim</strong></p>
 </div>
 </section>
@@ -554,6 +847,48 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
@@ -652,4 +987,5 @@
     </script>
     
 
+<script src="https://platform.twitter.com/widgets.js"></script>
 </body></html>
