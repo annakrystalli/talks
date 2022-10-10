@@ -1,0 +1,103 @@
+/*-- scss:defaults --*/
+
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:wght@300;400;600&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap);
+
+:root {
+  --inverse-text-color: #2a332c;
+  --inverse-background-color: #02CC98;
+  --inverse-header-color: #2a332c;
+  --header-color: #2D896B;
+  --title-text-color: #00CC99;
+  --title-bg-color: #117660;
+}
+
+// fonts
+$font-family-sans-serif: Poppins, sans-serif !default;
+$code-font-family: 'Source Code Pro';
+$presentation-font-size-root: 28px;
+
+// colors
+$body-bg: #117660 !default;
+$body-color: #eee8d5 !default;
+$text-muted: #00CC99 !default;
+$border-color: #00CC99 !default;
+$link-color: #D67914 !default;
+$selection-bg: #d33682 !default;
+$input-panel-bg: rgba(233, 236, 239, 0.2) !default;
+
+// headings
+$presentation-heading-font: "Work Sans", sans-serif !default;
+$presentation-heading-color: white !default;
+$presentation-heading-text-transform: capitalize !default;
+
+/*-- scss:rules --*/
+
+html * {
+  color-profile: sRGB;
+  rendering-intent: auto;
+}
+
+
+
+.reveal .talk {
+ background-color: #2a332c;
+}
+
+.reveal .talk h1, .talk h2, .talk h4 {
+  color: var(--inverse-background-color);
+}
+
+.reveal .talk img {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 130px;
+    opacity: 0.8;
+}
+
+.reveal .talk blockquote {
+    margin-top: 4rem;
+    margin-left: 5rem;
+}
+
+
+.reveal .title-slide {
+ background-size: cover;
+}
+
+.reveal .title-slide h1, .title-slide h2, .title-slide h4 {
+  color: var(--title-text-color);
+  font-size: 4rem;
+  text-shadow: 2px 2px $link-color;
+}
+.reveal .inverse blockquote {
+    border-left: 5px solid var(--header-color);
+}
+
+.reveal .column {
+    margin: 1%;
+    padding: 1%;
+
+    .smaller {
+        font-size: 0.8rem;
+    }
+}
+
+.reveal .url {
+    text-transform: none;
+}
+
+.reveal .huge {
+    font-size: 4.5rem;
+}
+
+.reveal .larger {
+    font-size: 2.5rem;
+}
+
+.reveal .shadow-box {
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
