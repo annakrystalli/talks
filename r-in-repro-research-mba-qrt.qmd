@@ -1,0 +1,1297 @@
+---
+title: "Putting the <img src='assets/logos/R_logo.svg' height=45px> into Reproducible (Marine) Research"
+author: "Dr Anna Krystalli"
+subtitle: "_Marine Biology Live - 12th Dec 2023_"
+from: markdown+emoji
+format:
+  revealjs: 
+    theme: [dark, assets/css/rrse.scss]
+    incremental: true
+    logo: assets/logos/r-rse-square-lg.png
+    footer: annakrystalli@fosstodon.org
+execute:
+  echo: true
+editor: visual
+---
+
+```{r setup, include=FALSE}
+library(magrittr)
+```
+
+## `r emo::ji("wave")` Hello
+
+### me: **Dr Anna Krystalli**
+
+::: nonincremental
+-   **Research Software Engineer**, [*`R-RSE`*](https://www.r-rse.eu/)
+
+    -   mastodon annakrystalli\@fosstodon.org
+    -   github @annakrystalli
+    -   email **r.rse.eu\[at\]gmail.com**
+
+-   Background in **Marine Macroecology**
+
+-   **Editor [rOpenSci](http://onboarding.ropensci.org/)**
+
+-   **Core Team:** [ReproHack](https://github.com/reprohack/reprohack-hq)
+:::
+
+<br>
+
+### slides: [**bit.ly/r-in-repro-research-mba**](https://bit.ly/r-in-repro-research-mba)
+
+::: notes
+Hi I'm Anna - I'm an RSE for my own company, R-RSE after spending quite some time as an RSE at the University I have a background in Marine Macroecology - An editor for rOpenSci - And a core team member of the ReproHack project
+
+ANd you can find these slides at the following link
+:::
+
+# Motivation
+
+::: notes
+I'm going to start with some motivating background
+:::
+
+## Calls for reproducibility
+
+> #### **Reproducibility** has the potential to serve as a **minimum standard for judging scientific claims** when full independent replication of a study is not possible.
+
+<br>
+
+![Reproducible Research in Computational Science ROGER D. PENG, SCIENCE 02 DEC 2011 : 1226-1227](assets/repro-spectrum.jpg){width="800"}
+
+::: notes
+-   I'm sure most by now have heard about the reproducibility crisis.
+
+-   I don't want to go into to much detail about the many and varied drivers of the crisis and discussions about the implications.
+
+-   but one thing that most would agree on is that the **publication system** as it stands is **not fit for validating modern research** which is increasingly underlaid by more and complex computational workflows
+
+We have been making progress though, with computational reproducibility, *the ability to reproduce a result from the original code and data* being put forward as a minimum standard for validating research findings
+:::
+
+## Is code and data enough?
+
+[![Karthik Ram: rstudio::conf 2019 talk](assets/reproducible-data-analysis-02.png)](https://github.com/karthik/rstudio2019)
+
+::: notes
+-   The good news is that this recognition has lead to more code and data being published.
+
+-   But that hasn't necessarily made research more reproducible.
+
+-   Often trying to working with them feels a lot like this experience depicted here where you download some materials, start playing around, can't get them to work and soon give up.
+
+-   This can be because of difficulty recreating a complex computational environment or something as simple as missing documentation.
+
+-   In truth, it's not really surprising because still, **training in practices and standards** for researchers is **still lagging** despite demands for reproducibility.
+:::
+
+## R for Open Reproducible Research
+
+### A whistle-stop tour of tools, practices and conventions in R for more:
+
+::: notes
+The motivation for this talk was to give a A whistle-stop tour of tools, practices and conventions if you are a researcher working in R that can help make your work more:
+:::
+
+-   
+
+    ### **Reproducible**
+
+-   
+
+    ### **Robust**
+
+-   
+
+    ### **Transparent**
+
+-   
+
+    ### **Reusable**
+
+-   
+
+    ### **Shareable** research materials
+
+::: notes
+A few caveats:
+
+This is a long slide deck! And I won't be able to get through all of it. But the slides are packed with links to further info so when I've given this talk before, folks have appreciated being able to browse the content so feel free to explore in more detail in your own time,
+:::
+
+# Project management
+
+![Icon by [Freepik](https://www.freepik.com) from [flaticon.com](www.flaticon.com)](assets/project.svg){fig-align="center" height="200"}
+
+::: notes
+I'm going to start with some tips on project management
+:::
+
+## Rstudio Projects
+
+### Use Rstudio projects to keep materials associated with a particular analysis together
+
+<br>
+
+::: columns
+::: column
+::: nonincremental
+-   **Self contained** and **portable**
+-   **Working directory set to root** of project on launch
+-   **Fresh session** everytime the project is launched
+:::
+:::
+
+::: column
+**File \> New Project \> New Directory**
+
+<img src="assets/new_project.png" height="200px"/>
+:::
+:::
+
+::: aside
+See Jenny Bryan's post on [**project oriented workflows**](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/) for more details
+:::
+
+::: notes
+First of all, how to organise your materials associated with a project
+
+-   If your working in R, I recommend you work in Rstudio, which is an IDE that makes working with R code a lot easier
+
+-   I also recommend you organise your work into Rstudio projects.
+
+-   A project is, in essence, a folder and the idea is that it contains everything you need to run your analysis.
+
+So it's
+
+-   **Self contained** and **portable**, making easier to share or move around
+-   WHen you open it, the **Working directory set to root** of project
+-   And you also start with a **Fresh session** everytime the project is launched
+:::
+
+##  {background-image="assets/my_awesome_project.png" background-size="contain"}
+
+::: notes
+-This is what a project looks like when launched - Here's the working directory set to root - You can see the environment is empty - and you can browse all the files in the project in the files tab
+:::
+
+## :package: `here`
+
+### Use :package: `here` to create robust relative paths
+
+<br>
+
+::: columns
+::: {.column width="40%"}
+**Robust paths relative to project root**
+
+-   portable
+-   independent of:
+    -   working directory
+    -   source code location
+:::
+
+::: {.column width="60%"}
+```{r, echo = TRUE}
+here::here()
+```
+
+```{r}
+here::here("data", "summaries.csv")
+```
+:::
+:::
+
+::: notes
+Having your work organised in a self contained folder also means you can write robust path names.
+
+And for this I recommend using relative path names to the root directory. EVen better, you can use package `here`
+
+-   Running the function with no arguments returns the root path of the project
+
+-   You can supply a vector of character strings to build paths within the project like I've done here.
+
+-   The important point is that these will evaluate correctly on anyones machine, which wouldn't be the case if for example I had hard coded the parent directory path, and makes your paths:
+
+-   **Robust relative to project root**
+
+    -   portable
+    -   independent of:
+        -   working directory
+        -   source code location
+:::
+
+## Dependency management
+
+::: columns
+::: column
+### Minimal approach
+
+##### include session info
+
+```{r, eval=FALSE}
+sessionInfo()
+```
+
+##### include an `install.R` script
+
+```{r eval=FALSE}
+install.packages("dplyr")
+install.packages("purrr")
+```
+:::
+
+::: column
+### Most robust approach
+
+##### use :package: [`renv`](https://rstudio.github.io/renv/articles/renv.html) (previously `packrat`)
+
+::: nonincremental
+-   Create and manage a per project library of packages
+-   initialise during project set up
+:::
+
+```{r, eval=FALSE}
+# initialize a project-local private R library with those packages and snapshot dependencies through lockfile
+renv::init() 
+#create a lockfile capturing the state of a project's R package dependencies
+renv::snapshot() 
+ # Restore a project's dependencies from a lockfile
+renv::restore()
+```
+
+*will revisit later on*
+:::
+:::
+
+::: notes
+Another really important consideration and very common sticking point is sufficient management of dependencies.
+
+A minimal approach would be to print your session information somewhere in your documentation. This includes system information as well as loaded packages and their versions
+
+ALso include **executable script** to install necessary packages to make it easier for others to set up their projects, for example by including a `install.R` script.
+
+A more robust approach would be to use package `renv` which creates a separate package library for each project which is included in the project. This means when you share your project, you are sharing the exact versions of packages used for your analysis.
+
+We'll revisit this topic with an intermediate approach when we talk about packaging code.
+:::
+
+# Version Control
+
+::: notes
+Let's move on to another very important topic when managing project, version control
+:::
+
+## Version Control
+
+### What is it? `r emo::ji("thinking")`
+
+The **management of changes** to documents, computer programs, large web sites, and other collections of information.
+
+### Git <img src="https://git-scm.com/images/logos/downloads/Git-Logo-2Color.png" height="25px"/>
+
+Open source (free to use) **Version control software.**
+
+### GitHub <img src="https://raw.githubusercontent.com/annakrystalli/rrresearch/master/docs/assets/github_logo.jpg" height="25px"/>
+
+A **website** (https://github.com/) that allows you to **store your Git repositories online** and makes it easy to collaborate with others.
+
+::: notes
+Let'start by defining a few terms:
+
+-   Version control refers to the management of changes to documents, computer programs, large web sites, and any other collections of information.
+
+-   git is the open source software that allows us to manage such changes on out local machine
+
+-   while **GitHub** is a website or hub where anyone can share their git repositories online, enabling collaboration
+:::
+
+## Why use them in research?
+
+::: columns
+::: column
+### Exhibit A
+
+![Image: xkcd CC BY-NC 2.5](http://smutch.github.io/VersionControlTutorial/_images/vc-xkcd.jpg){width="400"}
+:::
+
+::: column
+### Exhibit B
+
+![Image: "Piled Higher and Deeper" by Jorge Cham [www.phdcomics.com](www.phdcomics.com)](http://www.phdcomics.com/comics/archive/phd101212s.gif){height="400"}
+:::
+:::
+
+::: notes
+Now, why should we use them in research?
+
+-   For starters, by regularly saving your work with a version control system, you can recover your work from accidental losses (especially if you've saved a copy on Github too). You can also return to previous states of your work
+
+-   Another really important feature is that it helps with the familiar to many yet all too common situation depicted here, because it helps manage changes by many contributors in an efficient way.
+:::
+
+## Git, Github & Rstudio
+
+#### Before: git only through the terminal `r emo::ji("cry")`
+
+::: notes
+Now, in the past you could only run git in the terminal. Well actually that's not quite correct, there were other programs you could use it through but you would have to leave R, go to the other program, record all your changes and then go back to R to continue working.
+:::
+
+. . .
+
+### Now: Rstudio + `usethis` :package: == `r emo::ji("heart")` `Git` & `GitHub` `r emo::ji("star_struck")`
+
+![](https://media.giphy.com/media/GA2FNpP1kAQNi/giphy.gif)
+
+::: notes
+Rstudio integration with git and package `usethis` have made it much easier to version control your R projects!
+
+This guy knows! He's been using it since it first came out!
+:::
+
+## Initialise git
+
+### Initialise **Rstudio project** with Git by **just checking a box!**
+
+<img src="assets/project_git.png" height="200px"/>
+
+It's now **a repository**
+
+<br>
+
+Forgot to check **git** box? use `usethis::use_git()`
+
+::: notes
+Now that you are all set up, you are ready to initialise your analysis projects with git.
+
+Initialising a project with git is really easy in Rstudio by clicking a box when you are first creating it.
+
+This is now called a repository.
+
+But is you do forget, you can always use function `usethis::use_git()` in your project.
+:::
+
+## Git panel
+
+### Integrated graphical user interface
+
+<br>
+
+<img src="assets/git_tab.png" height="300px"/>
+
+::: notes
+Rstudio has an integrated `git` panel through which you can perform the most common version control functions.
+
+So let's have a quick look at what a typical git workflow looks like:
+:::
+
+## Git Rstudio workflow
+
+::: columns
+::: column
+#### view file status
+
+<img src="assets/git_view.png" height="150px"/>
+
+#### stage files
+
+<img src="assets/git_add.png" height="150px"/>
+:::
+
+::: column
+#### commit changes
+
+<img src="assets/git_commit.png" width="600px"/>
+:::
+:::
+
+::: notes
+Here we are looking at the git pane
+:::
+
+## Share on GitHub
+
+::: columns
+::: column
+#### Create repo
+
+```{r, eval=FALSE}
+usethis::use_github(protocol = "https")
+```
+
+<img src="assets/my_awesome_repo.png" width="500px"/>
+:::
+
+::: column
+#### Push further changes
+
+<img src="assets/push_github.png" height="50px"/>
+:::
+:::
+
+::: notes
+Once you commited your files and changes locally, you might want to share them on GitHub to make the work accessible by yourself or others online.
+
+To do so, you can use `usethis::use_github(protocol = "https")`
+
+This will create a repository on GitHub in your account and push all materials up to GitHub.
+
+Any further changes you make locally, you can push up to GitHub by using the push button.
+:::
+
+## Anatomy of a GitHub Repo
+
+-   **`README`**. Explain what your project is, and how to use it.
+    -   `usethis::use_readme_md()`
+    -   `usethis::use_readme_rmd()`
+-   **`LICENSE`**. Without a licence, the contents of the repository are technically closed.
+    -   Examples licence [MIT](https://tldrlegal.com/license/mit-license): `usethis::use_mit_license(name = "Anna Krystalli")`
+    -   `?licenses`: details of functions available to generate licenses
+    -   <https://choosealicense.com/> help on choosing a licence.
+-   **`CONTRIBUTING.md`** - guidelines for contributors.
+    -   `usethis::use_tidy_contributing()` provides a relatively strict but instructive template
+-   **`CODE_OF_CONDUCT.md`** set the tone for discourse between contributors.
+    -   `use_code_of_conduct()`
+
+::: notes
+Now let's go through the anatomy of a GitHub repository.
+
+There's a number of common documents you might find which I've listed here, and I've added some functions in R that can help you generate them.
+:::
+
+## GitHub issues
+
+### use GitHub issues to plan, record and discuss tasks.
+
+::: columns
+::: column
+#### issues
+
+<img src="assets/github_issues.png" width="600px"/>
+:::
+
+::: column
+#### projects
+
+<img src="assets/github_projects.png" width="600px"/>
+:::
+:::
+
+::: notes
+Finally another really useful feature of GitHub repositories I want to mention are GitHub issues.
+
+These are basically a task tracker. You can open issues relating to a specific task you need to accomplish, a problem you are having with the code, or just to discuss something.
+
+The nice thing about using them is that it keeps discussions about the project attached to the project rather that disparate email threads.
+
+The project board also allows you to organise them and visually track progress of your various tasks.
+:::
+
+# Literate programming with Quarto or Rmarkdown
+
+::: notes
+Next, let's talk about another really relevant topic for researchers, literate programming.
+:::
+
+## Literate programming
+
+Programming paradigm first introduced by **Donald E. Knuth**.
+
+> ### Treat program as literature to be understandable to human beings
+>
+> -   focus on the logic and flow of human thought and understanding
+> -   single document to integrate data analysis (executable code) with textual documentation, **linking data, code, and text**
+
+## Literate programming in R
+
+### Quarto (`qmd` or Rmarkdown `.Rmd`) integrates:
+
+-   a **documentantion** language (`.md`)
+
+-   a **programming** language (`R`, `python`, `SQL`)
+
+-   functionality to **"knit" (render) them together** through :package: `knitr`
+
+<br>
+
+### features
+
+-   `r emo::ji("white_check_mark")` provides a framework for writing narratives around code and data
+
+-   `r emo::ji("white_check_mark")` Code re-run in a clean environment every time the document is rendered
+
+::: notes
+In R, our most modern framework for literate programming is called Quarto and derives from a much more mature framework, Rmarkdown and it integrates:
+
+-   a **documentation** language (`.md` but can include html)
+
+-   a **programming** language (`R` by default but also has engines to support a number of different languages including python, sql, stan ao)
+
+-   functionality to **"knit" them together** through :package: `knitr`
+:::
+
+## Quarto out {background-image="assets/1728_TURI_Book sprint_25 pandoc_rmd_040619.jpg" background-size="contain"}
+
+::: {#quarto-out .aside}
+This image was created by Scriberia for
+
+The Turing Way community and is used
+
+under a CC-BY licence
+:::
+
+::: notes
+The cool thing about markdown is the richness of the types of documents you can output to.
+
+The most common is to html document but you can also create: - pdf,
+
+-... and even word.
+:::
+
+## Quarto to html
+
+#### **File \> New File \> Quarto Document**
+
+::: columns
+::: column
+::: panel-tabset
+### Source editor
+
+![](assets/quarto-raw.png)
+
+### Visual editor
+
+![](assets/quarto-raw-visual.png)
+:::
+:::
+
+::: column
+<img src="assets/quarto-knit.png" width="435px"/>
+:::
+:::
+
+::: notes
+Let's have a look at an example document which is being knit to html
+
+On the left you have your quarto document. - The top is the YAML header that contains document level metadata such as: - author, title, output type and styling settings like themes and whether to include a toc
+
+-   Below is an example of markdown, and the various notations render to specific formatting in the knit document
+
+-   Finally, these are the code chunks containing executable code and the offer a variety of options to control how they are displayed, how they are evaluated and how they are output.
+:::
+
+## Applications in research
+
+### Quarto documents can be useful for a number of research related [long form documentation](http://r-pkgs.had.co.nz/vignettes.html) materials:
+
+::: columns
+::: column
+<br>
+
+-   Documentation of code & data
+-   Electronic Notebooks
+-   Supplementary materials
+-   Reports
+-   Papers
+-   Theses, Slides, websites, ebooks and more!
+:::
+
+::: column
+![](assets/document-all-the-things.jpg)
+:::
+:::
+
+::: notes
+So why should we care about these documents in research?
+:::
+
+## Quarto Features for Scientific Publishing
+
+::: panel-tabset
+### Citations & Footnotes
+
+![](assets/citations-quarto.png)
+
+[See more](https://quarto.org/docs/authoring/footnotes-and-citations.html)
+
+::: notes
+Quarto can generate citations and a bibliography in a number of styles. You will need:
+
+-   A bibliographic data source, (.bib) or (.bibtex) file.
+
+-   Optionally, a CSL file which specifies the formatting to use when generating the citations and bibliography.
+:::
+
+### Front matter
+
+::: columns
+::: {.column width="60%"}
+``` yaml
+---
+title: "Toward a Unified Theory of High-Energy Metaphysics: Silly String Theory"
+date: 2008-02-29
+author:
+  - name: Josiah Carberry
+    id: jc
+    orcid: 0000-0002-1825-0097
+    email: josiah@psychoceramics.org
+    affiliation: 
+      - name: Brown University
+        city: Providence
+        state: RI
+        url: www.brown.edu
+abstract: > 
+  The characteristic theme of the works of Stone is 
+  the bridge between culture and society. ...
+keywords:
+  - Metaphysics
+  - String Theory
+license: "CC BY"
+copyright: 
+  holder: Josiah Carberry
+  year: 2008
+citation: 
+  container-title: Journal of Psychoceramics
+  volume: 1
+  issue: 1
+  doi: 10.5555/12345678
+funding: "The author received no specific funding for this work."
+---
+```
+
+[See more](https://quarto.org/docs/authoring/front-matter.html)
+:::
+
+::: {.column width="40%"}
+![](assets/frontmatter-quarto.png)
+:::
+:::
+
+::: notes
+Scholarly articles require much more detail in their front matter & Quarto provides a rich set of YAML metadata keys to describe these details:
+
+-   authors and their affiliations,
+-   abstracts and keywords.
+-   information on copyright, licensing and funding.
+:::
+
+### Cross-references
+
+::: columns
+::: column
+Adding a reference to an image:
+
+``` md
+![Elephant](elephant.png){#fig-elephant}
+```
+
+Referencing the image:
+
+``` md
+See @fig-elephant for an illustration.
+```
+
+[See more](https://quarto.org/docs/authoring/cross-references.html)
+:::
+
+::: column
+![](assets/crossref-quarto.png)
+:::
+:::
+
+::: notes
+Cross-references make it easier for readers to navigate your document by providing numbered references and hyperlinks to various entities like figures and tables
+:::
+
+### more...
+
+::: nonincremental
+-   [Equations](https://quarto.org/docs/authoring/markdown-basics.html#equations)
+-   [Diagrams](https://quarto.org/docs/authoring/markdown-basics.html#diagrams)
+-   [Tables](https://quarto.org/docs/authoring/tables.html)
+-   [Figures](https://quarto.org/docs/authoring/figures.html)
+:::
+:::
+
+## Publish to the web for free!
+
+::: nonincremental
+
+-   **Quarto Pub**: Publish rendered quarto documents on the web with the click of a button in Rstudio <https://quartopub.com/>
+
+-   **GitHub**: Host your site through [`gh-pages`](https://pages.github.com/) on GitHub. Enable in GitHub repo `r emo::ji("gear")`**Settings**. [See **GitHub Pages chapter in Quarto documentation**](https://quarto.org/docs/publishing/github-pages.html) for more details.
+
+-   **Netlify**: Connect a repository, build your site, deploy and host for free. <https://www.netlify.com/>. [See **Netlify chapter in Quarto documentation**](https://quarto.org/docs/publishing/netlify.html) for more details.
+
+:::
+
+<https://quarto.org/docs/publishing/>
+
+::: notes
+These technologies are extremely empowering. Because they generate html outputs, and through a number of available options, they allow us to publish to the web for free! This is how I learned.
+
+A few of the options available to us are:
+
+-   Netlify, richer features and easy automated builds
+:::
+
+# Managing code
+
+## Managing analysis code
+
+### Separate function definition and application
+
+::: columns
+::: column
+<br>
+
+-   In the beginning: **many lines of directly executed code in a single analysis script.**
+
+-   As it matures: **reusable chunks :arrow_right: functions**.
+:::
+
+::: column
+![](assets/script.svg)
+:::
+:::
+
+::: notes
+-   When a project is new and shiny, an **analysis script usually contains many lines of directly executated code.**
+
+-   As it matures, **reusable chunks get pulled into their own functions**.
+
+-   as **functions defined in separate R scripts, The actual analysis scripts then become relatively short and hopefully easier to follow,**
+
+But what is the best way to manage such modular code?
+:::
+
+## R Package Structure
+
+### Used to share functionality with the R community
+
+::: nonincremental
+
+-   Useful **conventions**
+
+-   Useful **software development tools**
+
+-   Easy **publishing** through GitHub
+
+:::
+
+<br>
+
+<img src="assets/package_friends.png" height="300px"/>
+
+::: notes
+By suggestion to you is to follow the language conventions for packaging code. In R that would be **R package structure**.
+
+The good thing about following this structure is that it provides:
+
+-   useful convention so that you don't have to invent your own and can maintain the same structure across your projects
+
+-   This convention in turn allows us to use all the tools used for software developing, documenting, testing and distributing R code!
+:::
+
+## R Package conventions:
+
+-   **metadata**: in the **`DESCRIPTION` file**
+
+-   **functions** in **`.R` scripts** in the **`R/` folder**
+
+-   **tests** in the **`tests/` folder**
+
+-   **Documentation:**
+
+    -   *functions* using **Roxygen notation**
+    -   *workflows* using **`.Rmd` documents** in the **`vignettes/`** folder
+
+## `DESCRIPTION` file
+
+#### Package metadata
+
+```         
+Package: EMODnetWCS
+Title: Access EMODnet Web Coverage Service data through R
+Version: 0.0.0.9012
+Authors@R: c(
+    person("Anna", "Krystalli", , "annakrystalli@googlemail.com", role = "aut",
+           comment = c(ORCID = "0000-0002-2378-4915")),
+    person("Salvador", "Fernández-Bejarano", , "salvador.fernandez@vliz.be", role = "cre",
+           comment = c(ORCID = "0000-0003-0535-7677")),
+    person("European Marine Observation Data Network (EMODnet) Biology project", "European Commission's Directorate - General for Maritime Affairs and Fisheries (DG MARE)", , "bio@emodnet.eu", role = "cph"),
+    person("VLIZ (VLAAMS INSTITUUT VOOR DE ZEE)", , , "info@vliz.be", role = "fnd")
+  )
+Description: Access and interrogate EMODnet Web Coverage Service data
+    through R.
+License: MIT + file LICENSE
+Imports: 
+    checkmate,
+    cli,
+    curl,
+    glue,
+    httr,
+    magrittr,
+    memoise,
+    ows4R (>= 0.3-2),
+    purrr,
+    rlang,
+    sf,
+    terra,
+    tibble
+Suggests: 
+    covr,
+    fs,
+    httptest,
+    huxtable,
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0),
+    webmockr,
+    withr
+Config/testthat/edition: 3
+Remotes: 
+    eblondel/ows4R
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
+URL: https://github.com/EMODnet/EMODnetWCS,
+    https://emodnet.github.io/EMODnetWCS/
+BugReports: https://github.com/EMODnet/EMODnetWCS/issues
+Depends: 
+    R (>= 3.3.0)
+LazyData: true
+VignetteBuilder: knitr
+Date: 2022-09-29
+```
+
+::: notes
+The most important file in an R package is the `DESCRIPTION` file.
+
+This holds important metadata about tyour package such as: - Title - description - Version - authorship details - license details
+:::
+
+## citation
+
+```{r}
+citation("EMODnetWCS")
+```
+
+::: notes
+The cool thing about managing metadata about your project through the `DESCRIPTION` file is that you can then use R function `citation` on your project to autogenerate a citation in both text and bibtex format!
+:::
+
+## Functions in `R/`
+
+### example function script
+
+Create a new function `.R` file in the `R/` folder
+
+```{r, eval=FALSE}
+
+usethis::use_r("add")
+```
+
+```         
+R
+└── add.R
+
+0 directories, 1 files
+```
+
+::: notes
+As I mentioned, the other important convention to organising code as an R package is **storing our functions in `.R` scripts in an `/R` folder** in the root of our project.
+
+To quickly create such a script in the correct location, we can use `usethis` function `use_r` and supply the name of the file we want to create as the argument
+
+This creates the script with the name we specified, `add.R` in the `R` folder
+:::
+
+## Document functions with `Roxygen`
+
+::: {.callout-tip}
+
+### Code > Insert Roxygen Skeleton
+
+:::
+
+```{r}
+#' Add together two numbers.
+#' 
+#' @param x A number.
+#' @param y A number.
+#' @return The sum of x and y.
+#' @examples
+#' add(1, 1)
+#' add(10, 1)
+#' @export
+add <- function(x, y) {
+  x + y
+}
+```
+
+
+::: nonincremental
+
+-   Document function inputs (`param`), outputs (`return`) and usage by providing examples
+-   In packages, create help files on build (autogenerated `.Rd` files in `man/`)
+
+:::
+
+::: notes
+Another important aspect to managing our R code is documenting it.
+
+In R we use an annotation language called `roxygen` to document our R functions, indicated by the `#'` line prefix, and here I'm documenting a simple function that adds x & y which I created in our `add.R` script
+
+This allows us to document: - function descriptions - function input details through the `@params` slots - function outputs through the `@return` slot - examples of how to use the function and most importantly - the `@export` slot specifies that the function should be made available to users when the package is loaded.
+:::
+
+## [tests](http://r-pkgs.had.co.nz/tests.html)
+
+### Tests provide confidence in what the code is doing.
+
+![](https://github.com/r-lib/testthat/raw/master/man/figures/logo.png)
+
+::: notes
+Once we have written our functions, it's a good idea, especially if they are critical to our analysis, to write test for them so we can confirm that they are behaving as we expect them to
+
+Again, by managing our code as an R package means that **tools developed for testing R code are available for us to use**.
+:::
+
+## Example test
+
+```{r, eval=FALSE}
+usethis::use_test("add")
+```
+
+Creates a `tests/` folder with the following files
+
+```         
+tests
+├── testthat
+│   ├── test-add.R
+└── testthat.R
+```
+
+##### test-add.R
+
+```{r, eval=FALSE}
+test_that("add works", {
+  expect_equal(add(2, 2), 4)
+})
+```
+
+::: notes
+Tests live in a `/tests` folder but again, there's a handy function in `usethis`, `use_test` to help us create our test scripts in the correct place.
+
+-   By using the same name as the test script, the function names the script appropriately so we can quickly find where the tests associated with a particular function script are located.
+
+-   Here I've written a simple test that confirms that summation is working correctly
+
+-   To run the tests, I click the `test` button on the build panel.If any of the tests fail I will get an error, otherwise the tests proceed silently.
+
+-   Can automated through Continuous Integration (CI) to Monitor the effect of changes to the code and Safely onboarding of contributions
+:::
+
+# Research compendia
+
+## A Research compendium
+
+### The paper is the advertisement
+
+> "an article about computational result is advertising, not scholarship. The **actual scholarship is the full software environment, code and data, that produced the result.**"
+
+*John Claerbout paraphrased in [Buckheit and Donoho (1995)](https://statweb.stanford.edu/~wavelab/Wavelab_850/wavelab.pdf)*
+
+### The concept of a Research Compendium
+
+> " ...We introduce the **concept of a compendium** as both a **container for the different elements** that make up the document and its computations (i.e. text, code, data, ...), and as a **means for distributing, managing and updating the collection**."
+
+[*Gentleman and Temple Lang, 2004*](https://biostats.bepress.com/bioconductor/paper2/)
+
+# Research compendia in R
+
+::: columns
+::: column
+![](assets/reproducible-data-analysis-11.png)
+:::
+
+::: column
+![slides: [Karthik Ram: rstudio::conf 2019 talk](https://github.com/karthik/rstudio2019)](assets/reproducible-data-analysis-13.png)
+:::
+:::
+
+<br>
+
+**Ben Marwick, Carl Boettiger & Lincoln Mullen (2018)** [*Packaging Data Analytical Work Reproducibly Using R (and Friends)*](https://peerj.com/preprints/3192/)
+
+## Example compendium
+
+::: columns
+::: column
+**Paper**:
+
+![Boettiger, C. (2018) From noise to knowledge: how randomness generates novel phenomena and reveals information. <https://doi.org/10.1111/ele.13085>](assets/Boettiger-2018.png){heigth="250px" width="400"}
+:::
+
+::: column
+**Compendium**
+
+![cboettig/noise-phenomena: Supplement to: "From noise to knowledge: how randomness generates novel phenomena and reveals information" [http://doi.org/10.5281/zenodo.1219780](http://doi.org/10.5281/zenodo.1219780http://doi.org/10.5281/zenodo.1219780)](assets/boettiger_compendium.png){heigth="250px" width="400"}
+:::
+:::
+
+## `rrtools`: Creating Compendia in R
+
+> #### "The goal of rrtools is to provide **instructions, templates, and functions** for making a **basic compendium** suitable for writing **reproducible research with R**."
+
+<br>
+
+### Install [`rrtools`](https://github.com/benmarwick/rrtools) from GitHub
+
+```{r, eval=FALSE}
+# install.packages("devtools")
+devtools::install_github("benmarwick/rrtools")
+```
+
+<br>
+
+### Create a research compendium
+
+Based on R package structure
+
+```{r, eval=FALSE}
+library(rrtools)
+use_compendium("myproject")
+use_readme_rmd()
+use_analysis()
+add_dependencies_to_description()
+```
+
+## R compendium structure
+
+```         
+.
+├── CONDUCT.md
+├── CONTRIBUTING.md
+├── DESCRIPTION
+├── LICENSE
+├── LICENSE.md
+├── NAMESPACE
+├── README.Rmd
+├── README.md
+├── analysis
+│   ├── data
+│   │   ├── DO-NOT-EDIT-ANY-FILES-IN-HERE-BY-HAND
+│   │   ├── derived_data        # data generated during the analysis
+│   │   └── raw_data            # data obtained from elsewhere
+│   ├── figures                 # location of the figures produced by the qmd
+│   ├── paper
+│   │   ├── paper.qmd           # this is the main document to edit
+│   │   └── references.bib      # this contains the reference list information
+│   ├── supplementary-materials
+│   └── templates
+│       ├── author-info-blocks.lua
+│       ├── journal-of-archaeological-science.csl
+|       |                       # this sets the style of citations & reference    
+|       |                       # list
+│       ├── pagebreak.lua
+│       ├── scholarly-metadata.lua
+│       ├── template.Rmd
+│       └── template.docx       # used to style the output of the paper.qmd
+└── myproject.Rproj
+```
+
+::: aside
+Reproducible Research in R with `rrtools` [workshop materials](https://annakrystalli.me/rrtools-repro-research/).
+:::
+
+## `paper.qmd` to `paper.pdf`
+
+::: columns
+::: column
+**Rmd**
+
+<img src="assets/paper_rmd.png"/>
+:::
+
+::: column
+**pdf**
+
+<img src="assets/paper_pdf.png"/>
+:::
+:::
+
+# Reproducible Computational Environments
+
+## Why isn't sharing code _always_ enough?
+
+### Case Study: Sharing a Geospatial Analysis in R
+
+------------------------------------------------------------------------
+
+#### On a computer without System Library `GDAL` `r emo::ji("x")`
+
+::: columns
+::: column
+<br>
+
+``` r
+package ‘rgdal’ successfully unpacked 
+and MD5 sums checked
+
+configure: gdal-config: gdal-config
+checking gdal-config usability... ./configure: 
+line 1353: gdal-config: command not found
+no
+*Error: gdal-config not found
+...
+*ERROR: configuration failed for 
+package ‘rgdal’
+```
+:::
+
+::: column
+<div>
+
+![slide: Karthik Ram: rstudio::conf 2019 talk](assets/reproducible-data-analysis-02.png)
+
+</div>
+:::
+:::
+
+## What are Docker containers?
+
+> ### standardized units of software
+>
+> **package up everything needed to run an application:** *code, runtime, system tools, system libraries* and settings in a lightweight, standalone, executable package
+
+## What are Docker containers?
+
+![](assets/docker_workflow.png){fig-align="center" height="230"}
+
+-   **Dockerfile**: Text file containing recipe for setting up computation environment.
+
+-   **Docker Image**: Executable **built** from the **Dockerfile** with all required dependencies installed. Can have many images from the same `Dockerfile`.
+
+-   **Docker Container**: **Docker Images** become containers at **runtime**
+
+## Rocker on DockerHub
+
+#### using the `rocker/geospatial` Docker Image `r emo::ji("white_check_mark")`
+
+::: columns
+::: column
+![](assets/rocker_geospatial.png)
+:::
+
+::: column
+<br> [![Karthik Ram: rstudio::conf 2019 talk](assets/reproducible-data-analysis_042.png)](https://github.com/karthik/rstudio2019)
+
+Karthik Ram: [rstudio::conf 2019](https://github.com/karthik/rstudio2019)
+:::
+:::
+
+## Binder
+
+### [**https://mybinder.org/**](https://mybinder.org/){.uri}
+
+Bring your code repositories to life!
+
+::: columns
+::: column
+![](assets/binder.png)
+:::
+
+::: column
+![](assets/1728_TURI_Book%20sprint_45%20repo2docker_040619_v2_MK.jpg)
+
+::: {.aside}
+JupyterHub image was created by Scriberia for The Turing Way community and is used under a CC-BY licence
+:::
+:::
+:::
+
+## Capturing Computational Environments for R projects
+
+-   Create Dockerfile w/ `rrtools`
+
+    ``` r
+    rrtools::use_dockerfile()
+    ```
+
+-   :package: [`containerit`](https://o2r.info/containerit/) packages R script/session/workspace and all dependencies as a Docker container by automagically generating a suitable Dockerfile
+
+    ``` r
+    # From session Info
+    containerit::dockerfile(from = utils::sessionInfo())
+    # From file
+    containerit::dockerfile(from = "inst/demo.Rmd",
+                                            image = "rocker/verse:3.5.2",
+                                            maintainer = "Anna K",
+                                            filter_baseimage_pkgs = TRUE)
+    ```
+
+-   Binderise your R projects
+
+    -   Turing Way: [Zero to Binder R Tutorial](https://the-turing-way.netlify.app/communication/binder/zero-to-binder.html#zero-to-binder)
+    -   [`holepuch`](https://github.com/karthik/holepunch) :package: provides functionality for configuring R projects for binder. [`holepuch` workshop materials](https://holepunch-workshop.netlify.app/)
+
+## Further Resources on Reproducibility in R
+
+::: columns
+::: column
+::: nonincremental
+#### Version Control
+
+-   [Happy Git and GitHub for the useR](https://happygitwithr.com/)
+
+#### RMarkdown
+
+-   [Quarto Documentation](https://quarto.org/)
+-   [R Markdown: The Definitive guide](https://bookdown.org/yihui/rmarkdown/)
+
+#### R Packages
+
+-   [R packages](https://r-pkgs.org/) by Hadley Wickham and Jenny Bryan
+:::
+:::
+
+::: column
+::: nonincremental
+#### Research Compendia
+
+-   Karthik Ram: [*rstudio::conf 2019 talk*](https://github.com/karthik/rstudio2019)
+
+#### Docker & Binder
+
+-   Getting started with binder [docs](https://mybinder.readthedocs.io/en/latest/introduction.html)
+-   rOpenSci [Docker tutorial](https://ropenscilabs.github.io/r-docker-tutorial/)
+
+#### Tutorials
+
+-   [Rstudio Essentials](https://resources.rstudio.com/) Webinar series
+:::
+:::
+:::
+
+## MBA Courses Coming up!
+
+-   
+
+    #### [Introduction to programming in R](https://mymba.mba.ac.uk/ems-event-booking-page/introduction-to-programming-in-r.html)
+
+    19-21 March 2024\
+    *Early bird pricing till 31st Jan 2024!*
+
+-   
+
+    #### [Managing Your Scientific Code using Git & GitHub](https://mymba.mba.ac.uk/ems-event-booking-page/git-github.html)
+
+    8-9 May 2024
+
+# :wave: Thanks for :eyes:
+
+# Questions :question:

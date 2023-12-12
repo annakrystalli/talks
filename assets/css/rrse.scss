@@ -1,0 +1,56 @@
+/*-- scss:defaults --*/
+
+$body-bg: #383d3d;
+$body-color: #fff;
+$link-color: #11a3a5;
+$text-muted: #adb4b4;
+//$code-block-bg:	lighten($body-color, 50%);
+
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Ubuntu+Mono:wght@400;700&family=Work+Sans:wght@300;400;500&display=swap');
+
+$font-family-sans-serif: "Work Sans", "Book Antiqua", Palatino,
+  FreeSerif, serif !default;
+
+$presentation-heading-font: "Work Sans", "Book Antiqua", Palatino,
+  FreeSerif, serif !default;
+$font-family-monospace: "Cutive Mono";
+$presentation-heading-color: #fff !default;
+$presentation-font-size-root: 30px;
+$link-color: #7edfe0;
+
+/*-- scss:rules --*/
+
+.reveal .slide blockquote {
+  border-left: 3px solid #11a3a5;
+  padding-left: 0.5em;
+}
+
+.reveal .slide h2 {
+    color: #11a3a5;
+}
+
+.reveal .slide h1 {
+    color: #7edfe0;
+}
+
+.reveal .slide aside .fullscrn {
+    color: #383d3d;
+}
+
+.reveal .slide .footer {
+    color: #383d3d;
+}
+
+.footer {
+    color: #383d3d;
+}
+
+#quarto-out h2{
+  color: transparent;
+}
+
+#quarto-out {
+  margin-left: 600px;
+}
+
