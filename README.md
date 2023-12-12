@@ -39,8 +39,9 @@ repo for talks
 
 - 2021/01/19 RSE Sheffield - LunchBytes: [_"Putting the R into Reproducible Research: Director's Cut"_](https://annakrystalli.me/talks/r-in-repro-research-dc-srse.html)
 - 2022/10/11 University of Mannheim Open Science Day 2022: [_ReproHacks, a sandbox environment for practicing reproducible research._](https://annakrystalli.me/talks/mosd-reprohack.html)
-<br>
-- 2023/12/12 Marine Biology Live: [_"Putting the R into Reproducible (marine) Research._](https://annakrystalli.me/talks/r-in-repro-research-mba-qrt.html)
+
+- 2023/12/12 Marine Biology Live: [_"Putting the R into Reproducible (marine) Research."_](https://annakrystalli.me/talks/r-in-repro-research-mba-qrt.html)
+
 <br>
 
 ***
