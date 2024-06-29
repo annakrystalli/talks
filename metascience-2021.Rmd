@@ -1,0 +1,487 @@
+---
+title: "MetaScience 2021 - Engaging the community in research reproduction"
+author: "Anna Krystalli"
+output:
+  xaringan::moon_reader:
+    seal: false
+    css: [assets/css/metascience2021-xaringan-themer.css, assets/css/metascience2021-custom.css]
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["left"]
+      beforeInit: "https://platform.twitter.com/widgets.js"
+      dev: svg
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: ""
+---
+background-image: url(assets/backgrounds/metascience-2021-opening-slide-Google.png)
+background-size: contain
+background-color: #030029
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                  out.width = "90%",
+                  fig.height = 6,
+                  dev = "svg",
+                  message = FALSE,
+                  warning = FALSE)
+library(magrittr)
+library(dplyr)
+library(xaringanthemer)
+```
+
+```{r xaringan-themer, include = FALSE}
+library(xaringanthemer)
+
+#neg_color <- "#f25a22"
+#pos_color <- "#03CC99"
+neg_color <- "#1B0083"
+pos_color <- "#A43151"
+text_font_google = google_font("Raleway", "400", "400i", "600", "600i")
+
+#primary_color = "#2D896B"
+#secondary_color = "#46CC97"
+style_duo_accent(primary_color = pos_color, secondary_color = neg_color,
+  header_font_google = google_font("Poppins", "600"),
+  text_font_google   = text_font_google,
+  code_font_google   = google_font("Source Code Pro"),
+  title_slide_text_color = "#edf9f6",
+  title_slide_background_color = "#030029",
+  background_color = "#d6cfc5",
+  black_color = "#2a332c",
+  colors = c(
+  red = "#f34213",
+  purple = "#3e2f5b",
+  orange = "#ff8811",
+  darkgreen = "#2e6351",
+  white = "#FFFFFF"
+),
+  outfile = "assets/css/metascience2021-xaringan-themer.css"
+)
+```
+
+---
+
+
+# `r emo::ji("wave")` Hello
+
+### me: **Dr Anna Krystalli**
+
+**Research Software Engineer**, _University of Sheffield_
+
++ twitter **@annakrystalli**
+
++ github **@annakrystalli**
+
++ email **a.krystalli@sheffield.ac.uk**
+
+
+???
+
+Hello everyone from Sheffield and thanks for inviting me to particpate on tis panel Cassio!
+
+I’m Anna Krystalli
+
+I’m a Research Software Engineer at the University of Sheffield
+Where our team helps researchers do more with their code and data. 
+and you can find me at various locations on the internet, although I'm probably most active on GitHub.
+
+
+Seeing as we'll have an hour for in depth discussion, here I wanted to take this opportunity to give you a bit of my background and what projects I'm involved to help give an idea of where my perspective is coming form , where my areas of expertise lie and where they do not.
+
+---
+layout: true
+
+.left.footnote[<i class="fa fa-twitter"></i> @annakrystalli]
+
+---
+background-image: url(assets/boats.png)
+background-size: cover
+
+
+## .bg-white[Marine Ecology]
+
+???
+
+My background is in Marine biology and Oceanography. 
+
+And yeah, boats are really fun! But in truth, I didn't get too much time collecting data on boats, 
+
+Instead for my PhD, I was a complete data parasite, working with long term plankton survey and satellite data.
+
+And I spent most of my time working in R,
+
+Trying to get hold of
+processing, 
+combining 
+analysing  
+
+complex data. 
+
+---
+background-image: url(assets/maps.png)
+background-size: cover
+
+.box[
+## .bg-white[Marine Ecology]
+]
+
+
+???
+
+I got to make lots of maps and completely fell in love with R and DATA SCIENCE and programming in general. And it became very clear to me that programming was what excited me most from everything I learnt during my PhD and what I wanted to focus on going forward.
+
+But even before my PhD there were a couple of experiences that were quite formative for me and helped me appreciate just how powerful the tools i was working with were.
+
+
+---
+background-image: url(https://www.reactiongifs.com/r/O_o.gif)
+background-size: cover
+
+
+
+## .bg-white[ Quality Assurance ]
+
+<br>
+<br>
+<br>
+
+.bg-white[
+> #### _QA Auditor for a Contract Research Organisation subject to GLP regulation_
+]
+
+
+???
+
+The first was being a Quality Assurance auditor for a contract research organisation. 
+
+Their research was governed by Good Laboratory Practice regulations regulations so they took QA seriously.
+
+Our unit would to:
+- inspect ongoing research, 
+- audit final reports and raw data 
+- and feedback our findings
+
+And the experience taught me that:
+- Human error is pervasive
+- Inspecting people’s work is delicate business 
+- And finger pointing and shaming doesn’t really work
+
+ it’s far better to focus on system level solutions,make it hard to make a mistake 
+and easy not to.
+
+
+
+---
+background-image: url(assets/ruchindra-gunasekara-GK8x_XCcDZg-unsplash.jpg)
+background-size: cover
+
+
+## .bg-white[Ultrasport]
+
+<br>
+<br>
+<br>
+
+.bg-white[
+> #### _Brand coordinator for an extreme sports equipment distributor_
+
+]
+
+???
+
+My next job was for an extreme sports equipment distributor.  
+
+I was quite good at excel at the time so I ended up doing a lot of their COS and pricelist spreadsheets. If there was a mistake, this could have real financial implications for the company.
+
+It also taught me the hard way the importance of data management on a personal level.
+
+Having to explain to one of your dealers that an item that was showing 1 in stock and you promised for next day delivery,   was in fact out of stock,      
+ is awkward. 
+
+The direct and immediate consequences of that database error was a strong incentive for me to physically chack edge cases and think about how things can go wrong.
+
+
+---
+background-image: url(assets/backgrounds/zoom_background.png)
+background-size: cover
+
+
+## .bg-white[University of Sheffield]
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+.bg-white[
+> ### _Research Software Engineer_
+]
+
+
+???
+
+Lot's of these experiences and interests came together as I was finishing my PhD. I finished at a time when:
+
+- Research was for some time becoming more and more computational
+- Reproducibility crisis was in full swing and equally there were increasing calls for Open Sourcing Science
+- Yet there was an increasing appreciation that the skills required to tackle these issues were were consistently being lost from of academia to Industry.
+
+And this is really what the Research Software Engineer position arose to address so I was really lucky to join the team Sheffield soon after it was established. The team supports researchers through software engineering or consultancy, advocates for better practices and and promotes capacity building through training, all of which completely fit the type of involvement I was looking for in academia.
+
+---
+background-image: url("https://github.com/ropensci/roweb2/blob/master/themes/ropensci/static/img/community-scroll/c6.jpg?raw=true")
+background-size: cover
+class: split-two inverse
+
+
+.column.bg-ro.center[.content[
+
+# rOpenSci
+
+```{r, echo=FALSE, out.width="130px"}
+knitr::include_graphics("https://d33wubrfki0l68.cloudfront.net/aa488a0570cdf44d956942df324bb26cba77c4a2/3919e/img/icon_short_white.svg")
+```
+
+
+<br>
+
+### Transforming science through open data and software
+
+<br>
+
+![](https://d33wubrfki0l68.cloudfront.net/dd77315d03290f3570cc09a3b68ea83c09192e72/286f1/img/numfocus.png)
+
+]]
+
+
+
+.column.bg-ro-transp[.content.vmiddle[
+
+
+
+- Technical infrastructure: peer-reviewed, community-contributed R scientific software tools.
+
+
+
+- Creating social infrastructure through a welcoming and diverse community
+
+
+
+- Making the right data, tools and best practices more discoverable
+
+
+
+- Building capacity of software users and developers.
+
+
+
+- Promoting advocacy for a culture of data sharing and reusable software.
+
+.fig90[![](assets/meeropensci-logo-1)]
+
+]]
+
+???
+
+I'm also an editor for rOpenSci
+
+rOpenSci help develop R packages for the sciences via community driven learning, review and maintenance of contributed software in the R ecosystem. and it's really the review process that underpins and brings together the community.
+
+And what I really enjoy about this review process is that it's generally very productive but also rarely combatative. It is carried out in the open, the community is generally very welcoming but think the tone of the review processes is an indication of the incentives involved. 
+
+in that reviewers represent potential users (rarely competitors) of the software which means the reviewer and authors incentives often align in that they all want the software to be as well functioning and user friendly as possible.
+
+
+---
+class: inverse
+background-color: #11725E
+
+# ReproHacks
+
+
+
+.vmiddle[
+### Hackathons providing sandbox environment for practicing reprodicibility
+
+
+
+
+> #### Goal: Reproduce paper in a day from associated code and data
+
+
+]
+
+???
+
+Now, Probably the most relevant project to today's topic I'm involved in is the ReproHack project.
+
+Briefly, Reprohacks are one day hackathons where participants attempt to reproduce a paper from associated code and data and feedback their experiences to authors.
+
+So they provide a sandbox environment for practicing reproducibility both as a creator as well as a user of such materials.
+
+And I guess this is a good place to point out what I mean with reproducible, I mean getting the same result using the same code and data.
+
+---
+background-image: url(assets/backgrounds/reprohack_workflow.jpeg)
+background-size: contain
+
+### ReproHack Workflow
+
+
+???
+
+A typical ReproHack event involves:
+
+- Inviting authors to submit papers for review, leading up to the event, hopefully generating an interesting paper list.
+- Then on the day, participants will choose the paper they want to work on from the resulting paper list, and spend the rest of the day attempting to reproduce it.
+- We do regroup throughout the day to share experiences, we've also had relevant talks in some remote events we've run. The most important aspect is that participants provide feedback to the authors by the end of the day.
+
+So: participants get practical experience in reproducibility with real materials which they can implement in their own work while authors get valuable feedback and validation from others engaging with materials that they put a lot of effort into creating.
+
+---
+background-image: url(assets/backgrounds/reprohack_hub.png)
+background-size: cover
+
+
+???
+
+So far, we've had good feedback from participants and authors alike, feel like we've got to a successful format now and are getting increasingly more requests for advice and support from others to run such event. We've shared and made the infrastructure we've been using as "reproducible" as possible but admittedly it's not as straightforward as we want it.
+
+So we've spent some time now developing a hub for our activities, that includes a central paper list, a place for organiser to administer events and for participants to view papers and submit their reviews which authors will now receive automatically!
+
+We're hoping this will really simplify the logistics of running an event and open up the activity to more and more people.
+
+---
+layout: true
+
+
+---
+
+## Interested in ReproHacking?
+
+.pull-left[
+<a href="https://reprohack-autoinvite.herokuapp.com/">
+    <img src="https://img.shields.io/badge/slack-join%20us-orange?style=for-the-badge&logo=slack" />
+</a>
+]
+
+.pull-right[
+### [@ReproHack](https://twitter.com/ReproHack)
+
+]
+
+#### Join an Event! | Host your own event! | Submit your own papers!
+
+
+.pull-left[
+
+## Test out
+
+### Dev Hub
+
+#### [reprohacks.eu.pythonanywhere.com](https://reprohacks.eu.pythonanywhere.com/)
+
+Got feedback? Open an [issue](https://github.com/reprohack/reprohack_site/issues)!
+
+]
+
+
+.pull-right[
+
+## Use (soon!)
+
+### Live Hub
+
+#### [reprohack.org](http://reprohack.org/)
+
+Not deployed yet
+
+]
+
+???
+
+If you are interested in  ReproHacking
+
+At minute you can join us on slack or follow us on twitter.
+
+Consider hosting your own events, submitting one of your papers for reproduction or joining one an event. There will be an event in the next month to celebrate the launch of the new hub.
+
+You can also help by testing out the hub, we're still putting finishing touches on the dev hub before we move it to the live hub which will be at reprohack.org so any feedback is welcome.
+
+---
+class: inverse, center, middle
+
+# Take aways
+
+???
+
+So I just wanted to close by summarising some of the key take aways from these experiences and working in this space for the last 7 years.
+
+---
+
+- ### Challenges remain to moving from theory to practice
+
+.left.footnote[<i class="fa fa-twitter"></i> @annakrystalli]
+
+???
+
+- We've definitely made progress in making the case for reproducibility and transparency and more code and data is definitely being published. However, I feel there is still some way to go to ensuring the materials are fit for purpose.
+
+--
+
+- ### We need to clearly define our expectations of a research compendium
+
+
+???
+
+- I think this is partially because we don't have a clear definition of expectation of such materials. That will be really necessary in order for us to be able to teach, review and ultimately be able to reuse. We also don't formally engage with such materials or practice producing and using them.
+
+--
+
+- ### This will allow to develop tools, templates, review processes
+
+???
+
+- Once we do define expectations though we can start reaping the benefits of convention, tooling, automation, templates and explicit review and usage processes
+
+
+--
+
+- ### ReproHacks provide great opportunities to practice
+
+???
+
+- ReproHacks can help with all this because not only do they provide a low pressure environment to build capacity but they also allow us to evaluate different approaches to reproducibility for fitness of purpose.
+
+---
+class: inverse, center, middle
+
+# Thank you!
+
+
+???
+
+Thanks again to Cassio and
+---
+background-image: url(assets/backgrounds/reprohack_thanks.png)
+background-size: cover
+
+???
+
+I'd also like to extend thanks to the ReproHack Core team, as well as
+
+- the N8 Centre of Excellence in Computationally Intensive Research, 
+- The Software Sustainability Institute and
+- The RSE team at the the Univeristy of Sheffield
+
+for their sponsorship and support of the project.

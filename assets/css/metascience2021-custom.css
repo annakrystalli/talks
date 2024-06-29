@@ -1,0 +1,38 @@
+:root { 
+  --main-ro-color: #6083AB;
+  --main-ro-transp: rgb(96, 131, 171, 0.75);
+  --text-ro-color: white;
+}
+
+.img-attr {
+    font-size: 0.7rem;
+    font-style: italic;
+}
+
+.img-attr a, a > code {
+  background-color: transparent;
+  color: black;
+  font-weight: bold;
+  font-style: italic;
+}
+
+
+.bg-white {
+  padding: 0.6rem;
+}
+
+.split-two>.column:first-of-type {width: 50%; height:100%; position: absolute; top: 0; left: 0; }
+.split-two>.column:nth-of-type(2) {width: 50%; height:100%; position: absolute; top: 0; right: 0;}
+.bg-ro { background-color: var(--main-ro-color); color: var(--text-ro-color);}
+.bg-ro-transp { background-color: var(--main-ro-transp); color: var(--text-ro-color);}
+
+
+.vmiddle {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.footnote {
+  font-weight: 600;
+}
