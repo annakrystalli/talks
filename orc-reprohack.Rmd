@@ -722,7 +722,7 @@ pos_color <- "#03CC99"
 
 ## Review Scores
 
-```{r, fig.height=4, fig.width=6}
+```{r reproscores, fig.height=4, fig.width=6}
 set.seed(20200701)
 
 hist_data <- feedback %>%
