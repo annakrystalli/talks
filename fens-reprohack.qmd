@@ -38,14 +38,12 @@ from: markdown+emoji
 
 <br>
 
-### slides: [**bit.ly/mheim-reprohack-talk**](https://bit.ly/mheim-reprohack-talk){.url}
+### slides: [**bit.ly/tier2-reprohack-slides**](https://bit.ly/tier2-reprohack-slides){.url}
 
 # Motivation
 
 ::: notes
-
 I'm going to start with some motivating background and in particular focus on two key benefits of open science
-
 :::
 
 ## Why Open Science
@@ -65,18 +63,16 @@ I'm going to start with some motivating background and in particular focus on tw
 ### Transparency as a means of supercharging research cycle
 
 ::: notes
-
 I'm likely preaching to the coverted here and there has been much discussion over the passed decade + on the topic but let's just recap some the benefits of whats really driving this activity today: Open Science
 
-- In the shadow of the reproducibility crisis, the first benefit of Open Science is transparency, which allows us to impose a minimum standard of verification of research results in the form of reproducibility. Being able to verify by recreating a result from the original code and data.
+-   In the shadow of the reproducibility crisis, the first benefit of Open Science is transparency, which allows us to impose a minimum standard of verification of research results in the form of reproducibility. Being able to verify by recreating a result from the original code and data.
 
 -   In addition, Making underlying materials openly available means it's much easier to for anyone to build on previous research, allowing us to supercharging the research cycle.
-
 :::
 
 # So how are we doing?
 
----
+------------------------------------------------------------------------
 
 ![](assets/github-research-papers.png)
 
@@ -92,7 +88,6 @@ There's certainly much more open research code and data out there!
 -   Well that's actually a really hard question to answer because,
 
 -   despite an increase in the publication of more research code and data (by no means sufficient yet), there is still **no systematic review of such materials** to confirm that research is indeed reproducible
-
 :::
 
 ## Is code and data enough?
@@ -109,11 +104,6 @@ slide: [*Karthik Ram: rstudio::conf 2019 talk*](https://github.com/karthik/rstud
 -   It also begs the question:
 :::
 
-
-
-
-
-
 # If a paper claims to be reproducible but nobody checks it, is it really reproducible?
 
 ::: notes
@@ -124,12 +114,9 @@ In truth, this situation is not really surprising because **formal training in p
 The **lack of systematic review** leads to an additional problem, that there is **no opportunity to practice** and get **feedback** on the reproducibility of our research.
 :::
 
-
-
 ## All skills require practice
 
 ![Photo by [Alexander Grey](https://unsplash.com/@sharonmccutcheon?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/woman-in-black-shirt-playing-flute-CpPaZbohwls?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)](assets/practice-sharon-mccutcheon-unsplash.jpg)
-
 
 ## Reprohacks
 
@@ -159,10 +146,13 @@ So these were really the key issues that the ReproHack project sought to address
 
 ## ReproHack History
 
+-   
 
-- #### OpenCon Satellite: Berlin, 2016
+    #### OpenCon Satellite: Berlin, 2016
 
-- #### OpenCon Satellite: London, 2017
+-   
+
+    #### OpenCon Satellite: London, 2017
 
 . . .
 
@@ -173,7 +163,7 @@ Inspired by [**Reproducible Research in Ecology, Evolution, Behaviour, and Envir
 -   Reproduce published results from raw data
 -   Over a few months and a number of sessions
 
-. . . 
+. . .
 
 <br>
 
@@ -186,19 +176,15 @@ Inspired by [**Reproducible Research in Ecology, Evolution, Behaviour, and Envir
 ![](assets/ssi_fellows_19.jpeg)
 :::
 
-
 ::: {.column width="45%"}
-![](assets/me-reprohack.png) 
+![](assets/me-reprohack.png)
 :::
 :::
-
 
 ##  {background-image="assets/hub_background.png"}
 
 ::: notes
-
 The support also lead to the development of the ReproHack Hub site which we built to make it easier to engage and facilitate all reprohack activities.
-
 :::
 
 # How does it work?
@@ -288,8 +274,6 @@ Crucially though the events are fun!
 
 Participants really enjoyed the low pressure friendly and collaborative environments, felt they learnt a lot and found being able to reproduce others work extremely satisfying!
 :::
-
-
 
 # Tips for reviewing
 
@@ -411,17 +395,15 @@ Was there adequate documentation describing:
 
 ------------------------------------------------------------------------
 
-## {background-image="assets/reprohack_many_ways.png"}
+##  {background-image="assets/reprohack_many_ways.png"}
 
 ::: notes
-
 There are many ways to ReproHack and I've mentioned two of these alreay, but what I'd really like is for research groups to start reproducing and reviewing their work before publication to start normalising the process and developing the necessary skills
 
 Ideally we'd love to see the project become obsolete because reproducibility reviewing to become the norm in research practice.
-
 :::
 
----
+------------------------------------------------------------------------
 
 ![](assets/reproducible-data-analysis_042.png)
 
@@ -448,5 +430,7 @@ slide: [*Karthik Ram: rstudio::conf 2019 talk*](https://github.com/karthik/rstud
 #### Chat to us:
 
 ![](https://img.shields.io/badge/slack-join%20us-brightgreen){fig-align="left" width="200" height="50"}
+
+# {background-image="assets/backgrounds/reprohack_thanks.png"}
 
 # :wave: Thanks for :eyes: \| :question:
