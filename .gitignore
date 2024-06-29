@@ -19,3 +19,4 @@ docs/*
 scripts/*
 .secrets
 !user2020_files/*
+pdf/*
