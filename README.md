@@ -42,6 +42,8 @@ repo for talks
 
 - 2023/12/12 Marine Biology Live: [_"Putting the R into Reproducible (marine) Research."_](https://annakrystalli.me/talks/r-in-repro-research-mba-qrt.html)
 
+- 2024/06/30 TIER 2 FENS Forum 2024 ReproHack, University of Vienna: [_ReproHacks, a sandbox environment for practicing reproducible research._](https://annakrystalli.me/talks/fens-reprohack.html)
+
 <br>
 
 ***

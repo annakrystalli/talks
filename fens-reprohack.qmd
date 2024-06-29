@@ -1,0 +1,452 @@
+---
+format: 
+  revealjs:
+    theme: [assets/css/reprohack.scss]
+    logo: https://raw.githubusercontent.com/reprohack/event-slides/main/assets/hex-logo-small.png
+    footer: "**[reprohack.org](https://www.reprohack.org/) &nbsp;&nbsp; @ReproHack &nbsp;&nbsp; #FENS2024**"
+editor: visual
+from: markdown+emoji
+---
+
+## ReproHacks {.title-slide background-image="https://raw.githubusercontent.com/reprohack/event-slides/main/assets/background.jpg"}
+
+### A sandbox environment
+
+### for practicing reproducible research
+
+<hr>
+
+<br> <br>
+
+> Dr Anna Krystalli (`r-rse`) @annakrystalli
+>
+> TIER 2 FENS 2024 ReproHack
+
+## :wave: Hello
+
+### me: **Dr Anna Krystalli**
+
+-   **Research Software Engineering Consultant**, [**`r-rse`**](https://www.r-rse.eu/)
+
+    -   twitter @annakrystalli
+    -   github @annakrystalli
+    -   email **r.rse.eu\[at\]gmail.com**
+
+-   **2018 Software Sustainability Fellow**
+
+-   **Founder & Core Team member** [**ReproHack**](https://www.reprohack.org/)
+
+<br>
+
+### slides: [**bit.ly/mheim-reprohack-talk**](https://bit.ly/mheim-reprohack-talk){.url}
+
+# Motivation
+
+::: notes
+
+I'm going to start with some motivating background and in particular focus on two key benefits of open science
+
+:::
+
+## Why Open Science
+
+<hr>
+
+<br>
+
+### Benefit #1 {.larger}
+
+### Transparency as a means of verification
+
+<br>
+
+### Benefit #2 {.larger}
+
+### Transparency as a means of supercharging research cycle
+
+::: notes
+
+I'm likely preaching to the coverted here and there has been much discussion over the passed decade + on the topic but let's just recap some the benefits of whats really driving this activity today: Open Science
+
+- In the shadow of the reproducibility crisis, the first benefit of Open Science is transparency, which allows us to impose a minimum standard of verification of research results in the form of reproducibility. Being able to verify by recreating a result from the original code and data.
+
+-   In addition, Making underlying materials openly available means it's much easier to for anyone to build on previous research, allowing us to supercharging the research cycle.
+
+:::
+
+# So how are we doing?
+
+---
+
+![](assets/github-research-papers.png)
+
+::: notes
+So how are we doing in terms of opening up science?
+
+Many have been advocating for these benefits for some time now and I feel the points have actually been widely recognised and generally accepted by now.
+
+There's certainly much more open research code and data out there!
+
+-   How far have we actually come in terms of more open, reusable and robust science?
+
+-   Well that's actually a really hard question to answer because,
+
+-   despite an increase in the publication of more research code and data (by no means sufficient yet), there is still **no systematic review of such materials** to confirm that research is indeed reproducible
+
+:::
+
+## Is code and data enough?
+
+![](assets/reproducible-data-analysis-02.png)
+
+::: aside
+slide: [*Karthik Ram: rstudio::conf 2019 talk*](https://github.com/karthik/rstudio2019)
+:::
+
+::: notes
+-   Indeed trying to work with many materials can feel a lot like this where you download some materials, start playing around, can't get them to work and soon give up.
+
+-   It also begs the question:
+:::
+
+
+
+
+
+
+# If a paper claims to be reproducible but nobody checks it, is it really reproducible?
+
+::: notes
+Open materials != functional materials.
+
+In truth, this situation is not really surprising because **formal training in practices and standards** for researchers is **still lagging** despite demands for reproducibility.
+
+The **lack of systematic review** leads to an additional problem, that there is **no opportunity to practice** and get **feedback** on the reproducibility of our research.
+:::
+
+
+
+## All skills require practice
+
+![Photo by [Alexander Grey](https://unsplash.com/@sharonmccutcheon?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/woman-in-black-shirt-playing-flute-CpPaZbohwls?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)](assets/practice-sharon-mccutcheon-unsplash.jpg)
+
+
+## Reprohacks
+
+#### One day reproducibility hackathons
+
+<hr>
+
+<br>
+
+::: incremental
+-   
+
+    ### How reproducible are papers?
+
+-   
+
+    ### How can we provide a sandbox environment to practice reproducibility?
+:::
+
+::: notes
+So these were really the key issues that the ReproHack project sought to address:
+
+-   How reproducible are papers with associated published code and data?
+
+-   How can we provide a sandbox environment where both authors and reviewers can practice reproducibility?
+:::
+
+## ReproHack History
+
+
+- #### OpenCon Satellite: Berlin, 2016
+
+- #### OpenCon Satellite: London, 2017
+
+. . .
+
+<br>
+
+Inspired by [**Reproducible Research in Ecology, Evolution, Behaviour, and Environmental Studies**](https://github.com/opetchey/RREEBES) course:
+
+-   Reproduce published results from raw data
+-   Over a few months and a number of sessions
+
+. . . 
+
+<br>
+
+### **ReproHack mission: Reproduce paper in a day from code and data**
+
+## 2018 SSI Fellowship
+
+::: columns
+::: {.column width="40%"}
+![](assets/ssi_fellows_19.jpeg)
+:::
+
+
+::: {.column width="45%"}
+![](assets/me-reprohack.png) 
+:::
+:::
+
+
+##  {background-image="assets/hub_background.png"}
+
+::: notes
+
+The support also lead to the development of the ReproHack Hub site which we built to make it easier to engage and facilitate all reprohack activities.
+
+:::
+
+# How does it work?
+
+------------------------------------------------------------------------
+
+## Call for papers
+
+::: columns
+::: {.column width="46%"}
+{{< tweet annakrystalli 1138769695513952260 >}}
+:::
+
+::: {.column width="46%"}
+```{r, out.width="100%"}
+knitr::include_graphics("assets/paper_list.png")
+```
+:::
+:::
+
+::: notes
+As organisers, In the current format, leading up to the event,
+
+we have a call for papers
+
+where we encourage authors to submit their papers for reproduction.
+
+We like this because it means authors get engaged from the start
+
+And this hopefully results in a nice paper list for participants to work with on the day but either way, there is always the central paper list to fall back on.
+:::
+
+## On the day {.shadow-box background-image="assets/Hackathon.jpg"}
+
+<hr>
+
+<br>
+
+::: incremental
+-   
+
+    ### Intro & Set the Tone
+
+-   
+
+    ### Select paper and form groups
+
+-   
+
+    ### Work with materials and reproduce
+
+-   
+
+    ### Regroup & Discuss
+
+-   
+
+    ### Feed back to authors
+:::
+
+::: notes
+On the day, we start with a bit of an introduction in which we stress that:
+
+-   Reproducibility is hard!
+-   Authors are incredibly brave to invite us into their work
+-   So we set the tone to invite only constructive feedback.
+
+Participants are then free to review and select papers they wish to work on and attempt to reproduce them
+
+At some point we regroup to share progress and close with a final share out.
+
+Most importantly, we ask participants to feed their experiences back to the authors through a structured feedback form.
+:::
+
+## Benefits
+
+![](assets/reprohack_hub_participate.png)
+
+## ReproHacks are fun
+
+```{r}
+knitr::include_graphics("assets/n8-reprohack_collage.gif")
+```
+
+::: notes
+Crucially though the events are fun!
+
+Participants really enjoyed the low pressure friendly and collaborative environments, felt they learnt a lot and found being able to reproduce others work extremely satisfying!
+:::
+
+
+
+# Tips for reviewing
+
+## Code of Conduct
+
+Event governed by [**ReproHack Code of Conduct**](https://reprohack.org/code-of-conduct)
+
+<br>
+
+### Additional Considerations
+
+-   
+
+    #### Reproducibility is hard!
+
+-   
+
+    #### Submitting authors are incredibly brave!
+
+## Thank you Authors! :raised_hands:
+
+-   
+
+    #### Without them there would be no ReproHack.
+
+-   
+
+    #### Show gratitude and appreciation for their effort and bravery. :pray:
+
+-   
+
+    #### Constructive criticism only please!
+
+## Selecting Papers
+
+-   **Author comments:** paper description and why you should choose to reproduce.
+-   **Tags:** Tools, languages & domains
+-   **No. attempts:** No. times reproduction has been attempted
+-   **Mean Repro Score:** Mean reproducibility score (out of 10)
+    -   lower == harder!
+
+## Review as an auditor :bookmark_tabs:
+
+### Looking for FAIR principles
+
+-   Findable
+-   Accessible
+-   Interoperable
+-   Reusable
+
+------------------------------------------------------------------------
+
+### Access
+
+-   How easy was it to gain access to the materials?
+
+### Installation
+
+-   How easy / automated was installation?
+-   Did you have any problems?
+
+------------------------------------------------------------------------
+
+### Data
+
+-   Were data clearly separated from code and other items?
+-   Were large data files deposited in a trustworthy data repository and referred to using a persistent identifier?
+-   Were data documented ...somehow...
+
+------------------------------------------------------------------------
+
+### Documentation
+
+Was there adequate documentation describing:
+
+-   how to install necessary software including non-standard dependencies?
+-   how to use materials to reproduce the paper?
+-   how to cite the materials, ideally in a form that can be copy and pasted?
+
+------------------------------------------------------------------------
+
+### Analysis
+
+-   Were you able to fully reproduce the paper? :white_check_mark:
+-   How automated was the process of reproducing the paper?
+-   How easy was it to link analysis code to:
+-   the plots it generates
+-   sections in the manuscript in which it is described
+
+------------------------------------------------------------------------
+
+### Analysis
+
+#### If the analysis was not fully reproducible :no_entry_sign:
+
+-   Did results (e.g. model outputs, tables, figures) differ to those published? By how much?
+-   Were there missing dependencies?
+-   Was the computational environment not adequately described / captured?
+
+## Review as a user :video_game:
+
+<br>
+
+#### What did you find easy / intuitive?
+
+#### What did you find confusing / difficult
+
+#### What did you enjoy?
+
+## Feedback as a community member
+
+<br>
+
+#### Acknowledge author effort
+
+#### Give feedback in good faith
+
+#### Focus on community benefits and system level solutions
+
+------------------------------------------------------------------------
+
+## {background-image="assets/reprohack_many_ways.png"}
+
+::: notes
+
+There are many ways to ReproHack and I've mentioned two of these alreay, but what I'd really like is for research groups to start reproducing and reviewing their work before publication to start normalising the process and developing the necessary skills
+
+Ideally we'd love to see the project become obsolete because reproducibility reviewing to become the norm in research practice.
+
+:::
+
+---
+
+![](assets/reproducible-data-analysis_042.png)
+
+::: aside
+slide: [*Karthik Ram: rstudio::conf 2019 talk*](https://github.com/karthik/rstudio2019)
+:::
+
+## Next Steps!
+
+<br>
+
+### Submit your own papers!
+
+<br>
+
+### Host your own event!
+
+[[reprohack.org](https://www.reprohack.org/)]{.huge}
+
+<br>
+
+<hr>
+
+#### Chat to us:
+
+![](https://img.shields.io/badge/slack-join%20us-brightgreen){fig-align="left" width="200" height="50"}
+
+# :wave: Thanks for :eyes: \| :question:
