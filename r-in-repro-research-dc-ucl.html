@@ -32,8 +32,8 @@ layout: true
 &lt;div class="my-footer"&gt;&lt;span&gt; UCL Tech Social    
 &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
 &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
-                    @annakrystalli &lt;a href="https://twitter.com/annakrystalli"&gt;<i class="fab fa-twitter"></i> &lt;/a&gt;
-                    @annakrystalli &lt;a href="https://github.com/annakrystalli"&gt;<i class="fab fa-github-alt"></i> &lt;/a&gt;
+                    @annakrystalli &lt;a href="https://twitter.com/annakrystalli"&gt;`&lt;i class="fab fa-twitter"&gt;&lt;/i&gt;`{=html} &lt;/a&gt;
+                    @annakrystalli &lt;a href="https://github.com/annakrystalli"&gt;`&lt;i class="fab fa-github-alt"&gt;&lt;/i&gt;`{=html} &lt;/a&gt;
                     &lt;/span&gt;&lt;/div&gt;
 
 
@@ -82,6 +82,15 @@ _ROGER D. PENG, SCIENCE 02 DEC 2011 : 1226-1227_
 ]
 &lt;br&gt;
 
+???
+
+- I'm sure most by now have heard about the reproducibility crisis.
+
+- I don't want to go into to much detail about the many and varied drivers of the crisis and discussions about the implications.
+
+- but one thing that most would agree on is that the **publication system** as it stands is **not fit for validating modern research** which is increasingly underlaid by more and complex computational workflows
+
+We have been making progress though, with computational reproducibility, _the ability to reproduce a result from the original code and data_ being put forward as a minimum standard for validating research findings
 
 ---
 # Is code and data enough?
@@ -314,8 +323,10 @@ drake::readd(fit)
 drake::vis_drake_graph(drake::drake_config(plan))
 ```
 
-<div id="htmlwidget-7d597c383246e35f593b" style="width:864px;height:360px;" class="visNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7d597c383246e35f593b">{"x":{"nodes":{"id":["n-NBSXEZJ2HJUGK4TF","n-OJSWCZDSHI5HEZLBMRPWG43W","n-MZXXEY3BORZTUOTGMN2F62LON5ZGIZLS","n-MRYGY6LSHI5G25LUMF2GK","raw_data","data","fit"],"imported":[true,true,true,true,false,false,false],"label":["here::here","readr::read_csv","forcats::fct_inorder","dplyr::mutate","raw_data\n0.07s","data\n0.013s","fit\n0.011s"],"status":["imported","imported","imported","imported","up to date","up to date","up to date"],"type":["function","function","function","function","object","object","object"],"font.size":[20,20,20,20,20,20,20],"color":["#1874CD","#1874CD","#1874CD","#1874CD","#228B22","#228B22","#228B22"],"shape":["triangle","triangle","triangle","triangle","dot","dot","dot"],"level":[1,1,1,1,2,3,4],"x":[-1,-1,-1,-1,-0.333333333333333,0.333333333333333,1],"y":[-1,-0.333333333333333,0.333333333333333,1,-2.22044604925031e-16,-2.22044604925031e-16,-2.22044604925031e-16]},"edges":{"from":["n-NBSXEZJ2HJUGK4TF","n-OJSWCZDSHI5HEZLBMRPWG43W","data","raw_data","n-MZXXEY3BORZTUOTGMN2F62LON5ZGIZLS","n-MRYGY6LSHI5G25LUMF2GK"],"to":["raw_data","raw_data","fit","data","data","data"],"arrows":["to","to","to","to","to","to"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false},"manipulation":{"enabled":false},"interaction":{"navigationButtons":true},"layout":{"hierarchical":{"enabled":true,"direction":"LR"}}},"groups":null,"width":null,"height":null,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":{"text":"Dependency graph","style":"font-family:Georgia, Times New Roman, Times, serif;font-weight:bold;font-size:20px;text-align:center;"},"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":false,"hoverNearest":false,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"legend":{"width":0.2,"useGroups":false,"position":"left","ncol":1,"stepX":100,"stepY":100,"zoom":true,"nodes":{"label":["Up to date","Imported","Object","Function"],"color":["#228B22","#1874CD","#888888","#888888"],"shape":["dot","dot","dot","triangle"],"font.color":["black","black","black","black"],"font.size":[20,20,20,20],"id":[1,5,7,9]},"nodesToDataframe":true},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);"},"evals":[],"jsHooks":[]}</script>
+```{=html}
+&lt;div id="htmlwidget-f53dffba8a8449078049" style="width:864px;height:360px;" class="visNetwork html-widget"&gt;&lt;/div&gt;
+&lt;script type="application/json" data-for="htmlwidget-f53dffba8a8449078049"&gt;{"x":{"nodes":{"id":["n-NBSXEZJ2HJUGK4TF","n-OJSWCZDSHI5HEZLBMRPWG43W","n-MZXXEY3BORZTUOTGMN2F62LON5ZGIZLS","n-MRYGY6LSHI5G25LUMF2GK","raw_data","data","fit"],"imported":[true,true,true,true,false,false,false],"label":["here::here","readr::read_csv","forcats::fct_inorder","dplyr::mutate","raw_data\n0.07s","data\n0.013s","fit\n0.011s"],"status":["imported","imported","imported","imported","up to date","up to date","up to date"],"type":["function","function","function","function","object","object","object"],"font.size":[20,20,20,20,20,20,20],"color":["#1874CD","#1874CD","#1874CD","#1874CD","#228B22","#228B22","#228B22"],"shape":["triangle","triangle","triangle","triangle","dot","dot","dot"],"level":[1,1,1,1,2,3,4],"x":[-1,-1,-1,-1,-0.333333333333333,0.333333333333333,1],"y":[-1,-0.333333333333333,0.333333333333333,1,-2.22044604925031e-16,-2.22044604925031e-16,-2.22044604925031e-16]},"edges":{"from":["n-NBSXEZJ2HJUGK4TF","n-OJSWCZDSHI5HEZLBMRPWG43W","data","raw_data","n-MZXXEY3BORZTUOTGMN2F62LON5ZGIZLS","n-MRYGY6LSHI5G25LUMF2GK"],"to":["raw_data","raw_data","fit","data","data","data"],"arrows":["to","to","to","to","to","to"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false},"manipulation":{"enabled":false},"interaction":{"navigationButtons":true},"layout":{"hierarchical":{"enabled":true,"direction":"LR"}}},"groups":null,"width":null,"height":null,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":{"text":"Dependency graph","style":"font-family:Georgia, Times New Roman, Times, serif;font-weight:bold;font-size:20px;text-align:center;"},"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":false,"hoverNearest":false,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"legend":{"width":0.2,"useGroups":false,"position":"left","ncol":1,"stepX":100,"stepY":100,"zoom":true,"nodes":{"label":["Up to date","Imported","Object","Function"],"color":["#228B22","#1874CD","#888888","#888888"],"shape":["dot","dot","dot","triangle"],"font.color":["black","black","black","black"],"font.size":[20,20,20,20],"id":[1,5,7,9]},"nodesToDataframe":true},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);"},"evals":[],"jsHooks":[]}&lt;/script&gt;
+```
 ]
 
 ---
@@ -615,7 +626,7 @@ background-size: contain
 
 # Publish to the web for free!
 
-.pull-left[
+
 - **RPubs**: Publish rendered rmarkdown documents on the web with the click of a button &lt;http://rpubs.com/&gt;
 
 
@@ -624,13 +635,7 @@ background-size: contain
 
 - **Netlify**: Connect a repository, build your site, deploy and host for free. &lt;https://www.netlify.com/&gt;
 
-]
 
-.pull-right[
-.center[
-&lt;img src="assets/gh-pages.png" height=400px&gt;
-]
-]
 
 
 ---

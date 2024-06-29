@@ -47,11 +47,23 @@ library(magrittr)
 
 ### slides: **bit.ly/r-in-repro-research-dc-ucl**
 
+???
+
+Hi I'm Anna
+- I'm an RSE at the Universiy of Sheffield
+- An editor for rOpenSci 
+- And a core team member of the ReproHack project
+
+ANd you can find these slides at the following link
+
 ---
 class: inverse, center, middle
 
 # Motivation
 
+???
+
+I'm going to start with some motivating background
 
 ---
 
@@ -71,6 +83,15 @@ _ROGER D. PENG, SCIENCE 02 DEC 2011 : 1226-1227_
 ]
 <br>
 
+???
+
+- I'm sure most by now have heard about the reproducibility crisis.
+
+- I don't want to go into to much detail about the many and varied drivers of the crisis and discussions about the implications.
+
+- but one thing that most would agree on is that the **publication system** as it stands is **not fit for validating modern research** which is increasingly underlaid by more and complex computational workflows
+
+We have been making progress though, with computational reproducibility, _the ability to reproduce a result from the original code and data_ being put forward as a minimum standard for validating research findings
 
 ---
 # Is code and data enough?
@@ -81,11 +102,30 @@ _ROGER D. PENG, SCIENCE 02 DEC 2011 : 1226-1227_
 
 .img-attr[slide: [_Karthik Ram: rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)]
 
+???
+
+- The good news is that this recognition has lead to more code and data being published.
+
+- But that hasn't necessarily made research more reproducible. 
+
+- Often trying to working with them feels a lot like this experience depicted here where you download some materials, start playing around, can’t get them to work and soon give up.
+
+
+- This can be because of difficulty recreating a complex computational environment or something as simple as missing documentation. 
+
+- In truth, it's not really surprising because still, **training in practices and standards** for researchers is **still lagging** despite demands for reproducibility.
+
+
 ---
 
 # R for Open Reproducible Research
 
 ## A whistle-stop tour of tools, practices and conventions in R for more:
+
+???
+
+The motivation for this talk was to give a A whistle-stop tour of tools, practices and conventions if you are a researcher working in R that can help make your work more:
+
 --
 
 - ### **Reproducible**
@@ -102,7 +142,11 @@ _ROGER D. PENG, SCIENCE 02 DEC 2011 : 1226-1227_
 
 - ### **Shareable** research materials
 
+???
 
+A few caveats:
+
+This is a long slide deck! And I won’t be able to get through all of it. But the slides are packed with links to further info so when I’ve given this talk before, folks have appreciated being able to browse the content so feel free to explore in more detail in your own time,
 
 ---
 class: inverse, center, middle
@@ -112,6 +156,11 @@ class: inverse, center, middle
 <img src="assets/project.svg" height=200px>
 
 .img-attr.bottom[Icon by [Freepik](https://www.freepik.com/) from [flaticon.com](www.flaticon.com)]
+
+
+???
+
+I'm going to start with some tips on project management
 
 ---
 
@@ -136,11 +185,29 @@ See Jenny Bryan's post on [**project oriented workflows**](https://www.tidyverse
 <img src="assets/new_project.png" height=200px>
 ]
 
+
+???
+
+First of all, how to organise your materials associated with a project
+
+- If your working in R, I recommend you work in Rstudio, which is an IDE that makes working with R code a lot easier
+
+- I also recommend you organise your work into Rstudio projects.
+- A project is, in essence, a folder and the idea is that it contains everything you need to run your analysis.
+
+So it's 
+
+- **Self contained** and **portable**, making easier to share or move around
+- WHen you open it, the **Working directory set to root** of project
+- And you also start with a **Fresh session** everytime the project is launched
 ---
 background-image: url('assets/my_awesome_project.png')
 background-size: contain
 
-
+-This is what a project looks like when launched
+- Here's the working directory set to root
+- You can see the environment is empty 
+- and you can browse all the files in the project in the files tab
 
 ---
 # `r emo::ji("package")` `here`
@@ -177,11 +244,34 @@ here::here("data", "summaries.csv")
 .img-attr.right[Icon by [Freepik](https://www.freepik.com/) from [flaticon.com](www.flaticon.com)]
 
 
+???
+
+Having your work organised in a self contained folder also means you can write robust path names.
+
+And for this I recommend using relative path names to the root directory. EVen better, you can use package `here` 
+
+- Running the function with no arguments returns the root path of the project
+- You can supply a vector of character strings to build paths within the project like I've done here.
+
+- The important point is that these will evaluate correctly on anyones machine, which wouldn't be the case if for example I had hard coded the parent directory path, and makes your paths:
+
+- **Robust relative to project root**
+  + portable
+  + independent of:
+     - working directory
+     -  source code location
 ---
 
 # Dependency management
 
 ### Minimal approach
+
+##### include session info
+
+```{r, eval=FALSE}
+sessionInfo()
+```
+
 
 ##### include an `install.R` script
 
@@ -206,6 +296,18 @@ install.packages("purrr")
 ]
 
 _will revisit later on_
+
+???
+
+Another really important consideration and very common sticking point is sufficient management of dependencies.
+
+A minimal approach would be to print your session information somewhere in your documentation. This includes system information as well as loaded packages and their versions
+
+ALso include **executable script** to install necessary packages to make it easier for others to set up their projects, for example by including a `install.R` script.
+
+A more robust approach would be to use package `renv` which creates a separate package library for each project which is included in the project. This means when you share your project, you are sharing the exact versions of packages used for your analysis.
+
+We'll revisit this topic with an intermediate approach when we talk about packaging code.
 
 ---
 # `r emo::ji("package")` `drake`
@@ -272,7 +374,9 @@ class: inverse, center, middle
 
 # Version Control
 
+???
 
+Let's move on to another very important topic when managing project, version control
 ---
 
 # Version Control
@@ -288,6 +392,16 @@ Open source (free to use) **Version control software.**
 ### GitHub <img src="https://raw.githubusercontent.com/annakrystalli/rrresearch/master/docs/assets/github_logo.jpg" height="25px">
 
 A **website** (https://github.com/) that allows you to **store your Git repositories online** and makes it easy to collaborate with others.
+
+???
+
+Let'start by defining a few terms:
+
+- Version control refers to the management of changes to documents, computer programs, large web sites, and any other collections of information.
+
+- git is the open source software that allows us to manage such changes on out local machine
+
+- while **GitHub** is a website or hub where anyone can share their git repositories online, enabling collaboration
 
 ---
 # Why use them in research? 
@@ -308,11 +422,23 @@ A **website** (https://github.com/) that allows you to **store your Git reposito
 .img-attr[ Image: Jorge Cham www.phdcomics.com]
 
 ]
+
+???
+
+Now, why should we use them in research?
+
+- For starters, by regularly saving your work with a version control system, you can recover your work from accidental losses (especially if you've saved a copy on Github too). You can also return to previous states of your work
+
+- Another really important feature is that it helps with the familiar to many yet all too common situation depicted here, because it helps manage chnages by many contributors in an efficient way. 
 ---
 
 # Git, Github & Rstudio
 
 #### Before: git only through the terminal `r emo::ji("cry")`
+
+???
+
+Now, in the past you could only run git in the terminal. Well actually that's not quite correct, there were other programs you could use it through but you would have to leave R, go to the other program, record all your changes and then go back to R to continue working.
 
 --
 
@@ -324,7 +450,11 @@ A **website** (https://github.com/) that allows you to **store your Git reposito
 ![](https://media.giphy.com/media/GA2FNpP1kAQNi/giphy.gif)
 ]
 
+???
 
+Rstudio integration with git and package `usethis` have made it much easier to version control your R projects! 
+
+This guy knows! He's been using it since it first came out!
 ---
 # Configure git & GitHub
 
@@ -347,6 +477,15 @@ usethis::use_git_config(
     user.email = "jane@example.org")
 ```
 
+???
+
+So let's have a look at working with git and GitHub through R & Rstudio
+
+First you'll need to configure git so that it knows who you are, important information when you are managing changes. There are some handy functions in package `usethis` for this.
+
+- You can check your settings using function `git_sitrep`
+- You can configure your setting using `use_git_config` and supplying your name and ideally the email address you have used to sign up to GitHub.
+
 ---
 # Configure GitHub authentication
 
@@ -359,6 +498,14 @@ usethis::browse_github_pat()
 
 <img src="assets/browse_github.png" height="300px">
 
+???
+
+Now, to communicate with GitHub programmatically you will also need a personal authentication token.
+
+You get this from GitHub but you can use `usethis` function `browse_github_pat` which navigates to the correct page on the GitHub. The initial settings for your PAT are pretty sensible but you can change any permissions for your PAT here.
+
+- Once it's generated, you need to copy the token
+
 ---
 
 ### Store in `.Renviron` file
@@ -369,6 +516,16 @@ usethis::edit_r_environ()
 
 <img src="assets/GITHUB_PAT.png" height="400px">
 
+???
+
+Which you will then paste to you `.Renviron` file like so.
+
+Now the Renviron file is a file that:
+- lives in your home directory, 
+- that is loaded everytime R launches and 
+- it's where you can store system level environment variables which will be available during your R session
+
+To open the file you can use handy `usethis` function `edit_r_environ`
 
 ---
 # Initialise git
@@ -383,6 +540,16 @@ It's now **a repository**
 
 Forgot to? use `usethis::use_git()`
 
+???
+
+Now that you are all set up, you are ready to initialise your analysis projects with git.
+
+Initialising a project with git is really easy in Rstudio by clicking a box when you are first creating it. 
+
+This is now called a repository.
+
+But is you do forget, you can always use function `usethis::use_git()` in your project.
+
 
 ---
 # Git panel
@@ -394,6 +561,12 @@ Forgot to? use `usethis::use_git()`
 .center[
 <img src="assets/git_tab.png" height="300px">
 ]
+
+???
+
+Rstudio has an integrated `git` panel through which you can perform the most common version control functions.
+
+So let's have a quick look at what a typical git workflow looks like:
 
 ---
 # Git Rstudio workflow
@@ -410,6 +583,12 @@ Forgot to? use `usethis::use_git()`
 #### commit changes
 <img src="assets/git_commit.png" width="600px">
 ]
+
+
+???
+
+Here we are looking at the git pane
+
 ---
 
 # Share on GitHub
@@ -427,6 +606,15 @@ usethis::use_github(protocol = "https")
 
 <img src="assets/push_github.png" height="50px">
 
+???
+
+Once you commited your files and changes locally, you might want to share them on GitHub to make the work accessible by yourself or others online.
+
+To do so, you can use `usethis::use_github(protocol = "https")` and specifying the protocol so that it uses your GitHub PAT.
+
+This will create a repository on GitHub in your account and push all materials up to GitHub.
+
+Any further changes you make locally, you can push up to GitHub by using the push button.
 
 ---
 
@@ -443,10 +631,16 @@ usethis::use_github(protocol = "https")
 
     
 - **`CONTRIBUTING.md`** - guidelines for contributors.
-  + `usethis::use_tidy_contributing()` provides a realtively strict but instructive template
+  + `usethis::use_tidy_contributing()` provides a relatively strict but instructive template
 
 - **`CODE_OF_CONDUCT.md`** set the tone for discourse between contributors. 
   + `use_code_of_conduct()`
+
+???
+
+Now let's go through the anatomy of a GitHub repository.
+
+There's a number of common documents you might find which I've listed here, and I've added some functions in R that can help you generate them.
 
 ---
 # GitHub issues
@@ -465,6 +659,16 @@ usethis::use_github(protocol = "https")
 ]
 
 
+???
+
+Finally another really useful feature of GitHub repositories I want to mention are GitHub issues.
+
+These are basically a task tracker. You can open issues relating to a specific task you need to accomplish, a problem you are having with the code, or just to discuss something. 
+
+The nice thing about using them is that it keeps discussions about the project attached to the project rather that disparate email threads.
+
+The project board also allows you to organise them and visually track progress of your various tasks.
+
 ---
 
 class: inverse, center, middle
@@ -472,6 +676,9 @@ class: inverse, center, middle
 # Literate programming with Rmarkdown
 
 
+???
+
+Next, let's talk about another really relevant topic for researchers, literate programming.
 
 ---
 
@@ -511,6 +718,16 @@ Programming paradigm first introduced by **Donald E. Knuth**.
 
 - `r emo::ji("white_check_mark")` Code re-run in a clean environment every time the document is "knit"
 
+???
+
+In R, our framework for literate programming is called Rmarkdown and it integrates:
+
+- a **documentantion** language (`.md` but can include html)
+
+- a **programming** language (`R` by default but also has engines to support a number of different languages including python, sql, stan ao)
+
+- functionality to **"knit" them together** through `r emo::ji("package")` `knitr`
+
 ---
 background-image: url('assets/1728_TURI_Book sprint_25 pandoc_rmd_040619.jpg')
 background-size: contain
@@ -519,6 +736,15 @@ background-size: contain
 
 
 .img-attr[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence.]
+
+???
+
+The cool thing about markdown is the richness of the types of documents you can output to.
+
+The most common is to html document but you can also create:
+- pdf,
+
+-... and even word.
 
 ---
 # Rmarkdown to html
@@ -533,6 +759,18 @@ background-size: contain
 <img src="assets/report_knit.png" width = 435px>
 ]
 
+
+???
+
+Let's have a look at an example document which is being knit to html
+
+On the lleft you have your rmd document.
+- The top is the YAML header that contains document level metadata such as:
+  - author, title, output type and styling settings like themes and whether to include a toc
+  
+- Below is an example of markdown, and the various notations render to specific formatting in the knit document
+
+- Finally, these are the code chunks containing executable code and the offer a variety of options to control how they are displayed, how they are evaluated and how they are output.
 
 ---
 # Applications in research
@@ -554,12 +792,17 @@ background-size: contain
 ![](assets/document-all-the-things.jpg)
 ]
 
+
+???
+
+So why should we care about these documents in research?
+
 ---
 
 # Publish to the web for free!
 
-.pull-left[
-- **RPubs**: Publish rendered rmarkdown documents on the web with the click of a button <http://rpubs.com/>
+
+- **RPubs**: Publish rendered rmarkdown documents on the web with the click of a button in Rstudio <http://rpubs.com/>
 
 
 - **GitHub**: Host your site through [`gh-pages`](https://pages.github.com/) on GitHub. Enable in GitHub repo `r emo::ji("gear")`**Settings**
@@ -567,15 +810,13 @@ background-size: contain
 
 - **Netlify**: Connect a repository, build your site, deploy and host for free. <https://www.netlify.com/>
 
-]
+???
 
-.pull-right[
-.center[
-<img src="assets/gh-pages.png" height=400px>
-]
-]
+These technologies are extremely empowering. Because they generate html outputs, and through a number of available options, they allow us to publish to the web for free! This is how I learned.
 
+A few of the options available to us are:
 
+- Netlify, richer features and easy automated builds
 ---
 
 class: inverse, center, middle
@@ -585,6 +826,12 @@ class: inverse, center, middle
 Many great packages and applications build on rmarkdown.
 
 All this makes it [incredibly versatile](https://rmarkdown.rstudio.com/gallery.html).
+
+???
+
+The other really cool thing about Rmarkdown is that there are many many useful extensions built on it for a variety of useful purposes, making it extremely versatile!
+
+So once you master rmarkdown basics, you've got a good foundation building more complicated collections of documents
 
 ---
 
@@ -612,7 +859,19 @@ The publication can be exported to HTML, PDF, and e-books (e.g. EPUB)
 
 An updated R Markdown thesis template using the bookdown package
 
+???
 
+One of the most useful extensions for research in my opinion is the `bookdown` package which allows users to create and maintain online books.
+
+There's a number of added features like
+- cross-references, 
+- citations, 
+- HTML widgets and Shiny apps,
+- tables of content and section numbering
+
+The publication can be exported to HTML, PDF, and e-books (e.g. EPUB)
+
+I've listed a number of examples that you can browse through but I'd like to highlight package `thesisdown`, which is a thesis template built on bookdown! 
 
 ---
 
@@ -640,6 +899,13 @@ Makes it easier for researchers to organize projects and share results. Includes
 .pull-right[
 ![](assets/workflowr-article.png)
 ]
+
+???
+
+For smaller projects you might want just want a simple website for, have a look at package workflowr. 
+
+Not only does it help build a website but it also keeps track of useful information for reproducibility, like session information and whether the rendered html pages are up to date with the version controlled source.
+
 ---
 
 # [blogdown](https://bookdown.org/yihui/blogdown/)
@@ -650,6 +916,12 @@ Check out <https://awesome-blogdown.com/>, **a curated list of awesome #rstats b
 
 [![](assets/maelle_blog.png)](https://masalmon.eu/)
 
+
+???
+
+A really useful packages for researchers is the blogdown package which makes it easier to build and maintain an academic website. 
+
+It also makes it really easy to blog about your work, sharing code and analyses.
 ---
 # presentations
 
@@ -661,6 +933,12 @@ Check out <https://awesome-blogdown.com/>, **a curated list of awesome #rstats b
 [<img src='assets/xaringan.png' height=350px>](https://slides.yihui.name/xaringan/#1)
 ]
 
+
+???
+
+Finally, you can also create slides using rmarkdown, like the slides I'm using at the minute. I really like using html slides as you can make them interactive.
+
+Importantly it makes it really easy to present code or code output.
 ---
 class: inverse, center, middle
 
@@ -676,16 +954,25 @@ class: inverse, center, middle
 .pull-left[
 <br>
 
-- When a project is new and shiny, an **analysis script usually contains many lines of directly executated code.** 
+- In the beginning: **many lines of directly executed code in a single analysis script.** 
 
-- As it matures, **reusable chunks get pulled into their own functions**. 
+- As it matures: **reusable chunks -> functions**. 
 
-- The actual analysis scripts then become relatively short, and **functions defined in separate R scripts.** ]
 
 .pull-right[
 ![](assets/script.svg)
 ]
 
+
+???
+
+- When a project is new and shiny, an **analysis script usually contains many lines of directly executated code.** 
+
+- As it matures, **reusable chunks get pulled into their own functions**. 
+
+- as **functions defined in separate R scripts, The actual analysis scripts then become relatively short and hopefully easier to follow, ** ]
+
+But what is the best way to manage such modular code?
 ---
 
 # R Package Structure
@@ -703,6 +990,16 @@ class: inverse, center, middle
 .center[
 <img src="assets/package_friends.png" height=250px>
 ]
+
+???
+
+By suggestion to you is to follow the language conventions for packaging code. In R that would be **R package structure**. 
+
+The good thing about following this structure is that it provides:
+
+- useful convention so that you don't have to invent your own and can maintain the same structure across your projects
+
+- This convention in turn allows us to use all the tools used for software developing, documenting, testing and distributing R code!
 ---
 # Build panel
 
@@ -713,6 +1010,12 @@ class: inverse, center, middle
 .center[
 <img src="assets/build_panel.png" height="300px">
 ]
+
+???
+
+One of the useful features if you organise your project as an R package is the build panel which, similar to the git panel, allows us to perform most common code development tasks at the push of a button.
+
+Now, to manage your project as an R package you need to follow R package conventions, so let's have a look at them
 ---
 
 
@@ -754,6 +1057,17 @@ License: MIT + file LICENSE
 
 ```
 
+???
+
+The most important file in an R package is the `DESCRIPTION` file.
+
+This holds important metadata about tyour package such as:
+- Title
+- description
+- Version
+- authorship details
+- license details
+
 ---
 
 # citation
@@ -762,6 +1076,9 @@ License: MIT + file LICENSE
 citation("gaitr")
 ```
 
+???
+
+The cool thing about managing metadata about your project through the `DESCRIPTION` file is that you can then use R function `citation` on your project to autogenerate a citation in both text and bibtex format!
 
 ---
 # Dependency management
@@ -790,6 +1107,15 @@ Suggests:
 usethis::use_package("forcats", type = "Imports")
 ```
 
+???
+
+The second important function of the `DESCRIPTION` file is keep track of project dependencies
+
+- Imports are packages that are required for the package functions to work
+
+- while `Suggest` packages might be required in testing or documentation but not necessarily by package functions.
+
+- we can add packages to our `DESCRIPTION` file using `usethis` function `use_package`, the first argument being the name of the package we want to add and the second one being the type of dependency we want to specify.
 
 ---
 # Functions in `R/`
@@ -809,6 +1135,14 @@ R
 0 directories, 1 files
 ```
 
+???
+
+As I mentioned, the other important convention to organising code as an R package is **storing our functions in `.R` scripts in an `/R` folder** in the root of our project.
+
+To quickly create such a script in the correct location, we can use `usethis` function `use_r` and supply the name of the file we want to create as the argument
+
+This creates the script with the name we specified, `add.R` in the `R` folder
+
 ---
 # Document functions with `Roxygen`
 
@@ -824,11 +1158,25 @@ R
 #' @examples
 #' add(1, 1)
 #' add(10, 1)
+#' @export
 add <- function(x, y) {
   x + y
 }
 ```
 
+
+???
+
+Another important aspect to managing our R code is documenting it.
+
+In R we use an annotation language called `roxygen` to document our R functions, indicated by the `#'` line prefix, and here I'm documenting a simple function that adds x & y which I created in our `add.R` script
+
+This allows us to document:
+- function descriptions
+- function input details through the `@params` slots
+- function outputs through the `@return` slot
+- examples of how to use the function and most importantly
+- the `@export` slot specifies that the function should be made available to users when the package is loaded.
 
 ---
 
@@ -840,7 +1188,11 @@ add <- function(x, y) {
 ![](https://github.com/r-lib/testthat/raw/master/man/figures/logo.png)
 ]
 
+???
 
+Once we have written our functions, it's a good idea, especially if they are critical to our analysis, to write test for them so we can confirm that they are behaving as we expect them to
+
+Again, by managing our code as an R package means that **tools developed for testing R code are available for us to use**.
 
 ---
 
@@ -868,6 +1220,16 @@ test_that("add works", {
 })
 ```
 
+
+???
+
+Tests live in a `/tests` folder but again, there's a handy function in `usethis`, `use_test` to help us create our test scripts in the correct place.
+
+- By using the same name as the test script, the function names the script appropriately so we can quickly find where the tests associated with a particular function script are located.
+
+- Here I've written a simple test that confirms that summation is working correctly
+
+- To run the tests, I click the `test` button on the build panel.If any of the tests fail I will get an error, otherwise the tests proceed silently.
 
 ---
 # Continuous Integration w/ Travis
