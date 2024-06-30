@@ -20,7 +20,7 @@ from: markdown+emoji
 
 > Dr Anna Krystalli (`r-rse`) @annakrystalli
 >
-> TIER 2 FENS 2024 ReproHack
+> TIER2 @ FENS 2024 ReproHack
 
 ## :wave: Hello
 
@@ -79,9 +79,9 @@ I'm likely preaching to the coverted here and there has been much discussion ove
 ::: notes
 So how are we doing in terms of opening up science?
 
-Many have been advocating for these benefits for some time now and I feel the points have actually been widely recognised and generally accepted by now.
+The points have actually been widely recognised and generally accepted by now.
 
-There's certainly much more open research code and data out there!
+There's certainly much more open research code and data out there! It's a very crude metric but just a quick search of GitHub for research-paper returns over 11K repositories!
 
 -   How far have we actually come in terms of more open, reusable and robust science?
 
@@ -179,6 +179,14 @@ Inspired by [**Reproducible Research in Ecology, Evolution, Behaviour, and Envir
 ::: {.column width="45%"}
 ![](assets/me-reprohack.png)
 :::
+:::
+
+::: notes
+
+In 2018 I also became a Software Sustainability Institute Fellow and the project I proposed was to run a bunch more ReproHacks. This was a great opportunity to develop the project further.
+
+At the time, these fellowships were only for UK based researchers but the project has since opened up to international applicants so I string recommend applying for one if you have an idea for a project to promote open reproducible science.
+
 :::
 
 ##  {background-image="assets/hub_background.png"}
@@ -431,6 +439,6 @@ slide: [*Karthik Ram: rstudio::conf 2019 talk*](https://github.com/karthik/rstud
 
 ![](https://img.shields.io/badge/slack-join%20us-brightgreen){fig-align="left" width="200" height="50"}
 
-# {background-image="assets/backgrounds/reprohack_thanks.png"}
+#  {background-image="assets/backgrounds/reprohack_thanks.png"}
 
 # :wave: Thanks for :eyes: \| :question:
