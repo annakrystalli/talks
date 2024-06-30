@@ -368,8 +368,8 @@ Was there adequate documentation describing:
 -   Were you able to fully reproduce the paper? :white_check_mark:
 -   How automated was the process of reproducing the paper?
 -   How easy was it to link analysis code to:
--   the plots it generates
--   sections in the manuscript in which it is described
+    * the plots it generates
+    * sections in the manuscript in which it is described
 
 ------------------------------------------------------------------------
 
