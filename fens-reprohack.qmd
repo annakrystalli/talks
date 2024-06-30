@@ -20,7 +20,7 @@ from: markdown+emoji
 
 > Dr Anna Krystalli (`r-rse`) @annakrystalli
 >
-> TIER2 @ FENS 2024 ReproHack
+> TIER2 @ FENS Forum 2024 ReproHack
 
 ## :wave: Hello
 
